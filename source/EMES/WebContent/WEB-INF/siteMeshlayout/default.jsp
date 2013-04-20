@@ -5,7 +5,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<title><decorator:title default="陕西环境执法局系统" /></title>
+<title><decorator:title default="陕西环境执法局系统 " /></title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
