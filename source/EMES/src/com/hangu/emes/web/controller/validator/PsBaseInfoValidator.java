@@ -31,7 +31,7 @@ public class PsBaseInfoValidator extends BaseValidator<PsBaseInfoVo> {
             return;
         }
         //对属性增加验证功能
-        if (psBaseInfoVo.getPsname().getBytes().length > 120){
+        if (psBaseInfoVo.getPsName().getBytes().length > 120){
         	errors.rejectValue("psname", null, "公司名称信息过长,最多可输入60个字符");
         }
     }

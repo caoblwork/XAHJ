@@ -17,11 +17,11 @@ public class PsBaseInfo extends BaseEntity implements java.io.Serializable {
     /**
      * 企业编码
      */
-    private String pscode;
+    private String psCode;
     /**
      * 企业名称
      */
-    private String psname;
+    private String psName;
     /**
      * 行政区划
      */
@@ -78,17 +78,18 @@ public class PsBaseInfo extends BaseEntity implements java.io.Serializable {
      * 是否是视频监控企业
      */
     private Boolean isVideoEnter;
-	public String getPscode() {
-		return pscode;
+
+	public String getPsCode() {
+		return psCode;
 	}
-	public void setPscode(String pscode) {
-		this.pscode = pscode;
+	public void setPsCode(String psCode) {
+		this.psCode = psCode;
 	}
-	public String getPsname() {
-		return psname;
+	public String getPsName() {
+		return psName;
 	}
-	public void setPsname(String psname) {
-		this.psname = psname;
+	public void setPsName(String psName) {
+		this.psName = psName;
 	}
 	public Long getRegionCode() {
 		return regionCode;
