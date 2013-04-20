@@ -16,7 +16,7 @@
 	</decorator>
 	
 	<decorator name="frame_basic" page="frame_basic.jsp">
-		<pattern>/login.jsp</pattern>
+		<pattern>/loginx.jsp</pattern>
 	</decorator>
 	
 </decorators>
