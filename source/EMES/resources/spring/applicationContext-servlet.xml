@@ -8,7 +8,7 @@
 	<!-- 默认配置LocalValidatorFactoryBean -->
 	<mvc:annotation-driven />
 	<!-- 扫描web包 -->
-	<context:component-scan base-package="com.hangu.framework.system.web.controller,com.hangu.emes.web.controller.workflow,com.hangu.emes.web.controller" />
+	<context:component-scan base-package="com.hangu.framework.system.web.controller,com.hangu.workflow.web.controller,com.hangu.emes.web.controller" />
 
 	<!--默认的拦截content转换器 -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
