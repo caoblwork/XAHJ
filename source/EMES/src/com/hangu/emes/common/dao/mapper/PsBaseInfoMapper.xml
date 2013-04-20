@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.hangu.framework.system.dao.mapper.PsBaseInfoMapper">
+
+	<!-- 数据增加映射 -->
+	<resultMap id="searchResultMap" type="com.hangu.framework.system.domain.User">
+		<result property="id" column="id" />
+		<result property="organizationId" column="organization_id" />
+		<result property="loginId" column="login_id" />
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="sex" column="sex" />
+		<result property="phone" column="phone" />
+		<result property="mobileNumber" column="mobile_number" />
+        <result property="createDate" column="create_date" />
+		<result property="createBy" column="create_by" />
+		<result property="updateBy" column="update_by" />
+		<result property="updateDate" column="update_date" />
+		<result property="status" column="status" />
+		<result property="version" column="version" />
+		<!-- 
+		<collection property="roles" javaType="ArrayList" ofType="com.hangu.framework.system.domain.User" column="id" select="searchRoleByUserId" />
+	 -->
+	</resultMap>
+
+	<!-- 根据用户ID查看该用户的角色集合 
+	<select id="searchRoleByUserId" resultMap="com.hangu.framework.system.dao.mapper.RoleMapper.searchResultMap" parameterType="java.lang.String">
+		SELECT role.* FROM role,r_user_role r WHERE role.id = r.role_id AND user_id = #{value}
+	</select>-->
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="columns">
+		id,organization_id,login_id,password,name,sex,phone,mobile_number,status,version,create_date,create_by,update_by,update_date
+	</sql>
+
+	<!-- 新增记录 -->
+	<insert id="insert" parameterType="com.hangu.framework.system.domain.User">
+		insert into user (id,organization_id,login_id,password,name,sex,phone,mobile_number,status,version,create_date,create_by)
+		values (#{id},#{organizationId},#{loginId},#{password},#{name},#{sex},#{phone},#{mobileNumber},#{status},#{version},#{createDate},#{createBy})
+	</insert>
+
+	<!-- 单记录删除 -->
+	<delete id="delete" parameterType="java.lang.String">
+		delete from user where id=#{id}
+	</delete>
+
+	<!-- 批量记录删除 -->
+	<delete id="deleteByIds" parameterType="java.util.List">
+		delete from user where id in
+		<foreach collection="list" item="ids" open="(" separator="," close=")">#{ids}</foreach>
+	</delete>
+
+	<!-- 单记录更新 -->
+	<update id="update" parameterType="com.hangu.framework.system.domain.User">
+		update user
+		<trim prefix="set" suffixOverrides=",">
+			<if test="#{organizationId} != null">
+				organization_id =#{organizationId},
+			</if>
+			<if test="loginId != null">
+				login_id =#{loginId},
+			</if>
+			<if test="#{password} != null">
+				password =#{password},
+			</if>
+			<if test="#{name} != null">
+				name =#{name},
+			</if>
+			<if test="#{sex} != null">
+				sex =#{sex},
+			</if>
+			<if test="#{phone} != null">
+				phone =#{phone},
+			</if>
+			<if test="mobileNumber != null">
+				mobile_number =#{mobileNumber},
+			</if>
+			<if test="#{status} != null">
+				status =#{status},
+			</if>
+			<if test="#{version} != null">
+				version =#{version},
+			</if>
+		</trim>
+		where id=#{id}
+	</update>
+
+	<!-- 查询记录BY ID -->
+	<select id="getById" resultMap="searchResultMap" parameterType="java.lang.String">
+		select
+		<include refid="columns" />
+		from user where id=#{id}
+	</select>
+
+	<!-- 查询所有记录 -->
+	<select id="getAll" resultMap="searchResultMap" parameterType="java.lang.String">
+		select
+		<include refid="columns" />
+		from user
+	</select>
+
+	<!-- 动态查询条件 -->
+	<sql id="searchConditionSQL">
+		<trim prefix="where" prefixOverrides="AND |OR ">
+			<if test="loginId != null">
+				and login_id like '%${loginId}%'
+			</if>
+			<if test="name != null">
+				and name like '%${name}%'
+			</if>
+			<if test="organizationId != null">
+				and organization_id = #{organizationId}
+			</if>
+		</trim>
+	</sql>
+
+	<select id="search" resultMap="searchResultMap" useCache="true" parameterType="com.hangu.framework.system.vo.UserSearchCondition">
+		select
+		<include refid="columns" />
+		from user
+		<include refid="searchConditionSQL" />
+	</select>
+
+	<select id="selectPage" resultMap="searchResultMap" useCache="true" parameterType="com.hangu.framework.system.vo.UserSearchCondition">
+		select
+		<include refid="columns" />
+		from user
+		<include refid="searchConditionSQL" />
+		ORDER BY create_date DESC
+	</select>
+
+	<select id="selectPageCount" resultType="long" parameterType="com.hangu.framework.system.vo.UserSearchCondition">
+		select count(id) from user
+		<include refid="searchConditionSQL" />
+	</select>
+	
+	<select id="searchUserByLoginId" resultMap="searchResultMap" parameterType="java.lang.String">
+		select * FROM user WHERE login_id = #{value}
+	</select>
+
+</mapper>

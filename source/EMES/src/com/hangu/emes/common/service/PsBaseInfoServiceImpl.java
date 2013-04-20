@@ -5,7 +5,7 @@ import java.io.Serializable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hangu.emes.common.dao.mapper.PsBaseInfoDAO;
+import com.hangu.emes.common.dao.PsBaseInfoDAO;
 import com.hangu.emes.common.entity.PsBaseInfo;
 import com.hangu.emes.common.vo.PsBaseInfoVo;
 import com.hangu.framework.dao.BaseDAO;
