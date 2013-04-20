@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+                "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.hangu.emes.dao.mapper.CaseProcessInfoMapper">
+
+	<insert id="insert" parameterType="com.hangu.emes.entity.CaseProcessInfo">
+		INSERT INTO
+		CASE_PROCESS_INFO(ID,VERSION,PI_ID,PROCESS_LAUNCH_ID,PROCESS_DEPLOY_ID, DECISION,REMARK,FEEDBACK,GROUPS,USERS,CREATE_DATE,CREATE_BY,UPDATE_BY,UPDATE_DATE,STATUS)
+		VALUES(#{id},0,#{processInstanceId},#{processLaunchId},#{processDeployId},#{decision},#{remark},#{feedback},#{groups},#{users},#{createDate},#{createBy},#{updateBy},#{updateDate},#{status})
+	</insert>
+	<insert id="update" parameterType="com.hangu.emes.entity.CaseProcessInfo">
+		UPDATE CASE_PROCESS_INFO
+		SET PI_ID=#{processInstanceId},PROCESS_LAUNCH_ID=#{processLaunchId},PROCESS_DEPLOY_ID=#{processDeployId},DECISION=#{decision},REMARK=#{remark},FEEDBACK=#{feedback},GROUPS=#{groups},USERS=#{users},UPDATE_BY=#{updateBy},UPDATE_DATE=#{updateDate},STATUS=#{status}
+		WHERE ID=#{id}
+	</insert>
+	<insert id="delete" parameterType="java.lang.String">
+		DELETE FROM CASE_PROCESS_INFO WHERE ID = #{id}
+	</insert>
+	<insert id="deleteByIds" parameterType="java.util.List">
+		<![CDATA[
+            DELETE FROM CASE_PROCESS_INFO WHERE id IN
+        ]]>
+		<foreach collection="list" item="ids" open="(" separator="," close=")">
+			#{ids}
+		</foreach>
+	</insert>
+	<select id="getById" resultType="com.hangu.emes.entity.CaseProcessInfo" parameterType="java.lang.String">
+		SELECT 
+			ID id,VERSION version,PI_ID processInstanceId,PROCESS_LAUNCH_ID processLaunchId,PROCESS_DEPLOY_ID processDeployId,DECISION decision,REMARK remark,FEEDBACK feedback,GROUPS groups,USERS users,CREATE_DATE createDate,CREATE_BY createBy,UPDATE_BY updateBy,UPDATE_DATE updateDate,STATUS status
+		FROM CASE_PROCESS_INFO
+		WHERE ID=#{id}
+	</select>
+	<select id="getAll" resultType="com.hangu.emes.entity.CaseProcessInfo" parameterType="java.lang.String">
+		SELECT 
+			ID id,VERSION version,PI_ID processInstanceId,PROCESS_LAUNCH_ID processLaunchId,PROCESS_DEPLOY_ID processDeployId,DECISION decision,REMARK remark,FEEDBACK feedback,GROUPS groups,USERS users,CREATE_DATE createDate,CREATE_BY createBy,UPDATE_BY updateBy,UPDATE_DATE updateDate,STATUS status
+		FROM CASE_PROCESS_INFO
+		ORDER BY CREATEDATE DESC
+	</select>
+
+	<select id="selectPage" resultType="com.hangu.emes.entity.CaseProcessInfo" useCache="true">
+		SELECT 
+			ID id,VERSION version,PI_ID processInstanceId,PROCESS_LAUNCH_ID processLaunchId,PROCESS_DEPLOY_ID processDeployId,DECISION decision,REMARK remark,FEEDBACK feedback,GROUPS groups,USERS users,CREATE_DATE createDate,CREATE_BY createBy,UPDATE_BY updateBy,UPDATE_DATE updateDate,STATUS status
+		FROM CASE_PROCESS_INFO
+		WHERE 1=1
+		ORDER BY CREATE_DATE DESC
+	</select>
+	<select id="selectPageCount" resultType="long">
+		SELECT COUNT(id) FROM CASE_PROCESS_INFO ORDER BY CREATE_DATE DESC
+	</select>
+
+</mapper>

@@ -1,0 +1,24 @@
+https://github.com/eternicode/bootstrap-datepicker#methods
+
+http://www.iteye.com/problems/53560
+
+http://bootstrapmate.sinaapp.com/examples/
+
+http://ninghao.net/bootstrap/base-css.html
+
+http://www.kudystudio.com/
+
+base-css
+http://twitter.github.com/bootstrap/base-css.html
+
+基于Bootstrap的jQuery表单验证插件 Validation-for-Bootstrap
+	http://www.open-open.com/lib/view/open1339844770033.html
+	http://fatesheep.github.com/Validation-for-Bootstrap/
+
+
+Jquery Pagination 插件原版地址：https://github.com/gbirke/jquery_pagination
+
+http://www.cnblogs.com/hooray/archive/2013/01/12/2857777.html
+
+跟开涛学SpringMVC
+	http://jinnianshilongnian.iteye.com/blog/1752171

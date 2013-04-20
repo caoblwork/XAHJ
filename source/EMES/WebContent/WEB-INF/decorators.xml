@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/siteMeshlayout/">
+<!-- 描述定义装饰器页面 -->
+	
+	<!-- decorator结点指定了模板的位置和文件名，通过pattern来指定哪些路径引用哪个模板 -->
+	
+	<!-- 此处用来定义不需要过滤的页面 -->
+	<excludes>
+		<pattern>/global/*</pattern>
+	</excludes>
+	
+	<decorator name="default" page="default.jsp">
+		<pattern>/index.jsp</pattern>
+		<pattern>/workflow/*</pattern>
+		<pattern>/system/*</pattern>
+	</decorator>
+	
+	<decorator name="frame_basic" page="frame_basic.jsp">
+		<pattern>/login.jsp</pattern>
+	</decorator>
+	
+</decorators>

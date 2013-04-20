@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+                "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.hangu.emes.dao.mapper.DeployManagerMapper">
+
+	<insert id="insert" parameterType="com.hangu.emes.entity.DeployManager">
+		INSERT INTO
+		DEPLOY_MANAGER(ID,VERSION,CN_NAME,EN_NAME,DESCRIPTION,FILE_PATH,DEPLOY_ID,DEPLOY_VERSION,CREATE_DATE,CREATE_BY,UPDATE_BY,UPDATE_DATE,STATUS)
+		VALUES(#{id},0,#{cnName},#{enName},#{description},#{filePath},#{deployId},#{deployVersion},#{createDate},#{createBy},#{updateBy},#{updateDate},#{status})
+	</insert>
+	<insert id="update" parameterType="com.hangu.emes.entity.DeployManager">
+		UPDATE DEPLOY_MANAGER 
+		SET
+			CN_NAME=#{cnName},EN_NAME=#{enName},DESCRIPTION=#{description},FILE_PATH=#{filePath},DEPLOY_ID=#{deployId},DEPLOY_VERSION=#{deployVersion},UPDATE_BY=#{updateBy},UPDATE_DATE=#{updateDate},STATUS=#{status} 
+		WHERE ID=#{id}
+	</insert>
+	<insert id="delete" parameterType="java.lang.String">
+		delete from DEPLOY_MANAGER where id = #{id}
+	</insert>
+	<insert id="deleteByIds" parameterType="java.util.List">
+		<![CDATA[
+            delete from DEPLOY_MANAGER where id in
+        ]]>
+		<foreach collection="list" item="ids" open="(" separator="," close=")">
+			#{ids}
+		</foreach>
+	</insert>
+	<select id="getById" resultType="com.hangu.emes.entity.DeployManager" parameterType="java.lang.String">
+		select ID id,VERSION version,CN_NAME cnName,EN_NAME enName,DESCRIPTION description,FILE_PATH filePath,DEPLOY_ID deployId,DEPLOY_VERSION deployVersion,CREATE_DATE createDate,CREATE_BY createBy,UPDATE_BY updateBy,UPDATE_DATE updateDate,STATUS status 
+		from DEPLOY_MANAGER 
+		where ID=#{id}
+	</select>
+	<select id="getAll" resultType="com.hangu.emes.entity.DeployManager"  parameterType="java.lang.String">
+		SELECT ID id,VERSION version,CN_NAME cnName,EN_NAME enName,DESCRIPTION description,FILE_PATH filePath,DEPLOY_ID deployId,DEPLOY_VERSION deployVersion,CREATE_DATE createDate,CREATE_BY createBy,UPDATE_BY updateBy,UPDATE_DATE updateDate,STATUS status 
+		FROM DEPLOY_MANAGER 
+		ORDER BY createDate DESC
+	</select>
+	
+	<select id="search" resultType="com.hangu.emes.entity.DeployManager" useCache="true" parameterType="com.hangu.emes.vo.DeployManagerSearchCondition">
+		SELECT ID id,VERSION version,CN_NAME cnName,EN_NAME enName,DESCRIPTION description,FILE_PATH filePath,DEPLOY_ID deployId,DEPLOY_VERSION deployVersion,CREATE_DATE createDate,CREATE_BY createBy,UPDATE_BY updateBy,UPDATE_DATE updateDate,STATUS status
+		FROM DEPLOY_MANAGER
+		WHERE 1=1
+		<if test="enName != null">
+             AND EN_NAME = #{enName}
+        </if>
+	</select>
+
+	<select id="selectPage" resultType="com.hangu.emes.entity.DeployManager" useCache="true">
+		SELECT ID id,VERSION version,CN_NAME cnName,EN_NAME enName,DESCRIPTION description,FILE_PATH filePath,DEPLOY_ID deployId,DEPLOY_VERSION deployVersion,CREATE_DATE createDate,CREATE_BY createBy,UPDATE_BY updateBy,UPDATE_DATE updateDate,STATUS status 
+		FROM DEPLOY_MANAGER 
+		WHERE 1=1 
+		ORDER BY CREATE_DATE DESC
+	</select>
+	<select id="selectPageCount" resultType="long">
+		SELECT COUNT(id) FROM DEPLOY_MANAGER ORDER BY CREATE_DATE DESC
+	</select>
+	
+</mapper>
