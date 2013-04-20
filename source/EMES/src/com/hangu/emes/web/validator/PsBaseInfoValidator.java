@@ -1,4 +1,4 @@
-package com.hangu.emes.web.controller.validator;
+package com.hangu.emes.web.validator;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;

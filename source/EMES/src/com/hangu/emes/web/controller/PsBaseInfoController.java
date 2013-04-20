@@ -15,7 +15,7 @@ import com.hangu.common.util.DateUtil;
 import com.hangu.emes.service.PsBaseInfoService;
 import com.hangu.emes.vo.PsBaseInfoSearchCondition;
 import com.hangu.emes.vo.PsBaseInfoVo;
-import com.hangu.emes.web.controller.validator.PsBaseInfoValidator;
+import com.hangu.emes.web.validator.PsBaseInfoValidator;
 import com.hangu.framework.web.controller.EntityController;
 
 @Controller
