@@ -12,6 +12,7 @@ import java.util.UUID;
 import java.util.zip.ZipInputStream;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.Deployment;
@@ -33,13 +34,13 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.hangu.common.config.Configuration;
 import com.hangu.common.util.StringUtil;
+import com.hangu.framework.vo.BaseVo;
+import com.hangu.framework.web.controller.EntityController;
 import com.hangu.workflow.common.Constants;
 import com.hangu.workflow.common.ProcedureDeployStatus;
 import com.hangu.workflow.service.DeployManagerService;
 import com.hangu.workflow.vo.DeployManagerSearchCondition;
 import com.hangu.workflow.vo.DeployManagerVo;
-import com.hangu.framework.vo.BaseVo;
-import com.hangu.framework.web.controller.EntityController;
 
 @Controller
 @RequestMapping("/workflow/deployManager/*")
@@ -66,7 +67,7 @@ public class DeployManagerController extends EntityController<DeployManagerVo, D
 	}
 
 	@RequestMapping(value = "saveDeployInfo.do", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("voModel") DeployManagerVo vo, BindingResult bindingResult, RedirectAttributes redirectAttributes,
+	public ModelAndView save(@ModelAttribute("voModel") @Valid DeployManagerVo vo, BindingResult bindingResult, RedirectAttributes redirectAttributes,
 			HttpServletRequest request) {
 		logger.debug("beging process saveDeployInfo.do");
 		ModelAndView mav = new ModelAndView();
@@ -128,17 +129,17 @@ public class DeployManagerController extends EntityController<DeployManagerVo, D
 	public ModelAndView deploy(@ModelAttribute("id") String id, RedirectAttributes redirectAttributes) {
 		logger.debug("beging process deploy.do");
 		DeployManagerService deployManagerService = (DeployManagerService) entityService;
-		DeployManagerVo deployManagerVo = (DeployManagerVo) deployManagerService.get(id).getResultObject();
+		DeployManagerVo vo = (DeployManagerVo) deployManagerService.get(id).getResultObject();
 
 		try {
-			String path = Configuration.getInstance().getValue(Constants.BPMN_PATH) + deployManagerVo.getFilePath() + ".zip";
+			String path = Configuration.getInstance().getValue(Constants.BPMN_PATH) + vo.getFilePath() + ".zip";
 			ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(path));
 
-			Deployment deployment = repositoryService.createDeployment().name(deployManagerVo.getEnName()).addZipInputStream(zipInputStream).deploy();
-			deployManagerVo.setDeployId(deployment.getId());
-			deployManagerVo.setStatus(ProcedureDeployStatus.enable.value() + "");
+			Deployment deployment = repositoryService.createDeployment().name(vo.getEnName()).addZipInputStream(zipInputStream).deploy();
+			vo.setDeployId(deployment.getId());
+			vo.setStatus(ProcedureDeployStatus.enable.value() + "");
 
-			deployManagerService.save(deployManagerVo);
+			deployManagerService.save(vo);
 			redirectAttributes.addFlashAttribute("message", "流程部署成功！");
 
 			zipInputStream.close();
