@@ -6,7 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>后台管理平台</title>
-<link href="<c:url value="/staticResource/styles/login.css"/>" rel="stylesheet">
+<link href="<c:url value="/staticResource/styles/login.css"/>"
+	rel="stylesheet">
 </head>
 <body class="login">
 	<div id="container">
@@ -54,7 +55,8 @@
 						<dd>
 							<input name="textfield2" type="text" class="codebox"
 								id="textfield2" /> <span class="codeimg"> <img
-								src="staticResource/images/code.gif" width="180" height="50" /> </span>
+								src="staticResource/images/code.gif" width="180" height="50" />
+							</span>
 						</dd>
 					</dl>
 					<dl>
