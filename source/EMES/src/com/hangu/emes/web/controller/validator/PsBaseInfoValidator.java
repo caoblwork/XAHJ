@@ -1,10 +1,9 @@
-package com.hangu.emes.common.web.controller.validator;
+package com.hangu.emes.web.controller.validator;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 
-import com.hangu.emes.common.vo.PsBaseInfoVo;
+import com.hangu.emes.vo.PsBaseInfoVo;
 import com.hangu.framework.web.validate.BaseValidator;
 
 public class PsBaseInfoValidator extends BaseValidator<PsBaseInfoVo> {
@@ -34,12 +33,6 @@ public class PsBaseInfoValidator extends BaseValidator<PsBaseInfoVo> {
         //对属性增加验证功能
         if (psBaseInfoVo.getPsname().getBytes().length > 120){
         	errors.rejectValue("psname", null, "公司名称信息过长,最多可输入60个字符");
-        }
-        //通讯地址
-        if (StringUtils.isNotBlank(psBaseInfoVo.getCommunicateAddr())){
-        	if (psBaseInfoVo.getCommunicateAddr().getBytes().length > 120){
-            	errors.rejectValue("communicateAddr", null, "通讯地址信息过长,最多可输入60个字符");
-            }
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.hangu.emes.common.web.controller;
+package com.hangu.emes.web.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hangu.common.util.DateUtil;
-import com.hangu.emes.common.service.PsBaseInfoService;
-import com.hangu.emes.common.vo.PsBaseInfoSearchCondition;
-import com.hangu.emes.common.vo.PsBaseInfoVo;
-import com.hangu.emes.common.web.controller.validator.PsBaseInfoValidator;
+import com.hangu.emes.service.PsBaseInfoService;
+import com.hangu.emes.vo.PsBaseInfoSearchCondition;
+import com.hangu.emes.vo.PsBaseInfoVo;
+import com.hangu.emes.web.controller.validator.PsBaseInfoValidator;
 import com.hangu.framework.web.controller.EntityController;
 
 @Controller

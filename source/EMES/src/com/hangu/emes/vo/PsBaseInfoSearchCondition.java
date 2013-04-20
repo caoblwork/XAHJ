@@ -1,4 +1,4 @@
-package com.hangu.emes.common.vo;
+package com.hangu.emes.vo;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -1,13 +1,13 @@
-package com.hangu.emes.common.service;
+package com.hangu.emes.service;
 
 import java.io.Serializable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hangu.emes.common.dao.PsBaseInfoDAO;
-import com.hangu.emes.common.entity.PsBaseInfo;
-import com.hangu.emes.common.vo.PsBaseInfoVo;
+import com.hangu.emes.dao.PsBaseInfoDAO;
+import com.hangu.emes.entity.PsBaseInfo;
+import com.hangu.emes.vo.PsBaseInfoVo;
 import com.hangu.framework.dao.BaseDAO;
 import com.hangu.framework.service.EntityServiceImpl;
 

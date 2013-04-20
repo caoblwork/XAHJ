@@ -1,7 +1,7 @@
-package com.hangu.emes.common.service;
+package com.hangu.emes.service;
 
-import com.hangu.emes.common.entity.PsBaseInfo;
-import com.hangu.emes.common.vo.PsBaseInfoVo;
+import com.hangu.emes.entity.PsBaseInfo;
+import com.hangu.emes.vo.PsBaseInfoVo;
 import com.hangu.framework.service.EntityService;
 
 public interface PsBaseInfoService extends EntityService<PsBaseInfoVo, PsBaseInfo> {
