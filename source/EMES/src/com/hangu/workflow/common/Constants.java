@@ -17,4 +17,6 @@ public class Constants {
 	 */
 	public final static String[] TASK_STATUS = { "0", "1", "2" };
 
+	public final static String DEPLOY_TYPE = "deploy_type";
+
 }

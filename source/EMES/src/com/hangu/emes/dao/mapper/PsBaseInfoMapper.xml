@@ -5,7 +5,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.hangu.framework.system.dao.mapper.PsBaseInfoMapper">
 
 	<!-- 数据增加映射 -->
-	<resultMap id="searchResultMap" type="com.hangu.emes.common.entity.PsBaseInfo">
+	<resultMap id="searchResultMap" type="com.hangu.emes.entity.PsBaseInfo">
 		<result property="id" column="id" />
 		<result property="organizationId" column="organization_id" />
 		<result property="loginId" column="login_id" />
