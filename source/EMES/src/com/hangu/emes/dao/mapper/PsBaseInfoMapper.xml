@@ -6,7 +6,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 
 	<!-- 数据增加映射 -->
 	<resultMap id="searchResultMap" type="com.hangu.emes.entity.PsBaseInfo">
-		<result property="id" column="ps_code" />
+		<result property="id" column="id" />
 		<result property="psCode" column="ps_code" />
 		<result property="psName" column="ps_name" />
 		<result property="regionCode" column="region_code" />
@@ -18,7 +18,6 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		<result property="corporation" column="corporation" />
 		<result property="linkman" column="linkman" />
 		<result property="tel" column="tel" />
-		<result property="fax" column="fax" />
 		<result property="monitorType" column="monitorType" />
 		<result property="isOnlineEnter" column="isOnlineEnter" />
 		<result property="isVideoEnter" column="isVideoEnter" />
@@ -32,13 +31,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 
 	<!-- 用于select查询公用抽取的列 -->
 	<sql id="columns">
-		psCode,psName,regionCode,regionName,psType,monitorLevel,psaddress,longitude,corporation,linkman,,tel,fax,monitorType,isOnlineEnter,isVideoEnter,version,create_date,create_by,update_by,update_date
+		id,ps_code,ps_name,region_code,region_name,ps_type,monitorLevel,ps_address,longitude,corporation,linkman,tel,monitorType,isOnlineEnter,isVideoEnter,version,create_date,create_by,update_by,update_date
 	</sql>
 
 	<!-- 新增记录 -->
 	<insert id="insert" parameterType="com.hangu.emes.entity.PsBaseInfo">
 		insert into psbaseinfo (id,ps_code,ps_name,region_name,ps_type,monitorLevel,ps_address,corporation,linkman,tel,monitorType,isOnlineEnter,status,version,create_date,create_by)
-		values (#{id},#{psCode},#{psName},#{psType},#{monitorLevel},#{psaddress},#{corporation},#{linkman},#{tel},#{monitorType},#{isOnlineEnter},#{status},#{version},#{createDate},#{createBy})
+		values (#{id},#{psCode},#{psName},#{regionName},#{psType},#{monitorLevel},#{psaddress},#{corporation},#{linkman},#{tel},#{monitorType},#{isOnlineEnter},#{status},#{version},#{createDate},#{createBy})
 	</insert>
 
 	<!-- 单记录删除 -->
@@ -126,7 +125,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="selectPageCount" resultType="long" parameterType="com.hangu.emes.vo.PsBaseInfoSearchCondition">
-		select count(ps_code) from psbaseinfo
+		select count(id) from psbaseinfo
 		<include refid="searchConditionSQL" />
 	</select>
 	

@@ -19,14 +19,14 @@
 		<div class="control-group">
 			<label class="control-label" for="psCode"> 企业编码:</label>
 			<div class="controls">
-				<form:input path="psCode" type="text" class="span8" maxlength="12"  />
+				<form:input path="psCode" type="text" class="span8" maxlength="20"  />
 				<form:errors path="psCode" />
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="psName">企业名称:</label>
 			<div class="controls">
-				<form:input path="psName" type="text" class="span8" maxlength="12"  />
+				<form:input path="psName" type="text" class="span8" maxlength="25"  />
 				<form:errors path="psName" />
 			</div>
 		</div>

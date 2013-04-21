@@ -1,76 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/commons/taglibs.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>违法编码详细信息</title>
-<link rel="stylesheet" type="text/css" href="<c:url value="/styles/global.css" />" />
-<link rel="stylesheet" type="text/css" href="<c:url value="/styles/icons.css" />" />
-<!--<jsp:include page="/components/extjs/extjs.jsp" flush="false" />-->  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>企业信息详情</title>
 </head>
 <body>
-<div id="detailContent" style="margin: 5 5 5 5;">
-<table width="99%" align="center" class="editTable">
-    <tr>
-        <td width="20%" class="labelcell"><label for="psname">企业名称:</label></td>
-        <td>${voModel.psname}</td>
-    </tr>
-    <tr>
-        <td width="20%" class="labelcell"><label for="corporationName">法人代表:</label></td>
-        <td>${voModel.corporationName}</td>
-    </tr>
-    <tr>
-        <td width="20%" class="labelcell"><label for="linkman">联系人:</label></td>
-        <td>${voModel.linkman}</td>
-    </tr>
-    <tr>
-        <td width="20%" class="labelcell"><label for="officePhone">联系方式:</label></td>
-        <td>${voModel.officePhone}</td>
-    </tr>
-    <tr>
-        <td width="20%" class="labelcell"><label for="regionCode">行政区域:</label></td>
-        <td>${voModel.areaInfo.name}</td>
-    </tr>
-    <tr>
-        <td width="20%" class="labelcell"><label for="iType">排污类型:</label></td>
-        <td>${voModel.iTypeName}</td>
-    </tr>   
-    <tr>
-        <td width="20%" class="labelcell"><label for="psclassCode">污染源类别:</label></td>
-        <td>${voModel.psClassName}</td>
-    </tr>   
-    <tr>
-        <td width="20%" class="labelcell"><label for="communicateAddr">联系地址:</label></td>
-        <td>${voModel.communicateAddr}</td>
-    </tr>   
-    <tr>
-        <td width="20%" class="labelcell"><label for="runDate">投产日期:</label></td>
-        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${voModel.runDate}" /></td>
-    </tr>   
-    <tr>
-        <td width="20%" class="labelcell"><label for="totalArea">总面积:</label></td>
-        <td>${voModel.totalArea}㎡</td>
-    </tr>
-    <tr>
-        <td width="20%" class="labelcell"><label for="remark">备注:</label></td>
-        <td>${voModel.remark}</td>
-    </tr>   
-</table>
+	<table width="100%" class="table table-striped table-bordered table-condensed">
+		<tbody>
+			<tr>
+				<th width="20%"><label for="psCode" class="pull-right">企业编码:</label></th>
+				<td width="80%">${voModel.psCode }</td>
+			</tr>
+			<tr>
+				<th ><label for="psName" class="pull-right">企业名称:</label></th>
+				<td>${voModel.psName }</td>
+			</tr>
+			<tr>
+				<th ><label for="regionName" class="pull-right">行政区划:</label></th>
+				<td>${voModel.regionName }</td>
+			</tr>
+			<tr>
+				<th ><label for="psType" class="pull-right">企业类型:</label></th>
+				<td>${voModel.psType}</td>
+			</tr>
 
+			<tr>
+				<th class="span3"><label for="monitorLevel" class="pull-right">监测级别:</label></th>
+				<td>${voModel.monitorLevel }</td>
+			</tr>
+			<tr>
+				<th class="span3"><label for="psaddress" class="pull-right">企业地址:</label></th>
+				<td>${voModel.psaddress }</td>
+			</tr>
+			<tr>
+				<th class="span3"><label for="corporation" class="pull-right">企业法人:</label></th>
+				<td>${voModel.corporation }</td>
+			</tr>
+			<tr>
+				<th class="span3"><label for="linkman" class="pull-right">联系人:</label></th>
+				<td>${voModel.linkman}</td>
+			</tr>
+			<tr>
+				<th class="span3"><label for="tel" class="pull-right">电话:</label></th>
+				<td>${voModel.tel }</td>
+			</tr>
+			<tr>
+				<th class="span3"><label for="monitorType" class="pull-right">监测类别:</label></th>
+				<td>${voModel.monitorType }</td>
+			</tr>
+			<tr>
+				<th class="span3"><label for="isOnlineEnter" class="pull-right">是否在线监控:</label></th>
+				<td>${voModel.isOnlineEnter}</td>
+			</tr>
+		</tbody>
+	</table>
 
-    <div align="right">
-        <hgf:ExtButtonContainer>
-            <hgf:ExtButton id="closeBtn" text="关闭" iconCls="closeIcon"></hgf:ExtButton>
-        </hgf:ExtButtonContainer>
-    </div>
-    
-</div>
+	<div class="form-actions">
+		<input id="cancel" class="btn" type="button" value="返回" onclick="javascript:history.back();" />
+	</div>
 </body>
-<script type="text/javascript">
-    Ext.onReady(function() {
-        var closeBtn = Ext.get('closeBtn');
-        closeBtn.on('click', function() {
-            parent.Ext.getCmp("readWin").close();
-        });
-    });
-</script>
 </html>
