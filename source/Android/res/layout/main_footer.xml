@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+    android:background="@drawable/title_bg"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	<LinearLayout
+		android:id="@+id/main_layout1"
+		android:orientation="vertical"
+		android:padding="3dip"
+		android:layout_weight="1"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/tab_selected"
+		android:gravity="center_horizontal">
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/main_home_label"
+			android:gravity="center"
+			android:textColor="@android:color/white"
+			android:drawableTop="@drawable/main_home"
+			android:paddingTop="5dip" />
+	</LinearLayout>
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/line" />
+	<LinearLayout
+		android:id="@+id/main_layout2"
+		android:orientation="vertical"
+		android:padding="3dip"
+		android:layout_weight="1"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal">
+		<TextView
+			android:id="@+id/main_label12"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/main_settings"
+			android:gravity="center"
+			android:textColor="@android:color/white"
+			android:drawableTop="@drawable/main_publish"
+			android:paddingTop="5dip" />
+	</LinearLayout>
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/line" />
+	<LinearLayout
+		android:id="@+id/main_layout3"
+		android:orientation="vertical"
+		android:padding="3dip"
+		android:layout_weight="1"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal">
+		<TextView
+			android:id="@+id/main_label13"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/help_label"
+			android:gravity="center"
+			android:textColor="@android:color/white"
+			android:drawableTop="@drawable/main_more"
+			android:paddingTop="5dip" />
+	</LinearLayout>
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/line" />
+	<LinearLayout
+		android:id="@+id/main_layout4"
+		android:orientation="vertical"
+		android:padding="3dip"
+		android:layout_weight="1"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal">
+		<TextView
+			android:id="@+id/main_label14"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/login_quit"
+			android:gravity="center"
+			android:textColor="@android:color/white"
+			android:drawableTop="@drawable/main_change"
+			android:paddingTop="5dip" />
+	</LinearLayout>
+</LinearLayout>
