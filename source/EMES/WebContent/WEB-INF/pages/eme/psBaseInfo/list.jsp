@@ -67,11 +67,10 @@
 				<th class="checkType"><input type="checkbox" name="checkbox"
 					id="chkAll" value="off" onclick="pageList.selectAll()" /></th>
 				<th class="serialnoType">序 列</th>
-				<th>企业编码</th>
 				<th>企业名称</th>
 				<th>行政区划</th>
 				<th>企业类型</th>
-				<th>检测级别</th>
+				<th>监测级别</th>
 				<th>联系人</th>
 				<th>电话</th>
 				<th>操 作</th>
@@ -84,7 +83,6 @@
 						name="rowCheckBox" align="middle" id="chk${c.count}"
 						value="${record.id}" /></td>
 					<td class="alignCenter" align="center">${c.count}</td>
-					<td class="alignCenter" align="center">${record.psCode}</td>
 					<td class="alignCenter" align="center">${record.psName}</td>
 					<td class="alignCenter" align="center">${record.regionName}</td>
 					<td class="alignCenter" align="center">${record.psType}</td>

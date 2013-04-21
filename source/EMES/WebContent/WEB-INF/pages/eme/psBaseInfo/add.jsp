@@ -1,147 +1,105 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="/commons/taglibs.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="<c:url value="/styles/global.css" />" />
-<link rel="stylesheet" type="text/css" href="<c:url value="/styles/icons.css" />" />
-<!--<jsp:include page="/components/extjs/extjs.jsp" flush="false" />
-<jsp:include page="/components/jquery/validate.jsp" flush="false" />
-<jsp:include page="/components/My97DatePicker/DatePicker.jsp" flush="false" />-->
-<script type="text/javascript" src="<c:url value='/components/jquery/jquery.form.js'/>"></script>
-<title>企业注册</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新增企业信息</title>
 </head>
-    <body>
-        <div id="content">
-            <div id="messageContent"></div>
-            <sf:form id="voModelFrm" action="jsonSave.do" commandName="voModel">
-                <div id="message">
-                    <sf:errors path="*" cssClass="errorBox"></sf:errors>
-                </div>
-                <table width="99%" align="center" class="editTable">
-                    <tr>
-                        <td width="20%" class="labelcell">
-                            <label for="psname"><font color="#FF0000">*</font>公司名称:</label>
-                        </td>
-                        <td class="fieldcell">
-                            <sf:input path="psname" size="40" maxlength="48" cssClass="required" />
-                            <sf:errors path="psname"></sf:errors>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="20%" class="labelcell">
-                            <label for="corporationName"><font color="#FF0000">*</font>公司法人:</label>
-                        </td>
-                        <td class="fieldcell">
-                            <sf:input path="corporationName" size="40" maxlength="24" cssClass="required" />
-                            <sf:errors path="corporationName"></sf:errors>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="20%" class="labelcell">
-                            <label for="linkman"><font color="#FF0000">*</font>联系人:</label>
-                        </td>
-                        <td class="fieldcell">
-                            <sf:input path="linkman" size="40" maxlength="24" cssClass="required" />
-                            <sf:errors path="linkman"></sf:errors>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="20%" class="labelcell">
-                            <label for="officePhone"><font color="#FF0000">*</font>联系电话:</label>
-                        </td>
-                        <td class="fieldcell">
-                            <sf:input path="officePhone" size="40" maxlength="18" cssClass="{required:true,phone:true}" />
-                            <sf:errors path="officePhone"></sf:errors>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="20%" class="labelcell">
-                            <label for="communicateAddr">通讯地址:</label>
-                        </td>
-                        <td class="fieldcell">
-                            <sf:input path="communicateAddr" size="40" />
-                            <sf:errors path="communicateAddr"></sf:errors>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="20%" class="labelcell">
-                            <label for="regionCode"><font color="#FF0000">*</font>行政区域:</label>
-                        </td>
-                        <td class="fieldcell">
-                            <select id="regionCode" name="regionCode" class="required" style="width:120px">
-                                <option value="">请选择</option>
-                                <c:forEach items="${areas}" var="area">
-                                    <option value="${area.code}">
-                                        ${area.name}
-                                    </option>
-                                </c:forEach>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="20%" class="labelcell">
-                            <label for="iType"><font color="#FF0000">*</font>排污类型:</label>
-                        </td>
-                        <td class="fieldcell">
-                            <hgf:DataDicSelect type="iType" id="iType" path="iType" cssClass="select" required="true"  style="width:120px"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="20%" class="labelcell">
-                            <label for="psclassCode"><font color="#FF0000">*</font>污染源类别:</label>
-                        </td>
-                        <td class="fieldcell">
-                            <hgf:DataDicSelect type="psclassCode" id="psclassCode" path="psclassCode" cssClass="select" required="true"  style="width:120px"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="20%" class="labelcell">
-                            <label for="totalArea">占地面积:</label>
-                        </td>
-                        <td class="fieldcell">
-                       	单位:平方米(㎡)<br/>
-                            <sf:input path="totalArea" size="17" maxlength="10" cssClass="{number:true,min:0}" />
-                            <sf:errors path="totalArea"></sf:errors>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="20%" class="labelcell">
-                            <label for="runDate"><font color="#FF0000">*</font>投产日期:</label>
-                        </td>
-                        <td class="fieldcell">
-                            <sf:input id="runDate" path="runDate" size="17" class="Wdate required" />
-                            <sf:errors path="runDate"></sf:errors>
-                            <sf:input id="statusNew" path="statusNew" value="0" type="hidden" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="labelcell">
-                            <label for="remark">备注:</label>
-                        </td>
-                        <td class="fieldcell">
-                            <sf:textarea path="remark" cols="60" rows="6" cssClass="{maxlength:400}"/>
-                            <sf:errors path="remark"></sf:errors>
-                        </td>
-                    </tr>
-                </table>
-                <div align="right">
-                    <hgf:ExtButtonContainer>
-                        <hgf:ExtButton id="saveBtn" text="保存" iconCls="saveIcon" type="submit"></hgf:ExtButton>
-                        <hgf:ExtButton id="closeBtn" text="关闭" iconCls="closeIcon"></hgf:ExtButton>
-                    </hgf:ExtButtonContainer>
-                </div>
-            </sf:form>
-        </div>
-    </body>
-    <script type="text/javascript">
-    Ext.onReady(function() {
-        var runDate = Ext.get('runDate');
-        runDate.on('click', function(){
-            WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true});
-        });
-        var dataDictAddPage = new Ext.mk.AddPage();
-        var closeBtn = Ext.get('closeBtn');
-        closeBtn.on('click', dataDictAddPage.closeWindow);
-    });
-</script>
+<body>
+	<script>
+		$(document).ready(function() {
+			$('#form').validation();
+		});
+	</script>
+	<form:form id="form" modelAttribute="voModel" method="post"
+		action="save.do" class="well form-horizontal">
+		<form:hidden path="version" value="0" />
+		<div class="control-group">
+			<label class="control-label" for="psCode"> 企业编码:</label>
+			<div class="controls">
+				<form:input path="psCode" type="text" class="span8" maxlength="20"  />
+				<form:errors path="psCode" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="psName">企业名称:</label>
+			<div class="controls">
+				<form:input path="psName" type="text" class="span8" maxlength="25"  />
+				<form:errors path="psName" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="regionName">行政区划:</label>
+			<div class="controls">
+				<form:input path="regionName" type="text" class="span8" maxlength="13" />
+				<form:errors path="regionName" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="psType">企业类型:</label>
+			<div class="controls">
+				<form:input path="psType" type="text" class="span8"
+					maxlength="11" />
+				<form:errors path="psType" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="monitorLevel">监测级别:</label>
+			<div class="controls">
+				<form:input path="monitorLevel" type="text" class="span8" maxlength="12" />
+				<form:errors path="monitorLevel" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="psaddress">企业地址:</label>
+			<div class="controls">
+				<form:input path="psaddress" type="text" class="span8" maxlength="12"  />
+				<form:errors path="psaddress" />
+			</div>
+		</div>
+        <div class="control-group">
+			<label class="control-label" for="corporation">企业法人:</label>
+			<div class="controls">
+				<form:input path="corporation" type="text" class="span8" maxlength="12" />
+				<form:errors path="corporation" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="linkman">联系人:</label>
+			<div class="controls">
+				<form:input path="linkman" type="text" class="span8" maxlength="12" />
+				<form:errors path="linkman" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="tel">电话:</label>
+			<div class="controls">
+				<form:input path="tel" type="text" class="span8" maxlength="12"  />
+				<form:errors path="tel" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="monitorType">监测类别:</label>
+			<div class="controls">
+				<form:input path="monitorType" type="text" class="span8" maxlength="12" />
+				<form:errors path="monitorType" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="isOnlineEnter">是否在线监控:</label>
+			<div class="controls">
+				<form:input path="isOnlineEnter" type="text" class="span8" maxlength="12"  />
+				<form:errors path="isOnlineEnter" />
+			</div>
+		</div>
+		<div class="form-actions">
+			<input type="submit" id="saveBtn" name="saveBtn" value="保存"
+				class="btn btn-primary"> <input id="cancel" class="btn"
+				type="button" value="返回" onclick="javascript:history.back();" />
+		</div>
+
+	</form:form>
+</body>
 </html>

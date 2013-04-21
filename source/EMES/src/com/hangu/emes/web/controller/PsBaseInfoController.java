@@ -50,8 +50,8 @@ public class PsBaseInfoController extends EntityController<PsBaseInfoVo, PsBaseI
      */
     public PsBaseInfoController() {
         super();
-        addValidator = new PsBaseInfoValidator();
-        editValidator = addValidator;
+//        addValidator = new PsBaseInfoValidator();
+//        editValidator = addValidator;
         pathPrefix = "eme/";
     }
    
