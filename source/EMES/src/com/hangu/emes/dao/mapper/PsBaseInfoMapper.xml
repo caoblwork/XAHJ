@@ -55,26 +55,38 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<update id="update" parameterType="com.hangu.emes.entity.PsBaseInfo">
 		update psbaseinfo
 		<trim prefix="set" suffixOverrides=",">
-			<if test="#{organizationId} != null">
-				organization_id =#{organizationId},
+			<if test="#{psCode} != null">
+				ps_code =#{psCode},
 			</if>
-			<if test="loginId != null">
-				login_id =#{loginId},
+			<if test="#{psName} != null">
+				ps_name =#{psName},
 			</if>
-			<if test="#{password} != null">
-				password =#{password},
+			<if test="#{regionName} != null">
+				region_name =#{regionName},
 			</if>
-			<if test="#{name} != null">
-				name =#{name},
+			<if test="#{psType} != null">
+				ps_type =#{psType},
 			</if>
-			<if test="#{sex} != null">
-				sex =#{sex},
+			<if test="#{monitorLevel} != null">
+				monitorLevel =#{monitorLevel},
 			</if>
-			<if test="#{phone} != null">
-				phone =#{phone},
+			<if test="psaddress != null">
+				ps_address =#{psaddress},
 			</if>
-			<if test="mobileNumber != null">
-				mobile_number =#{mobileNumber},
+			<if test="corporation != null">
+				corporation =#{corporation},
+			</if>
+			<if test="linkman != null">
+				linkman =#{linkman},
+			</if>
+			<if test="tel != null">
+				tel =#{tel},
+			</if>
+			<if test="monitorType != null">
+				monitorType =#{monitorType},
+			</if>
+			<if test="isOnlineEnter != null">
+				isOnlineEnter =#{isOnlineEnter},
 			</if>
 			<if test="#{status} != null">
 				status =#{status},

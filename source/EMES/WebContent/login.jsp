@@ -70,7 +70,7 @@
 			</div>
 		</div>
 		<div id="footer">
-			<div class="copyright">XXX管理信息平台 版权所有 &copy; 2013</div>
+			<div class="copyright">陕西省环境保护执法局管理信息平台 版权所有 &copy; 2013</div>
 		</div>
 		<div class="bodyBottomBg"></div>
 	</div>
