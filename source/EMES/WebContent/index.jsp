@@ -15,6 +15,7 @@
 	<ul>
 		<li><a href="${ctx}/workflow/deployManager/list.do">流程部署管理</a></li>
 		<li><a href="${ctx}/workflow/deployManager/list.do">流程部署管理</a></li>
+		<li><a href="${ctx}/eme/psBaseInfo/list.do">企业信息</a></li>
 	</ul>
 </body>
 </html>

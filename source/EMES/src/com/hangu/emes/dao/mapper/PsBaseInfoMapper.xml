@@ -2,25 +2,26 @@
 <!DOCTYPE mapper
 PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
-<mapper namespace="com.hangu.framework.system.dao.mapper.PsBaseInfoMapper">
+<mapper namespace="com.hangu.emes.dao.mapper.PsBaseInfoMapper">
 
 	<!-- 数据增加映射 -->
 	<resultMap id="searchResultMap" type="com.hangu.emes.entity.PsBaseInfo">
-		<result property="psCode" column="id" />
-		<result property="psName" column="organization_id" />
-		<result property="regionCode" column="login_id" />
-		<result property="regionName" column="password" />
-		<result property="psType" column="name" />
-		<result property="monitorLevel" column="sex" />
-		<result property="psaddress" column="phone" />
-		<result property="longitude" column="mobile_number" />
-		<result property="corporation" column="mobile_number" />
-		<result property="linkman" column="mobile_number" />
-		<result property="tel" column="mobile_number" />
-		<result property="fax" column="mobile_number" />
-		<result property="monitorType" column="mobile_number" />
-		<result property="isOnlineEnter" column="mobile_number" />
-		<result property="isVideoEnter" column="mobile_number" />
+		<result property="id" column="ps_code" />
+		<result property="psCode" column="ps_code" />
+		<result property="psName" column="ps_name" />
+		<result property="regionCode" column="region_code" />
+		<result property="regionName" column="region_name" />
+		<result property="psType" column="ps_type" />
+		<result property="monitorLevel" column="monitorLevel" />
+		<result property="psaddress" column="ps_address" />
+		<result property="longitude" column="longitude" />
+		<result property="corporation" column="corporation" />
+		<result property="linkman" column="linkman" />
+		<result property="tel" column="tel" />
+		<result property="fax" column="fax" />
+		<result property="monitorType" column="monitorType" />
+		<result property="isOnlineEnter" column="isOnlineEnter" />
+		<result property="isVideoEnter" column="isVideoEnter" />
         <result property="createDate" column="create_date" />
 		<result property="createBy" column="create_by" />
 		<result property="updateBy" column="update_by" />
@@ -103,14 +104,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<!-- 动态查询条件 -->
 	<sql id="searchConditionSQL">
 		<trim prefix="where" prefixOverrides="AND |OR ">
-			<if test="loginId != null">
-				and login_id like '%${loginId}%'
-			</if>
-			<if test="name != null">
-				and name like '%${name}%'
-			</if>
-			<if test="organizationId != null">
-				and organization_id = #{organizationId}
+			<if test="psName != null">
+				and ps_name like '%${psName}%'
 			</if>
 		</trim>
 	</sql>
@@ -131,7 +126,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="selectPageCount" resultType="long" parameterType="com.hangu.emes.vo.PsBaseInfoSearchCondition">
-		select count(id) from psbaseinfo
+		select count(ps_code) from psbaseinfo
 		<include refid="searchConditionSQL" />
 	</select>
 	

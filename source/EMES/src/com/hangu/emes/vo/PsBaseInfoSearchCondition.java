@@ -1,143 +1,178 @@
 package com.hangu.emes.vo;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import com.hangu.framework.vo.SearchCondition;
-
+/**
+ * 企业信息查询条件
+ * @author hupeng
+ *
+ */
+@SuppressWarnings("rawtypes")
 public class PsBaseInfoSearchCondition extends SearchCondition implements Serializable {
     /**
      * 序列化ID
      */
     private static final long serialVersionUID = 1L;
     /**
-     * 公司名称
+     * 企业编码
      */
-    private String psname;
+    private String psCode;
     /**
-     * 法人代表
+     * 企业名称
      */
-    private String corporationName;
+    private String psName;
+    /**
+     * 行政区划
+     */
+    private Long regionCode;
+    /**
+     * 行政区划名称
+     */
+    private String regionName;
+    /**
+     * 企业类型
+     */
+    private String psType;
+    /**
+     * 监测级别
+     */
+    private String monitorLevel;
+    /**
+     * 企业地址
+     */
+    private String psaddress;
+    /**
+     * 经度
+     */
+    private Double longitude;
+    /**
+     * 纬度
+     */
+    private Double latitude;
+    /**
+     * 企业法人
+     */
+    private String corporation;
     /**
      * 联系人
      */
     private String linkman;
     /**
-     * 行政区编码
+     * 电话
      */
-    private String regionCode;
-    
+    private String tel;
     /**
-     * 企业类型
+     * 传真
      */
-    private String psclassCode;
+    private String fax;
     /**
-     * 通讯地址
+     * 监测类别
      */
-    private String communicateAddr;
+    private Integer monitorType;
     /**
-     * 投产日期
+     * 是否是在线监控企业
      */
-    private Date runDate;
+    private Boolean isOnlineEnter;
     /**
-     * 占地面积(如果需要模糊查询)
+     * 是否是视频监控企业
      */
-    private Double totalArea;
-    /**
-     * 企业地址
-     */
-    private String psaddress;
-    public String getPsaddress() {
+    private Boolean isVideoEnter;
+	public String getPsCode() {
+		return psCode;
+	}
+	public void setPsCode(String psCode) {
+		this.psCode = psCode;
+	}
+	public String getPsName() {
+		return psName;
+	}
+	public void setPsName(String psName) {
+		this.psName = psName;
+	}
+	public Long getRegionCode() {
+		return regionCode;
+	}
+	public void setRegionCode(Long regionCode) {
+		this.regionCode = regionCode;
+	}
+	public String getRegionName() {
+		return regionName;
+	}
+	public void setRegionName(String regionName) {
+		this.regionName = regionName;
+	}
+	public String getPsType() {
+		return psType;
+	}
+	public void setPsType(String psType) {
+		this.psType = psType;
+	}
+	public String getMonitorLevel() {
+		return monitorLevel;
+	}
+	public void setMonitorLevel(String monitorLevel) {
+		this.monitorLevel = monitorLevel;
+	}
+	public String getPsaddress() {
 		return psaddress;
 	}
 	public void setPsaddress(String psaddress) {
 		this.psaddress = psaddress;
 	}
-	/**
-     * 
-     */
-    private Date operationTimeBegin;
-    private Date operationTimeEnd;
-    
-    /**
-     * 污染类型
-     */
-    private String iType;
-    /*-
-     * Gettings && Settings
-     */
-    
-    public String getPsname() {
-        return psname;
-    }
-    public void setPsname( String psname ) {
-        this.psname = psname;
-    }
-    public String getCorporationName() {
-        return corporationName;
-    }
-    public void setCorporationName( String corporationName ) {
-        this.corporationName = corporationName;
-    }
-    public String getLinkman() {
-        return linkman;
-    }
-    public void setLinkman( String linkman ) {
-        this.linkman = linkman;
-    }
-    public String getRegionCode() {
-        return regionCode;
-    }
-    public void setRegionCode( String regionCode ) {
-        this.regionCode = regionCode;
-    }
-    public String getPsclassCode() {
-        return psclassCode;
-    }
-    public void setPsclassCode( String psclassCode ) {
-        this.psclassCode = psclassCode;
-    }
-    public String getCommunicateAddr() {
-        return communicateAddr;
-    }
-    public void setCommunicateAddr( String communicateAddr ) {
-        this.communicateAddr = communicateAddr;
-    }
-    public Date getRunDate() {
-        return runDate;
-    }
-    public void setRunDate( Date runDate ) {
-        this.runDate = runDate;
-    }
-    public Double getTotalArea() {
-        return totalArea;
-    }
-    public void setTotalArea( Double totalArea ) {
-        this.totalArea = totalArea;
-    }
-    public Date getOperationTimeBegin() {
-        return operationTimeBegin;
-    }
-    public void setOperationTimeBegin(Date operationTimeBegin) {
-        this.operationTimeBegin = operationTimeBegin;
-    }
-    public Date getOperationTimeEnd() {
-        return operationTimeEnd;
-    }
-    public void setOperationTimeEnd(Date operationTimeEnd) {
-        this.operationTimeEnd = operationTimeEnd;
-    }
-	/**
-	 * @return the iType
-	 */
-	public String getiType() {
-		return iType;
+	public Double getLongitude() {
+		return longitude;
 	}
-	/**
-	 * @param iType the iType to set
-	 */
-	public void setiType(String iType) {
-		this.iType = iType;
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+	public Double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+	public String getCorporation() {
+		return corporation;
+	}
+	public void setCorporation(String corporation) {
+		this.corporation = corporation;
+	}
+	public String getLinkman() {
+		return linkman;
+	}
+	public void setLinkman(String linkman) {
+		this.linkman = linkman;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public String getFax() {
+		return fax;
+	}
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
+	public Integer getMonitorType() {
+		return monitorType;
+	}
+	public void setMonitorType(Integer monitorType) {
+		this.monitorType = monitorType;
+	}
+	public Boolean getIsOnlineEnter() {
+		return isOnlineEnter;
+	}
+	public void setIsOnlineEnter(Boolean isOnlineEnter) {
+		this.isOnlineEnter = isOnlineEnter;
+	}
+	public Boolean getIsVideoEnter() {
+		return isVideoEnter;
+	}
+	public void setIsVideoEnter(Boolean isVideoEnter) {
+		this.isVideoEnter = isVideoEnter;
 	}
     
 }
