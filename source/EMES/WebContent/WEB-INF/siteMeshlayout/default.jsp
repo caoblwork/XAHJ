@@ -39,6 +39,44 @@
 			<%@ include file="/WEB-INF/siteMeshlayout/header.jsp"%>
 		</div>
 		<div id="main">
+		
+		<script src="<c:url value="/components/accordion/js/accordion.js"/>"></script>
+			<div id="sidebar">
+				<div class="accordion-nav-div">
+					<ul class=" accordion-nav-ul-master">
+						<li class=" accordion-nav-li-master accordion-master-li-current"><a href="/Three/" class=" active"><span>农户基本信息</span></a>
+							<ul class=" accordion-subnav-ul">
+								<li class=" accordion-subnav-li-current"><a href="/Three/app/grass/grassFarmer/list.do?uniqueMenuMark=007001001"><span>基本信息</span></a></li>
+							</ul>
+						</li>
+						<li class=" accordion-nav-li-master"><a href="/Three/"><span>玉米生产信息</span></a>
+							<ul class=" accordion-subnav-ul">
+							<li><a href="/Three/app/grass/farmerCornProduction/list.do"><span>生产数据</span></a></li>
+							<li><a href="/Three/app/grass/farmerCornProductionSum/list.do"><span>村级汇总上报</span></a></li>
+							<li><a href="/Three/app/grass/farmerCornProductionAudit/list.do"><span>审批汇总</span></a></li>
+							</ul>
+						</li>
+						<li class=" accordion-nav-li-master"><a href="/Three/"><span>饲草生产信息</span></a>
+							<ul class=" accordion-subnav-ul">
+							<li><a href="/Three/app/grass/farmerGrassProduction/list.do"><span>生产数据</span></a></li>
+							<li><a href="/Three/app/grass/farmerGrassProductionSum/list.do"><span>村级汇总上报</span></a></li>
+							<li><a href="/Three/app/grass/farmerGrassProductionAudit/list.do"><span>审批汇总</span></a></li>
+							</ul>
+						</li>
+						<li class=" accordion-nav-li-master"><a href="/Three/"><span>秸秆饲料化</span></a>
+							<ul class=" accordion-subnav-ul">
+							<li><a href="/Three/app/grass/farmerStrawForage/list.do"><span>饲料化数据</span></a></li>
+							<li><a href="/Three/app/grass/farmerStrawForageSum/list.do"><span>村级汇总上报</span></a></li>
+							<li><a href="/Three/app/grass/farmerStrawForageAudit/list.do"><span>审批汇总</span></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+
+		
 			<div class="container">
 
 			<div class="row-fluid show-grid">

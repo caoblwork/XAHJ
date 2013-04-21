@@ -1,5 +1,6 @@
 @CHARSET "UTF-8";
 
+/**
 .pagingStyle {
 	margin: 0 auto;
 	height: 25px;
@@ -114,6 +115,8 @@
 	background-color: #131313;
 	border: 1px solid #496D00;
 }
+**/
+
 
 /*全局样式*/
 
@@ -141,15 +144,8 @@ a:hover {
 	text-decoration: underline;
 }
 
-#container { margin:0 auto; width:970px;  }
-#header { position:relative; }
-#header .topbar { height:60px; background:url(../images/weblogo.png) -10px 5px no-repeat; }
-#header .topbar .subnav { float:right; padding-top:25px; }
-#header .topbar .subnav a { color:#666; }
-#header .topbar .subnav .separator { margin:0 5px; color:#999; }
-#header .nav { height:5px; line-height:5px; background:url(default/nav_bg.gif) 0 -5px no-repeat; padding-left:40px; }
-#header .topflash{ position:absolute; top:0px; right:0px; z-index:999; } 
-#main { background:url(../images/web_bg.gif) center  -80px  no-repeat; margin-top:5px;}
+
+
 
 /*主导航菜单*/
 #menu ul {
