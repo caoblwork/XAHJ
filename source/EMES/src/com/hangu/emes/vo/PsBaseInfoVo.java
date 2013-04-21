@@ -65,11 +65,11 @@ public class PsBaseInfoVo extends BaseVo implements Serializable {
     /**
      * 监测类别
      */
-    private Integer monitorType;
+    private String  monitorType;
     /**
      * 是否是在线监控企业
      */
-    private Boolean isOnlineEnter;
+    private String isOnlineEnter;
     /**
      * 是否是视频监控企业
      */
@@ -153,16 +153,17 @@ public class PsBaseInfoVo extends BaseVo implements Serializable {
 	public void setFax(String fax) {
 		this.fax = fax;
 	}
-	public Integer getMonitorType() {
+
+	public String getMonitorType() {
 		return monitorType;
 	}
-	public void setMonitorType(Integer monitorType) {
+	public void setMonitorType(String monitorType) {
 		this.monitorType = monitorType;
 	}
-	public Boolean getIsOnlineEnter() {
+	public String getIsOnlineEnter() {
 		return isOnlineEnter;
 	}
-	public void setIsOnlineEnter(Boolean isOnlineEnter) {
+	public void setIsOnlineEnter(String isOnlineEnter) {
 		this.isOnlineEnter = isOnlineEnter;
 	}
 	public Boolean getIsVideoEnter() {

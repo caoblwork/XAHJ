@@ -37,8 +37,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 
 	<!-- 新增记录 -->
 	<insert id="insert" parameterType="com.hangu.emes.entity.PsBaseInfo">
-		insert into psbaseinfo (id,organization_id,login_id,password,name,sex,phone,mobile_number,status,version,create_date,create_by)
-		values (#{id},#{organizationId},#{loginId},#{password},#{name},#{sex},#{phone},#{mobileNumber},#{status},#{version},#{createDate},#{createBy})
+		insert into psbaseinfo (id,ps_code,ps_name,region_name,ps_type,monitorLevel,ps_address,corporation,linkman,tel,monitorType,isOnlineEnter,status,version,create_date,create_by)
+		values (#{id},#{psCode},#{psName},#{psType},#{monitorLevel},#{psaddress},#{corporation},#{linkman},#{tel},#{monitorType},#{isOnlineEnter},#{status},#{version},#{createDate},#{createBy})
 	</insert>
 
 	<!-- 单记录删除 -->
