@@ -11,26 +11,22 @@
         android:orientation="horizontal" >
 
         <LinearLayout
+            android:id="@+id/nav1"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/item_state"
             android:orientation="vertical"
-            android:paddingBottom="10dip"
-            android:paddingLeft="10dip"
-            android:paddingRight="10dip"
+            android:paddingBottom="20dip"
             android:paddingTop="30dip" >
 
-            <ImageButton
-                android:id="@+id/imgNav1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/imgnav1" />
-
             <TextView
+                android:drawableTop="@drawable/imgnav1"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav1"
+                android:text="@string/nav1"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
@@ -40,26 +36,22 @@
             android:background="@drawable/list_line_v" />
 
         <LinearLayout
+            android:id="@+id/nav2"
+            android:background="@drawable/item_state"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingBottom="10dip"
-            android:paddingLeft="10dip"
-            android:paddingRight="10dip"
+            android:paddingBottom="20dip"
             android:paddingTop="30dip" >
 
-            <ImageButton
-                android:id="@+id/imgNav2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/imgnav2" />
-
             <TextView
+                android:drawableTop="@drawable/imgnav2"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav2"
+                android:text="@string/nav2"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
@@ -69,26 +61,22 @@
             android:background="@drawable/list_line_v" />
 
         <LinearLayout
+            android:id="@+id/nav3"
+            android:background="@drawable/item_state"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingBottom="10dip"
-            android:paddingLeft="10dip"
-            android:paddingRight="10dip"
+            android:paddingBottom="20dip"
             android:paddingTop="30dip" >
 
-            <ImageButton
-                android:id="@+id/imgNav3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/imgnav3" />
-
             <TextView
+                android:drawableTop="@drawable/imgnav3"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav3"
+                android:text="@string/nav3"
                 android:textColor="@android:color/black" />
         </LinearLayout>
     </LinearLayout>
@@ -104,23 +92,22 @@
         android:orientation="horizontal" >
 
         <LinearLayout
+            android:id="@+id/nav4"
+            android:background="@drawable/item_state"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="10dip" >
-
-            <ImageButton
-                android:id="@+id/imgNav1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/imgnav1" />
+            android:paddingBottom="20dip"
+            android:paddingTop="30dip" >
 
             <TextView
+                android:drawableTop="@drawable/imgnav4"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav1"
+                android:text="@string/nav4"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
@@ -130,23 +117,23 @@
             android:background="@drawable/list_line_v" />
 
         <LinearLayout
+            android:id="@+id/nav5"
+            android:background="@drawable/item_state"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="10dip" >
+            android:paddingBottom="20dip"
+            android:paddingTop="30dip" >
 
-            <ImageButton
-                android:id="@+id/imgNav2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/imgnav2" />
 
             <TextView
+                android:drawableTop="@drawable/imgnav5"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav2"
+                android:text="@string/nav5"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
@@ -156,23 +143,23 @@
             android:background="@drawable/list_line_v" />
 
         <LinearLayout
+            android:id="@+id/nav6"
+            android:background="@drawable/item_state"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="10dip" >
+            android:paddingBottom="20dip"
+            android:paddingTop="30dip" >
 
-            <ImageButton
-                android:id="@+id/imgNav3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/imgnav3" />
 
             <TextView
+                android:drawableTop="@drawable/imgnav6"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav3"
+                android:text="@string/nav6"
                 android:textColor="@android:color/black" />
         </LinearLayout>
     </LinearLayout>
@@ -188,23 +175,23 @@
         android:orientation="horizontal" >
 
         <LinearLayout
+            android:id="@+id/nav7"
+            android:background="@drawable/item_state"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="10dip" >
+            android:paddingBottom="20dip"
+            android:paddingTop="30dip" >
 
-            <ImageButton
-                android:id="@+id/imgNav1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/imgnav1" />
 
             <TextView
+                android:drawableTop="@drawable/imgnav7"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav1"
+                android:text="@string/nav7"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
@@ -214,23 +201,23 @@
             android:background="@drawable/list_line_v" />
 
         <LinearLayout
+            android:id="@+id/nav8"
+            android:background="@drawable/item_state"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="10dip" >
+            android:paddingBottom="20dip"
+            android:paddingTop="30dip" >
 
-            <ImageButton
-                android:id="@+id/imgNav2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/imgnav2" />
 
             <TextView
+                android:drawableTop="@drawable/imgnav8"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav2"
+                android:text="@string/nav8"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
@@ -240,23 +227,23 @@
             android:background="@drawable/list_line_v" />
 
         <LinearLayout
+            android:id="@+id/nav9"
+            android:background="@drawable/item_state"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="10dip" >
+            android:paddingBottom="20dip"
+            android:paddingTop="30dip" >
 
-            <ImageButton
-                android:id="@+id/imgNav3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/imgnav3" />
 
             <TextView
+                android:drawableTop="@drawable/imgnav9"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav3"
+                android:text="@string/nav9"
                 android:textColor="@android:color/black" />
         </LinearLayout>
     </LinearLayout>

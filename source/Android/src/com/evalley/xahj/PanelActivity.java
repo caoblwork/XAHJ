@@ -38,31 +38,31 @@ public class PanelActivity extends FinalActivity {
 		String model = null;
 		switch (v.getId()) {
 			case R.id.imgNav1:
-				model = getString(R.string.panel_imgNav1);
+				model = getString(R.string.nav1);
 				break;
 			case R.id.imgNav2:
-				model = getString(R.string.panel_imgNav2);
+				model = getString(R.string.nav2);
 				break;
 			case R.id.imgNav3:
-				model = getString(R.string.panel_imgNav3);
+				model = getString(R.string.nav3);
 				break;
 			case R.id.imgNav4:
-				model = getString(R.string.panel_imgNav4);
+				model = getString(R.string.nav4);
 				break;
 			case R.id.imgNav5:
-				model = getString(R.string.panel_imgNav5);
+				model = getString(R.string.nav5);
 				break;
 			case R.id.imgNav6:
-				model = getString(R.string.panel_imgNav6);
+				model = getString(R.string.nav6);
 				break;
 			case R.id.imgNav7:
-				model = getString(R.string.panel_imgNav7);
+				model = getString(R.string.nav7);
 				break;
 			case R.id.imgNav8:
-				model = getString(R.string.panel_imgNav8);
+				model = getString(R.string.nav8);
 				break;
 			case R.id.imgNav9:
-				model = getString(R.string.panel_imgNav9);
+				model = getString(R.string.nav9);
 				break;
 		}
 		Toast.makeText(this, model + ",即将推出,敬请期待!", Toast.LENGTH_SHORT).show();

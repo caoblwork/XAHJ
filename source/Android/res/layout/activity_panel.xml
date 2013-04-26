@@ -27,7 +27,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav1"
+                android:text="@string/nav1"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
@@ -48,7 +48,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav2"
+                android:text="@string/nav2"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
@@ -69,7 +69,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav3"
+                android:text="@string/nav3"
                 android:textColor="@android:color/black" />
         </LinearLayout>
     </LinearLayout>
@@ -96,7 +96,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav4"
+                android:text="@string/nav4"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
@@ -117,7 +117,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav5"
+                android:text="@string/nav5"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
@@ -138,7 +138,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav6"
+                android:text="@string/nav6"
                 android:textColor="@android:color/black" />
         </LinearLayout>
     </LinearLayout>
@@ -165,7 +165,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav7"
+                android:text="@string/nav7"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
@@ -186,7 +186,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav8"
+                android:text="@string/nav8"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
@@ -207,7 +207,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/panel_imgNav9"
+                android:text="@string/nav9"
                 android:textColor="@android:color/black" />
         </LinearLayout>
     </LinearLayout>

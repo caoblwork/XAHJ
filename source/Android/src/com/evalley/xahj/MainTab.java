@@ -129,11 +129,11 @@ public class MainTab extends TabActivity {
 	private void initTab() {
 		tabHost = getTabHost();
 		tabHost.addTab(tabHost.newTabSpec(TAB_HOME).setIndicator(TAB_HOME)
-				.setContent(new Intent(this, PanelActivity.class)));
+				.setContent(new Intent(this, NineCellActivity.class)));
 		tabHost.addTab(tabHost.newTabSpec(TAB_SETTINGS)
 				.setIndicator(TAB_SETTINGS)
-				.setContent(new Intent(this, PanelActivity.class)));
-		tabHost.addTab(tabHost.newTabSpec(TAB_HELP).setIndicator(TAB_HELP).setContent(new Intent(this, PanelActivity.class)));
+				.setContent(new Intent(this, NineCellActivity.class)));
+		tabHost.addTab(tabHost.newTabSpec(TAB_HELP).setIndicator(TAB_HELP).setContent(new Intent(this, NineCellActivity.class)));
 		tabHost.setCurrentTabByTag(TAB_HOME);
 	}
 }

@@ -10,15 +10,15 @@
     <string name="splash_title2">移动执法系统</string>
     
     <!-- panel -->
-    <string name="panel_imgNav1">任务管理</string>
-    <string name="panel_imgNav2">现场执法</string>
-    <string name="panel_imgNav3">移动应急</string>
-    <string name="panel_imgNav4">信息查询</string>
-    <string name="panel_imgNav5">环保手册</string>
-    <string name="panel_imgNav6">稽查考核</string>
-    <string name="panel_imgNav7">地图功能</string>
-    <string name="panel_imgNav8">数据同步</string>
-    <string name="panel_imgNav9">系统设置</string>
+    <string name="nav1">任务管理</string>
+    <string name="nav2">现场执法</string>
+    <string name="nav3">移动应急</string>
+    <string name="nav4">信息查询</string>
+    <string name="nav5">环保手册</string>
+    <string name="nav6">稽查考核</string>
+    <string name="nav7">地图功能</string>
+    <string name="nav8">数据同步</string>
+    <string name="nav9">系统设置</string>
     
   	<string name="main_home_label">主页</string>
     <string name="login_quit">退出</string>

@@ -36,6 +36,11 @@ public final class R {
     }
     public static final class color {
         public static final int gray1=0x7f050000;
+        public static final int text_color1=0x7f050001;
+        public static final int text_color2=0x7f050002;
+        public static final int text_color3=0x7f050003;
+        public static final int text_color4=0x7f050004;
+        public static final int text_color5=0x7f050005;
     }
     public static final class dimen {
         public static final int padding_large=0x7f060002;
@@ -54,41 +59,51 @@ public final class R {
         public static final int imgnav7=0x7f020008;
         public static final int imgnav8=0x7f020009;
         public static final int imgnav9=0x7f02000a;
-        public static final int line=0x7f02000b;
-        public static final int list_divider=0x7f02000c;
-        public static final int list_line=0x7f02000d;
-        public static final int list_line_v=0x7f02000e;
-        public static final int main_change=0x7f02000f;
-        public static final int main_home=0x7f020010;
-        public static final int main_more=0x7f020011;
-        public static final int main_publish=0x7f020012;
-        public static final int panel_item_bg=0x7f020013;
-        public static final int splash=0x7f020014;
-        public static final int tab_selected=0x7f020015;
-        public static final int title_bg=0x7f020016;
+        public static final int item_state=0x7f02000b;
+        public static final int line=0x7f02000c;
+        public static final int list_divider=0x7f02000d;
+        public static final int list_line=0x7f02000e;
+        public static final int list_line_v=0x7f02000f;
+        public static final int main_change=0x7f020010;
+        public static final int main_home=0x7f020011;
+        public static final int main_more=0x7f020012;
+        public static final int main_publish=0x7f020013;
+        public static final int panel_item_bg=0x7f020014;
+        public static final int splash=0x7f020015;
+        public static final int tab_selected=0x7f020016;
+        public static final int title_bg=0x7f020017;
     }
     public static final class id {
-        public static final int imgNav1=0x7f0a0001;
-        public static final int imgNav2=0x7f0a0002;
-        public static final int imgNav3=0x7f0a0003;
-        public static final int imgNav4=0x7f0a0004;
-        public static final int imgNav5=0x7f0a0005;
-        public static final int imgNav6=0x7f0a0006;
-        public static final int imgNav7=0x7f0a0007;
-        public static final int imgNav8=0x7f0a0008;
-        public static final int imgNav9=0x7f0a0009;
-        public static final int main_label12=0x7f0a000d;
-        public static final int main_label13=0x7f0a000f;
-        public static final int main_label14=0x7f0a0011;
-        public static final int main_layout1=0x7f0a000b;
-        public static final int main_layout2=0x7f0a000c;
-        public static final int main_layout3=0x7f0a000e;
-        public static final int main_layout4=0x7f0a0010;
-        public static final int menu_settings=0x7f0a0014;
+        public static final int imgNav1=0x7f0a000a;
+        public static final int imgNav2=0x7f0a000b;
+        public static final int imgNav3=0x7f0a000c;
+        public static final int imgNav4=0x7f0a000d;
+        public static final int imgNav5=0x7f0a000e;
+        public static final int imgNav6=0x7f0a000f;
+        public static final int imgNav7=0x7f0a0010;
+        public static final int imgNav8=0x7f0a0011;
+        public static final int imgNav9=0x7f0a0012;
+        public static final int main_label12=0x7f0a0016;
+        public static final int main_label13=0x7f0a0018;
+        public static final int main_label14=0x7f0a001a;
+        public static final int main_layout1=0x7f0a0014;
+        public static final int main_layout2=0x7f0a0015;
+        public static final int main_layout3=0x7f0a0017;
+        public static final int main_layout4=0x7f0a0019;
+        public static final int menu_settings=0x7f0a001d;
+        public static final int nav1=0x7f0a0001;
+        public static final int nav2=0x7f0a0002;
+        public static final int nav3=0x7f0a0003;
+        public static final int nav4=0x7f0a0004;
+        public static final int nav5=0x7f0a0005;
+        public static final int nav6=0x7f0a0006;
+        public static final int nav7=0x7f0a0007;
+        public static final int nav8=0x7f0a0008;
+        public static final int nav9=0x7f0a0009;
         public static final int textView=0x7f0a0000;
-        public static final int title1=0x7f0a0012;
-        public static final int title2=0x7f0a0013;
-        public static final int title_text=0x7f0a000a;
+        public static final int title1=0x7f0a001b;
+        public static final int title2=0x7f0a001c;
+        public static final int title_text=0x7f0a0013;
     }
     public static final class layout {
         public static final int activity_demo_orm=0x7f030000;
@@ -113,15 +128,15 @@ public final class R {
         public static final int menu_settings=0x7f070002;
         /**  panel 
          */
-        public static final int panel_imgNav1=0x7f070006;
-        public static final int panel_imgNav2=0x7f070007;
-        public static final int panel_imgNav3=0x7f070008;
-        public static final int panel_imgNav4=0x7f070009;
-        public static final int panel_imgNav5=0x7f07000a;
-        public static final int panel_imgNav6=0x7f07000b;
-        public static final int panel_imgNav7=0x7f07000c;
-        public static final int panel_imgNav8=0x7f07000d;
-        public static final int panel_imgNav9=0x7f07000e;
+        public static final int nav1=0x7f070006;
+        public static final int nav2=0x7f070007;
+        public static final int nav3=0x7f070008;
+        public static final int nav4=0x7f070009;
+        public static final int nav5=0x7f07000a;
+        public static final int nav6=0x7f07000b;
+        public static final int nav7=0x7f07000c;
+        public static final int nav8=0x7f07000d;
+        public static final int nav9=0x7f07000e;
         /**  splash 
          */
         public static final int splash_title1=0x7f070004;
