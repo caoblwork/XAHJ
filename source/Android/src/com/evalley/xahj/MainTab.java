@@ -136,4 +136,5 @@ public class MainTab extends TabActivity {
 		tabHost.addTab(tabHost.newTabSpec(TAB_HELP).setIndicator(TAB_HELP).setContent(new Intent(this, NineCellActivity.class)));
 		tabHost.setCurrentTabByTag(TAB_HOME);
 	}
+
 }

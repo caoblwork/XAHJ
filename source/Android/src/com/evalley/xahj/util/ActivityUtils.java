@@ -3,6 +3,7 @@ package com.evalley.xahj.util;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.util.DisplayMetrics;
 
 /**
  * @Description Activity工具类
@@ -11,6 +12,28 @@ import android.content.DialogInterface;
  * @date 2012-7-5 下午5:30:58
  */
 public class ActivityUtils {
+	
+	/**
+	 * 获取屏幕宽度
+	 * 
+	 * @return
+	 */
+	public static int getScreenWidth(Activity activity) {
+		DisplayMetrics displayMetrics = new DisplayMetrics();
+		activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+		return displayMetrics.widthPixels;
+	}
+	
+	/**
+	 * 获取屏幕高度
+	 * 
+	 * @return
+	 */
+	public static int getScreenHeight(Activity activity) {
+		DisplayMetrics displayMetrics = new DisplayMetrics();
+		activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+		return displayMetrics.heightPixels;
+	}
 	
 	/**
 	 * 退出

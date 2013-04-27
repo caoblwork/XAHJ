@@ -20,6 +20,7 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="0.0" />
 		<LinearLayout
+		    android:id="@+id/mainBtnLayout"
 			android:orientation="vertical"
 			android:gravity="center_vertical"
 			android:layout_gravity="bottom"

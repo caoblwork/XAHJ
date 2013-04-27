@@ -2,7 +2,10 @@ package com.evalley.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +32,19 @@ public class BlogController {
 		this.simpleService = simpleService;
 	}
 
-	@RequestMapping(value = "list.do", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "test.do", method = { RequestMethod.GET, RequestMethod.POST })
     @ResponseBody
-    public Blog list(HttpServletResponse response) {
+    public Map test(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		response.setContentType("application/json;charset=UTF-8");
+		map.put("action", request.getParameter("action"));
+		map.put("username", request.getParameter("username"));
+		return map;
+	}
+	
+	@RequestMapping(value = "list.do", method = { RequestMethod.GET, RequestMethod.POST })
+	@ResponseBody
+	public Blog list(HttpServletResponse response) {
 		response.setContentType("application/json;charset=UTF-8");
 		return simpleService.selectBlog(100);
 	}
