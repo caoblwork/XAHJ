@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dip"
+    android:background="@drawable/help_item_state" >
+
+	<TextView
+        android:id="@+id/title"
+        android:text="怎样修改密码?"
+        android:textSize="16sp"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/right_arrow"
+        android:drawableLeft="@android:drawable/btn_star_big_on"/>
+
+</LinearLayout>

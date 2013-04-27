@@ -43,7 +43,7 @@ public class NineCellActivity extends FinalActivity {
 	/**
 	 * 设置
 	 */
-	private final String[] setting = {"帮    助", "检查更新", "关    于"};
+	public static final String[] setting = {"帮    助", "检查更新", "关    于"};
 	/**
 	 * 窗口对话框
 	 */
@@ -350,7 +350,12 @@ public class NineCellActivity extends FinalActivity {
     		
     		@Override
     		public void onClick(View v) {
-    			Toast.makeText(NineCellActivity.this, itemTxt1.getText().toString(), Toast.LENGTH_SHORT).show();
+    			/**
+    			 * 帮助
+    			 */
+    			Intent intent = new Intent(NineCellActivity.this, HelpActivity.class);
+    			startActivity(intent);
+    			overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
     		}
     	});
     	itemTxt2.setOnClickListener(new OnClickListener() {
@@ -364,6 +369,9 @@ public class NineCellActivity extends FinalActivity {
     		
     		@Override
     		public void onClick(View v) {
+    			/**
+    			 * 关于
+    			 */
     			Intent intent = new Intent(NineCellActivity.this, AboutActivity.class);
     			startActivity(intent);
     			overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
@@ -423,7 +431,6 @@ public class NineCellActivity extends FinalActivity {
 	@Override
 	public void onBackPressed() {
 		ActivityUtils.quit(this);
-		super.onBackPressed();
 	}
 	
 }

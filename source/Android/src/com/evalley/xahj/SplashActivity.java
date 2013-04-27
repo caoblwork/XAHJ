@@ -20,7 +20,7 @@ public class SplashActivity extends FinalActivity {
 	/**
 	 * 启动画面停留的时间
 	 */
-	private final int SPLASH_DISPLAY_LENGHT = 5000;
+	private final int SPLASH_DISPLAY_LENGHT = 1000;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class SplashActivity extends FinalActivity {
 		new Handler().postDelayed(new Runnable() {
 			public void run() {
 				Intent intent = new Intent();
-				intent.setClass(SplashActivity.this, MainTab.class);
+				intent.setClass(SplashActivity.this, LoginActivity.class);
 				SplashActivity.this.startActivity(intent);
 				overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
 				SplashActivity.this.finish();

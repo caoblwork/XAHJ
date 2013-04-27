@@ -10,7 +10,7 @@
         android:id="@+id/title1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dip"
+        android:layout_marginTop="150dip"
         android:gravity="center"
         android:text="@string/splash_title1"
         android:textColor="@android:color/white"
