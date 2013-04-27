@@ -14,7 +14,7 @@
         android:gravity="center"
         android:text="@string/splash_title1"
         android:textColor="@android:color/white"
-        android:textSize="40sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/title2"
@@ -24,6 +24,6 @@
         android:gravity="center"
         android:text="@string/splash_title2"
         android:textColor="@android:color/white"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
 </LinearLayout>

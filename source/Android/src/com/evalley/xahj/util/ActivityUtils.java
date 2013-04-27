@@ -2,7 +2,11 @@ package com.evalley.xahj.util;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.DisplayMetrics;
 
 /**
@@ -12,6 +16,25 @@ import android.util.DisplayMetrics;
  * @date 2012-7-5 下午5:30:58
  */
 public class ActivityUtils {
+	
+	/**
+	 * 获取当前程序版本号
+	 * 
+	 * @param ctx
+	 * @return
+	 */
+	public static String getVersion(Context ctx) {
+		PackageManager pm = ctx.getPackageManager();
+		try {
+			PackageInfo pi = pm.getPackageInfo(ctx.getPackageName(), PackageManager.GET_ACTIVITIES);
+			if (pi != null) {
+				return pi.versionName;
+			}
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
+		return "1.0";
+	}
 	
 	/**
 	 * 获取屏幕宽度

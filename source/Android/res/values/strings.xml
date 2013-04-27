@@ -6,8 +6,8 @@
     <string name="title_activity_main">MainActivity</string>
 
     <!-- splash -->
-    <string name="splash_title1">西安环监</string>
-    <string name="splash_title2">移动执法系统</string>
+    <string name="splash_title1">西安市环境保护局</string>
+    <string name="splash_title2">环境监察移动执法系统</string>
     
     <!-- panel -->
     <string name="nav1">任务管理</string>

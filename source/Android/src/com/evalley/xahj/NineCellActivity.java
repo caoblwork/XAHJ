@@ -3,6 +3,7 @@ package com.evalley.xahj;
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -323,7 +324,7 @@ public class NineCellActivity extends FinalActivity {
     }
     
     /**
-     * 地图功能
+     * 设置
      */
     protected void settingDialog() {
     	final AlertDialog dialog = new AlertDialog.Builder(this).create();
@@ -363,7 +364,9 @@ public class NineCellActivity extends FinalActivity {
     		
     		@Override
     		public void onClick(View v) {
-    			Toast.makeText(NineCellActivity.this, itemTxt3.getText().toString(), Toast.LENGTH_SHORT).show();
+    			Intent intent = new Intent(NineCellActivity.this, AboutActivity.class);
+    			startActivity(intent);
+    			overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
     		}
     	});
     	
