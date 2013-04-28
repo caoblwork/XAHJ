@@ -77,7 +77,7 @@ public class LoginActivity extends Activity {
 
 	private void init() {
 		TextView title = (TextView) findViewById(R.id.title_text);
-		title.setText("登    录");
+		title.setText("用 户 登 录");
 		title.getPaint().setFakeBoldText(true);
 
 		mobilephoneExt = (EditText) findViewById(R.id.mobilephoneExt);

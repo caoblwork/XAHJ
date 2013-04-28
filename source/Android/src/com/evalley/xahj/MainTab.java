@@ -44,6 +44,8 @@ public class MainTab extends TabActivity {
 	// 当前是否处于二级菜单
 	public Boolean isSecondLevel = false;
 	
+	private TextView titleTxt;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,11 +60,33 @@ public class MainTab extends TabActivity {
 	 * 初始化工作
 	 */
 	private void init() {
-		TextView title = (TextView)findViewById(R.id.title_text);
-		title.setText(getString(R.string.app_name));
+		resetTitle();
 		findViews();
         addListener();
         initTab();
+	}
+
+	@Override
+	protected void onResume() {
+		
+		super.onResume();
+	}
+
+	/**
+	 * 重置标题
+	 */
+	private void resetTitle() {
+		setTitle(getString(R.string.app_name));
+	}
+	
+	/**
+	 * 设置标题
+	 */
+	private void setTitle(String title) {
+		if (titleTxt == null) {
+			titleTxt = (TextView)findViewById(R.id.title_text);
+		}
+		titleTxt.setText(title);
 	}
 
 	/**
@@ -97,88 +121,24 @@ public class MainTab extends TabActivity {
 			switch (v.getId()) {
 				case R.id.main_layout1:
 					tabHost.setCurrentTabByTag(TAB_HOME);
+					resetTitle();
 					break;
 				case R.id.main_layout2:
 					tabHost.setCurrentTabByTag(TAB_SETTINGS);
-					//View view = tabHost.getTabWidget().getChildAt(0);
-					settingDialog();
+					setTitle(getString(R.string.main_settings));
 					break;
 				case R.id.main_layout3:
 					tabHost.setCurrentTabByTag(TAB_HELP);
+					setTitle(getString(R.string.help_label));
 					break;
 				case R.id.main_layout4:
+					resetTitle();
 					ActivityUtils.quit(MainTab.this);
 					break;
 			}
 		}
 	};
 	
-    /**
-     * 设置
-     */
-    protected void settingDialog() {
-    	if (dialog != null) {
-    		Toast.makeText(MainTab.this, "重用Dialog", Toast.LENGTH_SHORT).show(); 
-    		dialog.show();
-    		return;
-		}
-    	dialog = new AlertDialog.Builder(this).create();
-    	dialog.show();
-    	window = dialog.getWindow();
-    	window.setContentView(R.layout.dialog);
-    	
-    	ImageButton backBtn = (ImageButton)window.findViewById(R.id.backBtn);
-    	TextView titleTxt = (TextView)window.findViewById(R.id.titleTxt);
-    	titleTxt.setText(getString(R.string.nav9));
-    	final TextView itemTxt1 = getTextView(R.id.itemTxt1, NineCellActivity.setting[0]);
-    	final TextView itemTxt2 = getTextView(R.id.itemTxt2, NineCellActivity.setting[1]);
-    	final TextView itemTxt3 = getTextView(R.id.itemTxt3, NineCellActivity.setting[2]);
-    	
-    	backBtn.setOnClickListener(new OnClickListener() {
-    		
-    		@Override
-    		public void onClick(View v) {
-    			dialog.dismiss();
-    		}
-    	});
-    	itemTxt1.setOnClickListener(new OnClickListener() {
-    		
-    		@Override
-    		public void onClick(View v) {
-    			/**
-    			 * 帮助
-    			 */
-    			Intent intent = new Intent(MainTab.this, HelpActivity.class);
-    			startActivity(intent);
-    			overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-    		}
-    	});
-    	itemTxt2.setOnClickListener(new OnClickListener() {
-    		
-    		@Override
-    		public void onClick(View v) {
-    			Toast.makeText(MainTab.this, itemTxt2.getText().toString(), Toast.LENGTH_SHORT).show();
-    		}
-    	});
-    	itemTxt3.setOnClickListener(new OnClickListener() {
-    		
-    		@Override
-    		public void onClick(View v) {
-    			/**
-    			 * 关于
-    			 */
-    			Intent intent = new Intent(MainTab.this, AboutActivity.class);
-    			startActivity(intent);
-    			overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-    		}
-    	});
-    	
-    	window.setLayout(ActivityUtils.getScreenWidth(this), ActivityUtils.getScreenHeight(this) - findViewById(R.id.mainBtnLayout).getHeight());
-    	window.setBackgroundDrawableResource(android.R.color.transparent); 
-    	window.setGravity(Gravity.CENTER|Gravity.TOP); // 此处可以设置dialog显示的位置
-    	//window.setWindowAnimations(R.style.dialogStyle); // 添加动画
-    }
-    
     /**
      * 获取TextView
      * 
@@ -220,11 +180,11 @@ public class MainTab extends TabActivity {
 		tabHost = getTabHost();
 		tabHost.addTab(tabHost.newTabSpec(TAB_HOME).setIndicator(TAB_HOME)
 				.setContent(new Intent(this, NineCellActivity.class)));
-//		tabHost.addTab(tabHost.newTabSpec(TAB_SETTINGS)
-//				.setIndicator(TAB_SETTINGS)
-//				.setContent(new Intent(this, NineCellActivity.class)));
+		tabHost.addTab(tabHost.newTabSpec(TAB_SETTINGS)
+				.setIndicator(TAB_SETTINGS)
+				.setContent(new Intent(this, SettingActivity.class)));
 		tabHost.addTab(tabHost.newTabSpec(TAB_HELP).setIndicator(TAB_HELP)
-				.setContent(new Intent(this, NineCellActivity.class)));
+				.setContent(new Intent(this, HelpActivity.class)));
 		tabHost.setCurrentTabByTag(TAB_HOME);
 	}
 

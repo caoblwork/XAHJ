@@ -43,6 +43,18 @@
             android:theme="@style/customTitle" >
         </activity>
        	<activity
+            android:name=".SettingHelpActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/customTitle" >
+        </activity>
+       	<activity
+            android:name=".SettingActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/customTitle" >
+        </activity>
+       	<activity
             android:name=".PanelActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >

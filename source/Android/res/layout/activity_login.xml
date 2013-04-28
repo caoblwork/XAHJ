@@ -73,10 +73,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dip"
                         android:layout_marginRight="10dip"
-                        android:text="@string/login"
+                        android:text="@string/confirm"
                         android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/text_color5"
                         android:background="@drawable/login_state" />
                 </LinearLayout>
 

@@ -43,7 +43,7 @@ public class NineCellActivity extends FinalActivity {
 	/**
 	 * 设置
 	 */
-	public static final String[] setting = {"帮    助", "检查更新", "关    于"};
+	public static final String[] setting = {"检查更新", "帮    助", "关    于"};
 	/**
 	 * 窗口对话框
 	 */
@@ -350,19 +350,19 @@ public class NineCellActivity extends FinalActivity {
     		
     		@Override
     		public void onClick(View v) {
-    			/**
-    			 * 帮助
-    			 */
-    			Intent intent = new Intent(NineCellActivity.this, HelpActivity.class);
-    			startActivity(intent);
-    			overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+    			Toast.makeText(NineCellActivity.this, itemTxt2.getText().toString(), Toast.LENGTH_SHORT).show();
     		}
     	});
     	itemTxt2.setOnClickListener(new OnClickListener() {
     		
     		@Override
     		public void onClick(View v) {
-    			Toast.makeText(NineCellActivity.this, itemTxt2.getText().toString(), Toast.LENGTH_SHORT).show();
+    			/**
+    			 * 帮助
+    			 */
+    			Intent intent = new Intent(NineCellActivity.this, SettingHelpActivity.class);
+    			startActivity(intent);
+    			//overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
     		}
     	});
     	itemTxt3.setOnClickListener(new OnClickListener() {
@@ -374,7 +374,7 @@ public class NineCellActivity extends FinalActivity {
     			 */
     			Intent intent = new Intent(NineCellActivity.this, AboutActivity.class);
     			startActivity(intent);
-    			overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+    			//overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
     		}
     	});
     	

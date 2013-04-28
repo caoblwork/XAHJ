@@ -3,19 +3,22 @@ package com.evalley.xahj;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 /**
- * @Description 帮助
+ * @Description 设置-帮助
  * @author 麻胜海
  * @date 2011-10-20 下午06:15:19
  */
-public class HelpActivity extends Activity {
+public class SettingHelpActivity extends Activity {
 	
     private static final String[] titles = {
     	"怎么管理我的任务?",
@@ -30,13 +33,29 @@ public class HelpActivity extends Activity {
     @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.help);
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.custom_title);
 		findViews();
 	}
 	
 	
 	private void findViews(){
 		
+		TextView title = (TextView)findViewById(R.id.title_text);
+		title.setText("帮    助");
+		title.getPaint().setFakeBoldText(true);
+		/**
+		 * 返回按钮
+		 */
+		ImageButton gobackBtn = (ImageButton) findViewById(R.id.gobackBtn);
+		gobackBtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+			}
+		});
 		ListView listView = (ListView) findViewById(R.id.listView);
 		listView.setAdapter(new HelpItemAdapter());
 		listView.setOnItemClickListener(new OnItemClickListener() {
@@ -79,7 +98,7 @@ public class HelpActivity extends Activity {
 		@Override
 		public View getView(final int position, View convertView, ViewGroup parent) {
 			if (getCount() > 0) {
-				View myview = HelpActivity.this.getLayoutInflater().inflate(R.layout.help_item, null);
+				View myview = SettingHelpActivity.this.getLayoutInflater().inflate(R.layout.help_item, null);
 				TextView title = (TextView) myview.findViewById(R.id.title);
 				title.setText(titles[position]);
 				return myview;
@@ -90,6 +109,8 @@ public class HelpActivity extends Activity {
 	
 	@Override
 	public void onBackPressed() {
-		((MainTab) getParent()).getTabHost().setCurrentTab(0);
+		finish();
+		overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
+		super.onBackPressed();
 	}
 }
