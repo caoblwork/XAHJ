@@ -125,11 +125,11 @@ public class MainTab extends TabActivity {
 					break;
 				case R.id.main_layout2:
 					tabHost.setCurrentTabByTag(TAB_SETTINGS);
-					setTitle(getString(R.string.main_settings));
+					setTitle("设    置");
 					break;
 				case R.id.main_layout3:
 					tabHost.setCurrentTabByTag(TAB_HELP);
-					setTitle(getString(R.string.help_label));
+					setTitle("帮    助");
 					break;
 				case R.id.main_layout4:
 					resetTitle();

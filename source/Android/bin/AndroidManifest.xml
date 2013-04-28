@@ -18,10 +18,7 @@
             android:name=".SplashActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-			<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>  
+
         </activity>
        	<activity
             android:name=".MainTab"
@@ -72,11 +69,16 @@
             android:name=".demo.AfinalOrmDemoActivity"
             android:label="@string/title_activity_main" >
         </activity>
+        <!-- 企业查询 -->
      	<activity
-            android:name=".AboutActivity"
+            android:name=".corp.CorpSearchActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/customTitle" >
+			<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>              
         </activity>
     </application>
 

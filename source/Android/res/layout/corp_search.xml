@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray1"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="30dip"
+        android:background="@drawable/textview_bg"
+        android:gravity="center"
+        android:paddingRight="5dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="3dip"
+            android:singleLine="true"
+            android:text="@string/corp_name"
+            android:textColor="@color/text_color1"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/corpNameTxt"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_bg"
+            android:inputType="text"
+            android:maxLength="20"
+            android:paddingLeft="5dip"
+            android:singleLine="true"
+            android:textColor="@color/text_color5"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:background="@drawable/textview_bg"
+        android:gravity="center"
+        android:paddingRight="5dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="3dip"
+            android:singleLine="true"
+            android:text="@string/corp_area"
+            android:textColor="@color/text_color1"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/corpAreaSpinner"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/text_color5"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:background="@drawable/textview_bg"
+        android:gravity="center"
+        android:paddingRight="5dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="3dip"
+            android:singleLine="true"
+            android:text="@string/corp_type"
+            android:textColor="@color/text_color1"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/corpTypeSpinner"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/text_color5"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:background="@drawable/textview_bg"
+        android:gravity="center"
+        android:paddingRight="5dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="3dip"
+            android:singleLine="true"
+            android:text="@string/corporation"
+            android:textColor="@color/text_color1"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/corporationTxt"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_bg"
+            android:inputType="text"
+            android:maxLength="0"
+            android:paddingLeft="5dip"
+            android:singleLine="true"
+            android:textColor="@color/text_color5"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dip"
+        android:gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/queryBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_state"
+            android:text="@string/query"
+            android:textColor="@color/text_color5"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>
