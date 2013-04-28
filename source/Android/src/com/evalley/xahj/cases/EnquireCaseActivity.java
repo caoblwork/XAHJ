@@ -1,4 +1,4 @@
-package com.evalley.xahj.corp;
+package com.evalley.xahj.cases;
 
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
@@ -17,18 +17,19 @@ import android.widget.TextView;
 import com.evalley.xahj.R;
 
 /**
- * @Description 企业查询
+ * @Description 环境保护调查询问笔录
  * @author 麻胜海
  * @date 2011-10-20 下午06:15:19
  */
-public class CorpSearchActivity extends FinalActivity {
+public class EnquireCaseActivity extends FinalActivity {
 	
 	@ViewInject(id=R.id.queryBtn,click="submit") Button queryBtn;
 	@ViewInject(id=R.id.corpNameTxt) EditText corpNameTxt;
 	@ViewInject(id=R.id.corporationTxt) EditText corporationTxt;
 	@ViewInject(id=R.id.corpAreaSpinner) Spinner corpAreaSpinner;
 	@ViewInject(id=R.id.corpTypeSpinner) Spinner corpTypeSpinner;
-	private ProgressBar progressBar;
+	//@ViewInject(id=R.id.progressBar) 
+	ProgressBar progressBar;
 	
     @Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class CorpSearchActivity extends FinalActivity {
 		progressBar = (ProgressBar)findViewById(R.id.progressBar);
 		
 		TextView title = (TextView)findViewById(R.id.title_text);
-		title.setText("一厂一档查询");
+		title.setText("环境保护调查询问");
 		title.getPaint().setFakeBoldText(true);
 		
 		/**

@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/videoChannelLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/header_bg"
+    android:gravity="center"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip" >
+
+    <TextView
+        android:id="@+id/caseNav1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/case_baseinfo"
+        android:background="@drawable/label_p_bg"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+    <TextView
+        android:id="@+id/caseNav2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/case_pic"
+        android:background="@drawable/label_bg"
+        android:gravity="center"
+        android:textColor="@color/text_color5"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/caseNav3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/case_video"
+        android:gravity="center"
+        android:background="@drawable/label_bg"
+        android:textColor="@color/text_color5"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/caseNav4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/case_audio"
+        android:gravity="center"
+        android:background="@drawable/label_bg"
+        android:textColor="@color/text_color5"
+        android:textSize="15sp" />
+
+</LinearLayout>

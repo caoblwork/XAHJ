@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray1"
+    android:gravity="center_horizontal"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dip"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_bg"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="3dip"
+                android:singleLine="true"
+                android:text="@string/case_party"
+                android:textColor="@color/text_color1"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/partyExt"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_bg"
+                android:inputType="text"
+                android:maxLength="20"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:singleLine="true"
+                android:textColor="@color/text_color5"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_bg"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="3dip"
+                    android:singleLine="true"
+                    android:text="@string/case_corporation"
+                    android:textColor="@color/text_color1"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/corporationExt"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color5"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="3dip"
+                    android:singleLine="true"
+                    android:text="@string/case_duty"
+                    android:textColor="@color/text_color1"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/corporationDutyExt"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color5"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="3dip"
+                    android:singleLine="true"
+                    android:text="@string/case_phone"
+                    android:textColor="@color/text_color1"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/corporationPhoneExt"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="phone"
+                    android:maxLength="20"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color5"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_bg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="3dip"
+                android:singleLine="true"
+                android:text="@string/case_desc"
+                android:textColor="@color/text_color1"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/caseDescExt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg"
+                android:inputType="textMultiLine"
+                android:maxLength="300"
+                android:maxLines="6"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:textColor="@color/text_color5"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_bg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="3dip"
+                android:singleLine="true"
+                android:text="@string/case_owner_opinion"
+                android:textColor="@color/text_color1"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/ownerOpinionExt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg"
+                android:inputType="textMultiLine"
+                android:maxLength="300"
+                android:maxLines="6"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:textColor="@color/text_color5"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_bg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="3dip"
+                android:singleLine="true"
+                android:text="@string/case_dept_opinion"
+                android:textColor="@color/text_color1"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/deptOpinionExt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg"
+                android:inputType="textMultiLine"
+                android:maxLength="300"
+                android:maxLines="6"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:textColor="@color/text_color5"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_bg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="3dip"
+                android:singleLine="true"
+                android:text="@string/remark"
+                android:textColor="@color/text_color1"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/remarkExt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg"
+                android:inputType="textMultiLine"
+                android:maxLength="300"
+                android:maxLines="6"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:textColor="@color/text_color5"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:gravity="center_horizontal" >
+
+            <Button
+                android:id="@+id/queryBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_state"
+                android:text="@string/submit"
+                android:textColor="@color/text_color5"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
