@@ -13,6 +13,7 @@
 		<pattern>/index.jsp</pattern>
 		<pattern>/workflow/*</pattern>
 		<pattern>/system/*</pattern>
+		<pattern>/emes/*</pattern>
 	</decorator>
 	
 	<decorator name="frame_basic" page="frame_basic.jsp">

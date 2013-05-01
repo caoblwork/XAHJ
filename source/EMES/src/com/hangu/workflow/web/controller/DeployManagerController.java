@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-import java.util.List;
 import java.util.UUID;
 import java.util.zip.ZipInputStream;
 
@@ -35,14 +34,10 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.hangu.common.config.Configuration;
 import com.hangu.common.util.StringUtil;
-import com.hangu.framework.system.service.DataDictionaryService;
-import com.hangu.framework.system.vo.DataDictionaryVo;
 import com.hangu.framework.vo.BaseVo;
-import com.hangu.framework.vo.Page;
 import com.hangu.framework.web.controller.EntityController;
 import com.hangu.workflow.common.Constants;
 import com.hangu.workflow.common.ProcedureDeployStatus;
-import com.hangu.workflow.entity.DeployManager;
 import com.hangu.workflow.service.DeployManagerService;
 import com.hangu.workflow.vo.DeployManagerSearchCondition;
 import com.hangu.workflow.vo.DeployManagerVo;
@@ -53,9 +48,6 @@ public class DeployManagerController extends EntityController<DeployManagerVo, D
 
 	@Autowired
 	private RepositoryService repositoryService;
-
-	@Autowired
-	private DataDictionaryService dataDictionaryService;
 
 	@SuppressWarnings("unused")
 	@Autowired
@@ -178,22 +170,5 @@ public class DeployManagerController extends EntityController<DeployManagerVo, D
 			repositoryService.deleteDeployment(deployManagerVo.getDeployId(), Boolean.TRUE);
 		}
 		super.doRemove(mav, id, deployManagerVo);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see
-	 * com.hangu.framework.web.controller.EntityController#decorateSearchResult
-	 * (com.hangu.framework.vo.Page)
-	 */
-	@Override
-	protected void decorateSearchResult(Page page) {
-		super.decorateSearchResult(page);
-		List<Object> voList = (List<Object>) page.getResult();
-		for (Object object : voList) {
-			DeployManager entity = (DeployManager) object;
-			DataDictionaryVo dictionaryVo = dataDictionaryService.findDataItemsByTypeKey(Constants.DEPLOY_TYPE, entity.getStatus());
-			entity.setStatus(dictionaryVo.getValue());
-		}
 	}
 }

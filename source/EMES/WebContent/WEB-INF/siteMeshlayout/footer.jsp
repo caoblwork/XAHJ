@@ -1,7 +1,4 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<hr>
-<footer>
-	<div class="container">
-		<p>&copy; 西安函谷信息科技 2013</p>
-	</div>
-</footer>
+<div id="footer">
+	<!-- <div class="copyright">Copyright &copy;2013 陕西省环境保护执法局版权所有</div>  -->
+</div>

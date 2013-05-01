@@ -6,25 +6,26 @@
 <title>数据字典信息展示</title>
 </head>
 <body>
-	<table width="100%" class="table table-striped table-bordered table-condensed">
+<div id="fullcontent">
+	<table width="100%" class="tableEditMore">
 		<tbody>
 			<tr>
-				<th class="span3"><label for="type" class="pull-right">字典类型:</label></th>
+				<th class="leftLabel"><label for="type" class="pull-right">字典类型:</label></th>
 				<td>${voModel.type }</td>
 			</tr>
 			<tr>
-				<th class="span3"><label for="key" class="pull-right">字典键:</label></th>
+				<th class="leftLabel"><label for="key" class="pull-right">字典键:</label></th>
 				<td>${voModel.key }</td>
 			</tr>
 			<tr>
-				<th class="span3"><label for="value" class="pull-right">字典值:</label></th>
+				<th class="leftLabel"><label for="value" class="pull-right">字典值:</label></th>
 				<td>${voModel.value }</td>
 			</tr>
 		</tbody>
 	</table>
-
-	<div class="form-actions">
-		<input id="cancel" class="btn" type="button" value="返回" onclick="javascript:history.back();" />
-	</div>
+</div>
+<div class="btnArea">
+            <input id="cancel" class="button" type="button" value="返回" onclick="javascript:history.back();" />
+        </div>
 </body>
 </html>
