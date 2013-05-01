@@ -16,6 +16,18 @@ public class StringUtils {
 		}
 		return false;
 	}
+	/**
+	 * 判断字符串不为null且不为空
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static boolean isBlank(String str) {
+		if (str == null || str.equals("")) {
+			return true;
+		}
+		return false;
+	}
 
 	/**
 	 * Java MD5加密

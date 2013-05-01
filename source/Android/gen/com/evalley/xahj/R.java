@@ -54,6 +54,13 @@ public final class R {
         public static final int white1=0x7f060003;
     }
     public static final class dimen {
+        /** 
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
+    
+         */
+        public static final int activity_horizontal_margin=0x7f070003;
+        public static final int activity_vertical_margin=0x7f070004;
         public static final int padding_large=0x7f070002;
         public static final int padding_medium=0x7f070001;
         public static final int padding_small=0x7f070000;
@@ -111,112 +118,133 @@ public final class R {
         public static final int panel_item_bg=0x7f020031;
         public static final int progressbar_style=0x7f020032;
         public static final int right_arrow=0x7f020033;
-        public static final int splash=0x7f020034;
-        public static final int tab_selected=0x7f020035;
-        public static final int textview_bg=0x7f020036;
-        public static final int textview_left=0x7f020037;
-        public static final int title_bg=0x7f020038;
+        public static final int round_button=0x7f020034;
+        public static final int round_button_pressed=0x7f020035;
+        public static final int round_button_state=0x7f020036;
+        public static final int search_bg=0x7f020037;
+        public static final int splash=0x7f020038;
+        public static final int tab_selected=0x7f020039;
+        public static final int textview_bg=0x7f02003a;
+        public static final int textview_left=0x7f02003b;
+        public static final int title_bg=0x7f02003c;
     }
     public static final class id {
-        public static final int backBtn=0x7f0b002e;
-        public static final int caseDescExt=0x7f0b0022;
-        public static final int caseNav1=0x7f0b001a;
-        public static final int caseNav2=0x7f0b001b;
-        public static final int caseNav3=0x7f0b001c;
-        public static final int caseNav4=0x7f0b001d;
-        public static final int corpAreaSpinner=0x7f0b0028;
-        public static final int corpNameTxt=0x7f0b0027;
-        public static final int corpTypeSpinner=0x7f0b0029;
-        public static final int corporationDutyExt=0x7f0b0020;
-        public static final int corporationExt=0x7f0b001f;
-        public static final int corporationPhoneExt=0x7f0b0021;
-        public static final int corporationTxt=0x7f0b002a;
-        public static final int deptOpinionExt=0x7f0b0024;
-        public static final int gobackBtn=0x7f0b002b;
-        public static final int imgNav1=0x7f0b000f;
-        public static final int imgNav2=0x7f0b0010;
-        public static final int imgNav3=0x7f0b0011;
-        public static final int imgNav4=0x7f0b0012;
-        public static final int imgNav5=0x7f0b0013;
-        public static final int imgNav6=0x7f0b0014;
-        public static final int imgNav7=0x7f0b0015;
-        public static final int imgNav8=0x7f0b0016;
-        public static final int imgNav9=0x7f0b0017;
-        public static final int itemTxt1=0x7f0b0030;
-        public static final int itemTxt2=0x7f0b0031;
-        public static final int itemTxt3=0x7f0b0032;
-        public static final int itemTxt4=0x7f0b0033;
-        public static final int itemTxt5=0x7f0b0034;
-        public static final int itemTxt6=0x7f0b0035;
-        public static final int itemTxt7=0x7f0b0036;
-        public static final int itemTxt8=0x7f0b0037;
-        public static final int listView=0x7f0b0038;
-        public static final int loginBtn=0x7f0b0004;
-        public static final int mainBtnLayout=0x7f0b0041;
-        public static final int main_label12=0x7f0b003c;
-        public static final int main_label13=0x7f0b003e;
-        public static final int main_label14=0x7f0b0040;
-        public static final int main_layout1=0x7f0b003a;
-        public static final int main_layout2=0x7f0b003b;
-        public static final int main_layout3=0x7f0b003d;
-        public static final int main_layout4=0x7f0b003f;
-        public static final int menu_settings=0x7f0b0044;
-        public static final int mobilephoneExt=0x7f0b0002;
-        public static final int nav1=0x7f0b0006;
-        public static final int nav2=0x7f0b0007;
-        public static final int nav3=0x7f0b0008;
-        public static final int nav4=0x7f0b0009;
-        public static final int nav5=0x7f0b000a;
-        public static final int nav6=0x7f0b000b;
-        public static final int nav7=0x7f0b000c;
-        public static final int nav8=0x7f0b000d;
-        public static final int nav9=0x7f0b000e;
-        public static final int ownerOpinionExt=0x7f0b0023;
-        public static final int partyExt=0x7f0b001e;
-        public static final int passwdExt=0x7f0b0003;
-        public static final int progressBar=0x7f0b002d;
-        public static final int queryBtn=0x7f0b0026;
-        public static final int remarkExt=0x7f0b0025;
-        public static final int rememberPasswdChk=0x7f0b0005;
+        public static final int action_settings=0x7f0b004b;
+        public static final int backBtn=0x7f0b0034;
+        public static final int capturePhotoBtn=0x7f0b001b;
+        public static final int caseDescExt=0x7f0b0028;
+        public static final int caseNav1=0x7f0b0020;
+        public static final int caseNav2=0x7f0b0021;
+        public static final int caseNav3=0x7f0b0022;
+        public static final int caseNav4=0x7f0b0023;
+        public static final int corpAreaSpinner=0x7f0b002e;
+        public static final int corpNameTxt=0x7f0b002d;
+        public static final int corpTypeSpinner=0x7f0b002f;
+        public static final int corporationDutyExt=0x7f0b0026;
+        public static final int corporationExt=0x7f0b0025;
+        public static final int corporationPhoneExt=0x7f0b0027;
+        public static final int corporationTxt=0x7f0b0030;
+        public static final int deptOpinionExt=0x7f0b002a;
+        public static final int gallery=0x7f0b001c;
+        public static final int gobackBtn=0x7f0b0031;
+        public static final int imgNav1=0x7f0b0010;
+        public static final int imgNav2=0x7f0b0011;
+        public static final int imgNav3=0x7f0b0012;
+        public static final int imgNav4=0x7f0b0013;
+        public static final int imgNav5=0x7f0b0014;
+        public static final int imgNav6=0x7f0b0015;
+        public static final int imgNav7=0x7f0b0016;
+        public static final int imgNav8=0x7f0b0017;
+        public static final int imgNav9=0x7f0b0018;
+        public static final int itemTxt1=0x7f0b0036;
+        public static final int itemTxt2=0x7f0b0037;
+        public static final int itemTxt3=0x7f0b0038;
+        public static final int itemTxt4=0x7f0b0039;
+        public static final int itemTxt5=0x7f0b003a;
+        public static final int itemTxt6=0x7f0b003b;
+        public static final int itemTxt7=0x7f0b003c;
+        public static final int itemTxt8=0x7f0b003d;
+        public static final int keywordsExt=0x7f0b0019;
+        public static final int listView=0x7f0b003e;
+        public static final int loginBtn=0x7f0b0005;
+        public static final int mainBtnLayout=0x7f0b0047;
+        public static final int main_label12=0x7f0b0042;
+        public static final int main_label13=0x7f0b0044;
+        public static final int main_label14=0x7f0b0046;
+        public static final int main_layout1=0x7f0b0040;
+        public static final int main_layout2=0x7f0b0041;
+        public static final int main_layout3=0x7f0b0043;
+        public static final int main_layout4=0x7f0b0045;
+        public static final int menu_settings=0x7f0b004a;
+        public static final int mobilephoneExt=0x7f0b0003;
+        public static final int nav1=0x7f0b0007;
+        public static final int nav2=0x7f0b0008;
+        public static final int nav3=0x7f0b0009;
+        public static final int nav4=0x7f0b000a;
+        public static final int nav5=0x7f0b000b;
+        public static final int nav6=0x7f0b000c;
+        public static final int nav7=0x7f0b000d;
+        public static final int nav8=0x7f0b000e;
+        public static final int nav9=0x7f0b000f;
+        public static final int ownerOpinionExt=0x7f0b0029;
+        public static final int pageInfo=0x7f0b001d;
+        public static final int partyExt=0x7f0b0024;
+        public static final int passwdExt=0x7f0b0004;
+        public static final int photoListView=0x7f0b001a;
+        public static final int progressBar=0x7f0b0033;
+        public static final int queryBtn=0x7f0b002c;
+        public static final int remarkExt=0x7f0b002b;
+        public static final int rememberPasswdChk=0x7f0b0006;
         public static final int system_about_id=0x7f0b0000;
+        public static final int text=0x7f0b0002;
         public static final int textView=0x7f0b0001;
-        public static final int title=0x7f0b0039;
-        public static final int title1=0x7f0b0042;
-        public static final int title2=0x7f0b0043;
-        public static final int titleTxt=0x7f0b002f;
-        public static final int title_text=0x7f0b002c;
-        public static final int videoChannelLayout=0x7f0b0019;
-        public static final int viewPager=0x7f0b0018;
+        public static final int title=0x7f0b003f;
+        public static final int title1=0x7f0b0048;
+        public static final int title2=0x7f0b0049;
+        public static final int titleTxt=0x7f0b0035;
+        public static final int title_text=0x7f0b0032;
+        public static final int videoChannelLayout=0x7f0b001f;
+        public static final int viewPager=0x7f0b001e;
     }
     public static final class layout {
         public static final int about=0x7f030000;
         public static final int activity_demo_orm=0x7f030001;
-        public static final int activity_login=0x7f030002;
-        public static final int activity_nine_cell=0x7f030003;
-        public static final int activity_panel=0x7f030004;
-        public static final int case_report=0x7f030005;
-        public static final int case_report_header=0x7f030006;
-        public static final int case_report_info=0x7f030007;
-        public static final int case_report_pic=0x7f030008;
-        public static final int corp_search=0x7f030009;
-        public static final int custom_title=0x7f03000a;
-        public static final int dialog=0x7f03000b;
-        public static final int help=0x7f03000c;
-        public static final int help_item=0x7f03000d;
-        public static final int main_footer=0x7f03000e;
-        public static final int main_tab=0x7f03000f;
-        public static final int main_title=0x7f030010;
-        public static final int setting=0x7f030011;
-        public static final int splash=0x7f030012;
+        public static final int activity_jsondemo=0x7f030002;
+        public static final int activity_login=0x7f030003;
+        public static final int activity_nine_cell=0x7f030004;
+        public static final int activity_panel=0x7f030005;
+        public static final int capture_audio=0x7f030006;
+        public static final int capture_photo=0x7f030007;
+        public static final int capture_video=0x7f030008;
+        public static final int case_report=0x7f030009;
+        public static final int case_report_header=0x7f03000a;
+        public static final int case_report_info=0x7f03000b;
+        public static final int case_report_pic=0x7f03000c;
+        public static final int corp_search=0x7f03000d;
+        public static final int custom_title=0x7f03000e;
+        public static final int dialog=0x7f03000f;
+        public static final int help=0x7f030010;
+        public static final int help_item=0x7f030011;
+        public static final int image_gallery=0x7f030012;
+        public static final int main_footer=0x7f030013;
+        public static final int main_tab=0x7f030014;
+        public static final int main_title=0x7f030015;
+        public static final int setting=0x7f030016;
+        public static final int splash=0x7f030017;
     }
     public static final class menu {
         public static final int activity_main=0x7f0a0000;
+        public static final int jsondemo=0x7f0a0001;
     }
     public static final class string {
         /**  登录 
          */
         public static final int account=0x7f080006;
+        public static final int action_settings=0x7f080032;
         public static final int app_name=0x7f080000;
+        public static final int capture_audio=0x7f08001c;
+        public static final int capture_photo=0x7f08001a;
+        public static final int capture_video=0x7f08001b;
         public static final int case_audio=0x7f080019;
         public static final int case_baseinfo=0x7f080016;
         public static final int case_corporation=0x7f08000e;
@@ -231,43 +259,44 @@ public final class R {
         public static final int case_phone=0x7f080010;
         public static final int case_pic=0x7f080017;
         public static final int case_video=0x7f080018;
-        public static final int confirm=0x7f080027;
-        public static final int corp_area=0x7f08001b;
+        public static final int confirm=0x7f08002a;
+        public static final int corp_area=0x7f08001e;
         /**  企业查询 
          */
-        public static final int corp_name=0x7f08001a;
-        public static final int corp_type=0x7f08001c;
-        public static final int corporation=0x7f08001d;
+        public static final int corp_name=0x7f08001d;
+        public static final int corp_type=0x7f08001f;
+        public static final int corporation=0x7f080020;
         public static final int hello_world=0x7f080001;
-        public static final int help_label=0x7f08002c;
+        public static final int help_label=0x7f08002f;
         public static final int hint_mobilephone=0x7f08000a;
         public static final int hint_passwd=0x7f080009;
         public static final int login=0x7f080008;
-        public static final int login_quit=0x7f08002b;
-        public static final int main_home_label=0x7f08002a;
-        public static final int main_settings=0x7f08002d;
+        public static final int login_quit=0x7f08002e;
+        public static final int main_home_label=0x7f08002d;
+        public static final int main_settings=0x7f080030;
         public static final int menu_settings=0x7f080002;
         /**  panel 
          */
-        public static final int nav1=0x7f08001e;
-        public static final int nav2=0x7f08001f;
-        public static final int nav3=0x7f080020;
-        public static final int nav4=0x7f080021;
-        public static final int nav5=0x7f080022;
-        public static final int nav6=0x7f080023;
-        public static final int nav7=0x7f080024;
-        public static final int nav8=0x7f080025;
-        public static final int nav9=0x7f080026;
+        public static final int nav1=0x7f080021;
+        public static final int nav2=0x7f080022;
+        public static final int nav3=0x7f080023;
+        public static final int nav4=0x7f080024;
+        public static final int nav5=0x7f080025;
+        public static final int nav6=0x7f080026;
+        public static final int nav7=0x7f080027;
+        public static final int nav8=0x7f080028;
+        public static final int nav9=0x7f080029;
         public static final int passwd=0x7f080007;
-        public static final int query=0x7f080029;
+        public static final int query=0x7f08002c;
         public static final int remark=0x7f080015;
         /**  splash 
          */
         public static final int splash_title1=0x7f080004;
         public static final int splash_title2=0x7f080005;
-        public static final int submit=0x7f080028;
+        public static final int submit=0x7f08002b;
         public static final int text_forgot_passwd=0x7f08000c;
         public static final int text_remember_passwd=0x7f08000b;
+        public static final int title_activity_jsondemo=0x7f080031;
         public static final int title_activity_main=0x7f080003;
     }
     public static final class style {
@@ -277,4 +306,25 @@ public final class R {
         public static final int dialogStyle=0x7f090004;
         public static final int splash=0x7f090002;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a Gallery1.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #Gallery1_android_galleryItemBackground com.evalley.xahj:android_galleryItemBackground}</code></td><td></td></tr>
+           </table>
+           @see #Gallery1_android_galleryItemBackground
+         */
+        public static final int[] Gallery1 = {
+            0x0101004c
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.evalley.xahj.R.attr#android_galleryItemBackground}
+          attribute's value can be found in the {@link #Gallery1} array.
+          @attr name android:android_galleryItemBackground
+        */
+        public static final int Gallery1_android_galleryItemBackground = 0;
+    };
 }

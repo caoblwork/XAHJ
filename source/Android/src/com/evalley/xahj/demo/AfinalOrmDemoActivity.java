@@ -1,6 +1,6 @@
 package com.evalley.xahj.demo;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.FinalHttp;
@@ -12,6 +12,10 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.evalley.xahj.R;
+import com.evalley.xahj.vo.Blog;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class AfinalOrmDemoActivity extends FinalActivity {
 
@@ -22,6 +26,8 @@ public class AfinalOrmDemoActivity extends FinalActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_demo_orm);
+		
+		
 
 //		FinalDb db = FinalDb.create(this);
 //
@@ -38,32 +44,44 @@ public class AfinalOrmDemoActivity extends FinalActivity {
 //
 //		textView.setText(userList.get(0).getName() + ":" + user.getRegisterDate());
 
-		FinalHttp fh = new FinalHttp();
-
-		AjaxParams params = new AjaxParams();
-		params.put("action", "test");
-		params.put("username", "aaaaa");
+//		FinalHttp fh = new FinalHttp();
+//
+//		AjaxParams params = new AjaxParams();
+//		params.put("action", "test");
+//		params.put("username", "aaaaa");
 //		try {
 //			params.put("file", new File("/mnt/sdcard/1.jpg"));
 //		} catch (FileNotFoundException e) {
 //			e.printStackTrace();
 //		}
-		String serverUrl = "http://192.168.0.22:8080/XAHJServer/blog/test.do";
+		//String serverUrl = "http://192.168.0.22:8080/XAHJServer/blog/test.do";
+		String serverUrl = "http://192.168.0.105:8080/XAHJServer/blog/list.do";
 
-		fh.post(serverUrl, params, new AjaxCallBack<Object>() {
-
-			@Override
-			public void onLoading(long count, long current) {
-				textView.setText(current+"/"+count);
-				super.onLoading(count, current);
-			}
-
-			@Override
-			public void onSuccess(Object t) {
-				// TODO Auto-generated method stub
-				Log.i("AfinalOrmDemoActivity", "返回信息是+" + t.toString());
-				textView.setText(t.toString());
-			}
-		});
+//		fh.post(serverUrl, params, new AjaxCallBack<Object>() {
+//
+//			@Override
+//			public void onLoading(long count, long current) {
+//				textView.setText(current+"/"+count);
+//				super.onLoading(count, current);
+//			}
+//
+//			@Override
+//			public void onSuccess(Object t) {
+//				Log.i("AfinalOrmDemoActivity", "返回信息是+" + t.toString());
+//				textView.setText(t.toString());
+//				
+//				ObjectMapper mapper = new ObjectMapper(); // can reuse, share globally
+//				try {
+//					Blog blog = mapper.readValue(t.toString(), Blog.class);
+//					blog.toString();
+//				} catch (JsonParseException e) {
+//					e.printStackTrace();
+//				} catch (JsonMappingException e) {
+//					e.printStackTrace();
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
 	}
 }
