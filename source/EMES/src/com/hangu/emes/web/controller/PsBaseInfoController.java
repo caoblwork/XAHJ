@@ -23,7 +23,7 @@ import com.hangu.framework.web.controller.EntityController;
  *
  */
 @Controller
-@RequestMapping("/eme/psBaseInfo/*")
+@RequestMapping("/emes/psBaseInfo/*")
 public class PsBaseInfoController extends EntityController<PsBaseInfoVo, PsBaseInfoSearchCondition> {
     /**
      * 序列化ID
@@ -52,7 +52,7 @@ public class PsBaseInfoController extends EntityController<PsBaseInfoVo, PsBaseI
         super();
 //        addValidator = new PsBaseInfoValidator();
 //        editValidator = addValidator;
-        pathPrefix = "eme/";
+        pathPrefix = "emes/";
     }
    
 }
