@@ -1,1 +1,1 @@
-测试eclipse
+测试eclipse的egit插件
