@@ -7,6 +7,10 @@ import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 
 /**
@@ -16,6 +20,23 @@ import android.util.DisplayMetrics;
  * @date 2012-7-5 下午5:30:58
  */
 public class ActivityUtils {
+	
+	/**
+	 * 将Drawable转化为Bitmap
+	 * 
+	 * @param drawable
+	 * @return
+	 */
+	public static Bitmap drawableToBitmap(Drawable drawable) {
+		int width = drawable.getIntrinsicWidth();
+		int height = drawable.getIntrinsicHeight();
+		Bitmap bitmap = Bitmap.createBitmap(width, height, drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+		Canvas canvas = new Canvas(bitmap);
+		drawable.setBounds(0, 0, width, height);
+		drawable.draw(canvas);
+		return bitmap;
+
+	}
 	
 	/**
 	 * 获取当前程序版本号

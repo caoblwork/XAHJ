@@ -29,7 +29,7 @@
         android:id="@+id/capturePhotoBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/capture_audio"
+        android:text="@string/capture_video"
         android:textColor="@color/text_color1"
         android:textSize="20sp"
         android:background="@drawable/round_button_state"

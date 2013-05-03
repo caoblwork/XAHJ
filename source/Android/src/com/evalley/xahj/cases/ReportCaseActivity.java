@@ -38,9 +38,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.evalley.xahj.R;
+import com.evalley.xahj.util.ActivityUtils;
 import com.evalley.xahj.util.FileUtils;
 
 /**
@@ -62,7 +62,7 @@ public class ReportCaseActivity extends CaseBaseActivity {
 	 * 基本信息
 	 */
 	//@ViewInject(id=R.id.queryBtn,click="submit") 
-	private Button queryBtn;
+	private Button titleBtn;
 	//@ViewInject(id=R.id.partyExt) 
 	private EditText partyExt;
 	//@ViewInject(id=R.id.corporationExt) 
@@ -86,6 +86,8 @@ public class ReportCaseActivity extends CaseBaseActivity {
 	 * 拍照
 	 */
 	private View picView;
+	private Bitmap defaultPhoto;
+	private boolean photoCountChanged;
 	private Button capturePhotoBtn;
 	private ImageAdapter photoAdapter;
 	// 画廊
@@ -125,16 +127,18 @@ public class ReportCaseActivity extends CaseBaseActivity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.case_report);
-		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.custom_title);
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.case_title);
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		init();
 	}
 	
 	@Override
 	protected void onResume() {
-		if(currentNav==1) {
-			initPictures();
-		}
+		
+//		if(currentNav==1) {
+//			initPictures();
+//		}
+		initPictures();
 		super.onResume();
 	}
 
@@ -149,6 +153,15 @@ public class ReportCaseActivity extends CaseBaseActivity {
 
 	private void findViews(){
 		progressBar = (ProgressBar)findViewById(R.id.progressBar);
+		
+		titleBtn = (Button)findViewById(R.id.titleBtn);
+		titleBtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				submit();
+			}
+		});
 		
 		TextView title = (TextView)findViewById(R.id.title_text);
 		title.setText("违法行为立案登记");
@@ -202,14 +215,6 @@ public class ReportCaseActivity extends CaseBaseActivity {
 	 * 基本信息
 	 */
 	private void initBaseInfo() {
-		queryBtn = (Button)baseInfoView.findViewById(R.id.queryBtn);
-		queryBtn.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				submit();
-			}
-		});
 		partyExt = (EditText)baseInfoView.findViewById(R.id.partyExt);
 		corporationExt = (EditText)baseInfoView.findViewById(R.id.corporationExt);
 		corporationDutyExt = (EditText)baseInfoView.findViewById(R.id.corporationDutyExt);
@@ -224,6 +229,7 @@ public class ReportCaseActivity extends CaseBaseActivity {
 	 * 拍照
 	 */
 	private void initCapture() {
+		defaultPhoto = ActivityUtils.drawableToBitmap(getResources().getDrawable(R.drawable.default_photo));
 		gallery = (Gallery) picView.findViewById(R.id.gallery);
 		pageInfo = (TextView) picView.findViewById(R.id.pageInfo);
 		registerForContextMenu(gallery);
@@ -233,11 +239,9 @@ public class ReportCaseActivity extends CaseBaseActivity {
 			
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-				if (pictures != null && pictures.size() > 0) {
-					pageInfo.setText((arg2 + 1) + "/" + pictures.size());
-				}
+				updatePhotoPageInfo(arg2);
 			}
-			
+
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
 				
@@ -260,25 +264,58 @@ public class ReportCaseActivity extends CaseBaseActivity {
 				startActivity(captureIntent);				
 			}
 		});
+		
+		photoAdapter = new ImageAdapter(this);
+		gallery.setAdapter(photoAdapter);
+	}
+	
+	/**
+	 * 更新照片标识信息
+	 */
+	private void updatePhotoPageInfo(int arg2) {
+		if (pictures != null && pictures.size() > 0) {
+			photoCountChanged = false;
+			pageInfo.setText((arg2 + 1) + "/" + pictures.size());
+		}
 	}
 	
 	/**
 	 * 初始化照片信息
 	 */
 	private void initPictures() {
+		int photoCount1 = 0;
+		int photoCount2 = 0;
 		File[] files = FileUtils.getAllFiles(getImagePath(), new MediaFilter(IMAGE_POSTFIX));
 		int length = files.length;
-		if (files == null || length < 1) {
-			Toast.makeText(this, "没有照片", Toast.LENGTH_SHORT).show();
-		} else {
+		if (files != null && length > 0) {
+			if (pictures != null) {
+				photoCount1 = pictures.size();
+			}
 			pictures = new ArrayList<File>();
 			thumbnails.clear();
 			for (int i = 0; i < length; i++) {
 				pictures.add(files[i]);
 				thumbnails.add(FileUtils.optimizeBitmap(pictures.get(i)));
 			}
-			photoAdapter = new ImageAdapter(this);
-			gallery.setAdapter(photoAdapter);
+			photoCount2 = pictures.size();
+		}
+		if (photoCount1 != photoCount2) {
+			photoCountChanged = true;
+		}
+		updatePhoto();
+	}
+
+	/**
+	 * 加载默认图片
+	 */
+	private void updatePhoto() {
+		if (thumbnails.size() < 1) {
+			pageInfo.setText("");
+			thumbnails.add(defaultPhoto);
+		}
+		photoAdapter.notifyDataSetChanged();
+		if (photoCountChanged || (thumbnails.get(0) != defaultPhoto && pageInfo.getText().toString().equals(""))) {
+			updatePhotoPageInfo(0);
 		}
 	}
 	
@@ -317,11 +354,8 @@ public class ReportCaseActivity extends CaseBaseActivity {
 				FileUtils.deleteFile(pictures.get(position).getAbsolutePath());
 				pictures.remove(position);
 				thumbnails.remove(position);
-//				photoAdapter.notifyDataSetChanged();
-				ImageAdapter adapter = new ImageAdapter(ReportCaseActivity.this);
-				if (adapter != null && adapter.getCount() > 0) {
-					gallery.setAdapter(adapter);
-				}
+				photoCountChanged = true;
+				updatePhoto();
 			}
 		}).setNegativeButton("取消", null).show();
 		

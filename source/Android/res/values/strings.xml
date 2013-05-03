@@ -54,6 +54,7 @@
     <string name="nav9">系统设置</string>
     <string name="confirm">确    定</string>
     <string name="submit">提    交</string>
+    <string name="submit2">提交</string>
     <string name="query">查    询</string>
     <string name="main_home_label">主页</string>
     <string name="login_quit">退出</string>
