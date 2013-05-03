@@ -4,8 +4,12 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.text.DecimalFormat;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,6 +18,44 @@ import android.os.Environment;
 import com.evalley.xahj.Constants;
 
 public class FileUtils {
+	
+	/**
+	 * 复制单个文件后，删除原文件
+	 * @param srcFile 原文件路径 
+	 * @param desFile 复制后路径
+	 * @return boolean
+	 */
+	public static void copyAndDelete(String srcFile, String desFile) {
+		copyFile(srcFile, desFile);
+		deleteFile(srcFile);
+	}
+
+	/**
+	 * 复制单个文件
+	 * @param srcFile 原文件路径 
+	 * @param desFile 复制后路径
+	 * @return boolean
+	 */
+	public static void copyFile(String srcFile, String desFile) {
+		InputStream inputStream = null;
+		OutputStream outputStream = null;
+		try {
+			File oldfile = new File(srcFile);
+			if (oldfile.exists()) {
+				inputStream = new FileInputStream(srcFile);
+				outputStream = new FileOutputStream(desFile);
+				byte[] buffer = new byte[(int)oldfile.length()];
+				inputStream.read(buffer);
+				outputStream.write(buffer);
+			}
+		} catch (Exception e) {
+			System.out.println("复制单个文件操作出错: " + srcFile);
+			e.printStackTrace();
+		} finally {
+			close(inputStream);
+			close(outputStream);
+		}
+	}
 	
 	/**
 	 * 删除文件
@@ -88,6 +130,52 @@ public class FileUtils {
 	}
 	
 	/**
+	 * 获取文件大小
+	 * @param file
+	 * @return
+	 */
+	public static String getSizeString(File file) throws Exception {
+		return formetFileSize(getSize(file));
+	}
+	
+	/**
+	 * 获取文件大小
+	 * @param file
+	 * @return
+	 */
+	public static long getSize(File file) throws Exception {
+		long size = 0;
+		if (file != null && file.exists()) {
+			FileInputStream fis = new FileInputStream(file);
+			size = fis.available();
+		} else {
+			System.out.println("文件不存在");
+			throw new Exception("文件不存在.");
+		}
+		return size;
+	}
+	
+	/**
+	 * 转换文件大小
+	 * @param fileSize
+	 * @return
+	 */
+	public static String formetFileSize(long fileSize) {
+		DecimalFormat df = new DecimalFormat("#.00");
+		String fileSizeString = "";
+		if (fileSize < 1024) {
+			fileSizeString = df.format((double) fileSize) + "B";
+		} else if (fileSize < 1048576) {
+			fileSizeString = df.format((double) fileSize / 1024) + "K";
+		} else if (fileSize < 1073741824) {
+			fileSizeString = df.format((double) fileSize / 1048576) + "M";
+		} else {
+			fileSizeString = df.format((double) fileSize / 1073741824) + "G";
+		}
+		return fileSizeString;
+	}
+	
+	/**
 	 * 判断文件夹下是否有指定的文件
 	 * @param path
 	 * @param filter
@@ -138,7 +226,7 @@ public class FileUtils {
 	 * @return
 	 */
 	public static String getVideoBasePath() {
-		String imagePath = getProjectPath() + "/video";
+		String imagePath = getProjectPath() + "/video/";
 		createPath(imagePath);
 		return imagePath;
 	}
@@ -149,7 +237,7 @@ public class FileUtils {
 	 * @return
 	 */
 	public static String getAudioBasePath() {
-		String imagePath = getProjectPath() + "/audio";
+		String imagePath = getProjectPath() + "/audio/";
 		createPath(imagePath);
 		return imagePath;
 	}

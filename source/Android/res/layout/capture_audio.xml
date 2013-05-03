@@ -2,38 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/gray1" >
+    android:background="@color/gray1"
+    android:orientation="vertical" >
 
-    <EditText 
+    <EditText
         android:id="@+id/keywordsExt"
-        android:background="@drawable/search_bg"
-        android:gravity="center_vertical|left"
-        android:paddingLeft="40dp"
-        android:paddingRight="15dp"
-        android:maxLength="100"
-        android:textColor="@color/text_color1"
-       	android:textSize="15sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:background="@drawable/search_bg"
+        android:gravity="center_vertical|left"
+        android:maxLength="100"
+        android:paddingLeft="40dp"
+        android:paddingRight="15dp"
+        android:textColor="@color/text_color1"
+        android:textSize="15sp" />
+
     <ListView
-        android:id="@+id/photoListView"
+        android:id="@+id/audioListView"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
-        android:fadingEdge="none"
         android:divider="@drawable/list_line"
+        android:fadingEdge="none"
         android:scrollingCache="false" />
-    <Button 
-        android:id="@+id/capturePhotoBtn"
+
+    <Button
+        android:id="@+id/captureAudioBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="@drawable/round_button_state"
         android:text="@string/capture_audio"
         android:textColor="@color/text_color1"
-        android:textSize="20sp"
-        android:background="@drawable/round_button_state"
-        android:layout_gravity="center_horizontal|bottom"
-        />
+        android:textSize="20sp" />
 
 </LinearLayout>

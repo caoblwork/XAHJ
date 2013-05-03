@@ -36,6 +36,8 @@
     <string name="capture_photo">拍照</string>
     <string name="capture_video">录像</string>
     <string name="capture_audio">录音</string>
+    <string name="play">播放</string>
+    <string name="capture_audio_speak">请开始讲话</string>
     <!-- 企业查询 -->
     <string name="corp_name">企业名称:</string>
     <string name="corp_area">所在区域:</string>
@@ -58,6 +60,10 @@
     <string name="query">查    询</string>
     <string name="main_home_label">主页</string>
     <string name="login_quit">退出</string>
+    <string name="cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="finish">结束</string>
+    <string name="time_init">00:00:00</string>
     <string name="help_label">帮助</string>
     <string name="main_settings">设置</string>
     <string name="title_activity_jsondemo">JSONDemoActivity</string>
