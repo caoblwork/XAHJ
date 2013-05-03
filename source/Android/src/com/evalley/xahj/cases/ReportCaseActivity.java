@@ -122,6 +122,8 @@ public class ReportCaseActivity extends CaseBaseActivity {
 	private List<File> videoFileList;
 	private List<PlayListItem> videoItemList;
 	private VideoListItemAdapter videoListItemAdapter;
+	// 选中的项
+	private int selectedVideoIndex;
 	
 	/**
 	 * 录音
@@ -135,7 +137,7 @@ public class ReportCaseActivity extends CaseBaseActivity {
 	private List<PlayListItem> audioItemList;
 	private AudioListItemAdapter audioListItemAdapter;
 	// 选中的项
-	private int selectedIndex;
+	private int selectedAudioIndex;
 	
 	/**
 	 * 页面切换器
@@ -436,8 +438,8 @@ public class ReportCaseActivity extends CaseBaseActivity {
 					
 					@Override
 					public void onClick(View v) {
-						selectedIndex = position;
-						play();
+						selectedAudioIndex = position;
+						playAudio();
 					}
 				});
 				
@@ -446,7 +448,8 @@ public class ReportCaseActivity extends CaseBaseActivity {
 					
 					@Override
 					public void onClick(View v) {
-						deleteSelectedItem(position);
+						selectedAudioIndex = position;
+						deleteSelectedAudioItem();
 					}
 				});
 			}
@@ -511,8 +514,8 @@ public class ReportCaseActivity extends CaseBaseActivity {
     				
     				@Override
     				public void onClick(View v) {
-    					selectedIndex = position;
-    					play();
+    					selectedVideoIndex = position;
+    					playVideo();
     				}
     			});
     			
@@ -521,7 +524,8 @@ public class ReportCaseActivity extends CaseBaseActivity {
     				
     				@Override
     				public void onClick(View v) {
-    					deleteSelectedItem(position);
+    					selectedVideoIndex = position;
+    					deleteSelectedVideoItem();
     				}
     			});
     		}
@@ -531,16 +535,29 @@ public class ReportCaseActivity extends CaseBaseActivity {
     }
     
     /**
-     * 播放
+     * 播放音频
      */
-    private void play() {
-    	
+    private void playAudio() {
+    	Intent intent = new Intent(Intent.ACTION_VIEW); 
+    	Uri uri = Uri.parse("file:///" + audioFileList.get(selectedAudioIndex)); 
+    	intent.setDataAndType(uri, "audio/amr"); 
+    	startActivity(intent); 
+    }
+    
+    /**
+     * 播放视频
+     */
+    private void playVideo() {
+    	Intent intent = new Intent(Intent.ACTION_VIEW); 
+    	Uri uri = Uri.parse("file:///" + videoFileList.get(selectedVideoIndex)); 
+    	intent.setDataAndType(uri, "video/mp4"); 
+    	startActivity(intent); 
     }
     
 	/**
      * 删除选择的某一项
      */
-	private void deleteSelectedItem(final int position) {
+	private void deleteSelectedAudioItem() {
 		new AlertDialog.Builder(ReportCaseActivity.this)
 		.setTitle("提示")
 		.setMessage("确定要删除吗?")
@@ -548,10 +565,30 @@ public class ReportCaseActivity extends CaseBaseActivity {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				PlayListItem item = audioItemList.get(position);
+				PlayListItem item = audioItemList.get(selectedAudioIndex);
 		    	FileUtils.deleteFile(item.getPath());
 		    	audioItemList.remove(item);
 		    	audioListItemAdapter.notifyDataSetChanged();
+			}
+		})
+		.setNegativeButton("取消", null).show();
+	}
+	
+	/**
+	 * 删除选择的某一项
+	 */
+	private void deleteSelectedVideoItem() {
+		new AlertDialog.Builder(ReportCaseActivity.this)
+		.setTitle("提示")
+		.setMessage("确定要删除吗?")
+		.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				PlayListItem item = videoItemList.get(selectedVideoIndex);
+				FileUtils.deleteFile(item.getPath());
+				videoItemList.remove(item);
+				videoListItemAdapter.notifyDataSetChanged();
 			}
 		})
 		.setNegativeButton("取消", null).show();
