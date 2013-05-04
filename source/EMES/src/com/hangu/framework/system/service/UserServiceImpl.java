@@ -1,6 +1,8 @@
 package com.hangu.framework.system.service;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +15,11 @@ import com.hangu.framework.system.dao.UserDAO;
 import com.hangu.framework.system.domain.User;
 import com.hangu.framework.system.vo.DataDictionaryVo;
 import com.hangu.framework.system.vo.OrganizationVo;
+import com.hangu.framework.system.vo.RoleSearchCondition;
+import com.hangu.framework.system.vo.RoleVo;
 import com.hangu.framework.system.vo.UserSearchCondition;
 import com.hangu.framework.system.vo.UserVo;
+import com.hangu.workflow.common.Constants;
 
 @Service("userService")
 public class UserServiceImpl extends EntityServiceImpl<UserVo, User> implements UserService {
@@ -25,6 +30,9 @@ public class UserServiceImpl extends EntityServiceImpl<UserVo, User> implements 
 	public void setUserDao(BaseDAO<User, Serializable> dao) {
 		super.dao = dao;
 	}
+
+	@Autowired
+	private RoleService roleService;
 
 	@Autowired
 	private OrganizationService organizationService;
@@ -53,7 +61,7 @@ public class UserServiceImpl extends EntityServiceImpl<UserVo, User> implements 
 			userVo.setOrganizationId(null);
 			DataDictionaryVo dictionaryVo = dataDictionaryService.findDataItemsByTypeKey("value", "null");
 			userVo.setOrganizationName(dictionaryVo.getValue());
-		}else {
+		} else {
 			userVo.setOrganizationId(organizationVo.getId());
 			userVo.setOrganizationName(organizationVo.getName());
 		}
@@ -72,6 +80,30 @@ public class UserServiceImpl extends EntityServiceImpl<UserVo, User> implements 
 			return vo;
 		}
 		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<String> getCandidateUsersByRoles(String roleNames) {
+
+		RoleSearchCondition condition = new RoleSearchCondition();
+		if (roleNames.contains(Constants.SPLIT_FLAG)) {
+			String[] names = roleNames.split(Constants.SPLIT_FLAG);
+			List<String> nameArray = Arrays.asList(names);
+			condition.setNames(nameArray);
+		} else {
+			condition.setName(roleNames);
+		}
+		List<RoleVo> roles = (List<RoleVo>) roleService.search(condition).getResultObject();
+
+		List<String> userIdList = new ArrayList<String>();
+		for (RoleVo vo : roles) {
+			List<UserVo> users = roleService.getUsersByRolesId(vo.getId());
+			for (UserVo userVo : users) {
+				userIdList.add(userVo.getId());
+			}
+		}
+		return userIdList;
 	}
 
 }

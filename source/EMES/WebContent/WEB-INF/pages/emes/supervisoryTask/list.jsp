@@ -13,7 +13,11 @@
 		// 列表中行选择的checkbox的名称
 		rowCheckboxName : 'rowCheckBox',
 		// 模块URL
-		moduleUrl : '${ctx}/emes/supervisoryTask'
+		moduleUrl : '${ctx}/emes/supervisoryTask',
+		//单个删除还是批量删除都走这个URL
+		//deletePageUrl : '${ctx}/system/dataDictionary/remove.do'
+		//单个删除还是批量删除都走这个URL
+		deletePageUrl : '${ctx}/emes/supervisoryTask/remove.do'
 	};
 	pageList.init(parameter);
 	//单行删除
@@ -21,7 +25,7 @@
 		var form = $("#controlForm");
 		var confirm = function(v, h, f) {
 			if (v == 'ok') {
-				form.attr("action", '${ctx}/emes/supervisoryTask/delete/' + id).submit();
+				form.attr("action", '${ctx}/emes/supervisoryTask/remove.do?id=' + id).submit();
 				return true;
 			} else if (v == 'cancel') {
 				return true;
@@ -35,39 +39,26 @@
 </script>
 </head>
 <body>
-	<!-- 
+
 	<div id="sidebar">
 		<div class="accordion-nav-div">
 			<ul class=" accordion-nav-ul-master">
-				<li class=" accordion-nav-li-master accordion-master-li-current"><a href="/Three/" class=" active"><span>农户基本信息</span></a>
+				<li class=" accordion-nav-li-master accordion-master-li-current"><a href="#" class=" active"><span>流程管理</span></a>
 					<ul class=" accordion-subnav-ul">
-						<li class=" accordion-subnav-li-current"><a href="/Three/app/grass/grassFarmer/list.do?uniqueMenuMark=007001001"><span>基本信息</span></a></li>
-					</ul></li>
-				<li class=" accordion-nav-li-master"><a href="/Three/"><span>玉米生产信息</span></a>
+						<li class=" accordion-subnav-li-current"><a href="<c:url value="/workflow/deployManager/list.do"/>"><span>流程管理</span></a></li>
+					</ul>
+				</li>
+				<li class=" accordion-nav-li-master"><a href="#"><span>任务列表</span></a>
 					<ul class=" accordion-subnav-ul">
-						<li><a href="/Three/app/grass/farmerCornProduction/list.do"><span>生产数据</span></a></li>
-						<li><a href="/Three/app/grass/farmerCornProductionSum/list.do"><span>村级汇总上报</span></a></li>
-						<li><a href="/Three/app/grass/farmerCornProductionAudit/list.do"><span>审批汇总</span></a></li>
-					</ul></li>
-				<li class=" accordion-nav-li-master"><a href="/Three/"><span>饲草生产信息</span></a>
-					<ul class=" accordion-subnav-ul">
-						<li><a href="/Three/app/grass/farmerGrassProduction/list.do"><span>生产数据</span></a></li>
-						<li><a href="/Three/app/grass/farmerGrassProductionSum/list.do"><span>村级汇总上报</span></a></li>
-						<li><a href="/Three/app/grass/farmerGrassProductionAudit/list.do"><span>审批汇总</span></a></li>
-					</ul></li>
-				<li class=" accordion-nav-li-master"><a href="/Three/"><span>秸秆饲料化</span></a>
-					<ul class=" accordion-subnav-ul">
-						<li><a href="/Three/app/grass/farmerStrawForage/list.do"><span>饲料化数据</span></a></li>
-						<li><a href="/Three/app/grass/farmerStrawForageSum/list.do"><span>村级汇总上报</span></a></li>
-						<li><a href="/Three/app/grass/farmerStrawForageAudit/list.do"><span>审批汇总</span></a></li>
-					</ul></li>
+						<li><a href="<c:url value="/emes/supervisoryTask/add.do"/>"><span>任务发布</span></a></li>
+						<li><a href="<c:url value="/emes/supervisoryTask/list.do"/>"><span>任务列表</span></a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</div>
 
 	<div id="content">
- -->
-	<div id="fullcontent">
 		<form id="controlForm" action="" method="post">
 			<input type="hidden" id="selectedItemIds" name="ids" />
 		</form>
@@ -77,8 +68,7 @@
 				<form:hidden id="pageNumber" path="pageNumber" />
 				<form:hidden id="pageSize" path="pageSize" />
 				<!-- 在此自己添加查询条件 -->
-				<span> <input type="submit" class="button" value="查询" />
-				</span>
+				<span><input type="submit" class="button" value="查询" /></span>
 			</form:form>
 		</div>
 		<div class="tool">
@@ -105,7 +95,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${records}" var="object" varStatus="c">
+				<c:forEach items="${pageObject.result}" var="object" varStatus="c">
 					<tr>
 						<td class="alignCenter"><input type="checkbox" name="rowCheckBox" id="chk${c.count}" value="${object.id}" /></td>
 						<td class="alignCenter">${c.count}</td>

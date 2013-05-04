@@ -8,39 +8,54 @@
 </head>
 
 <body>
-	<form:form modelAttribute="voModel" action="${ctx}/workflow/deployManager/saveDeployInfo.do" method="post" enctype="multipart/form-data" class="well form-horizontal">
-		
-		<form:hidden path="version" value="0"/>
-		
-		<div class="control-group">
-			<label class="control-label" for="cnName">中文名称:</label>
-            <div class="controls">
-				<form:input path="cnName" />
-				<form:errors path="cnName"/>
+	<div id="sidebar">
+		<div class="accordion-nav-div">
+			<ul class=" accordion-nav-ul-master">
+				<li class=" accordion-nav-li-master accordion-master-li-current"><a href="#" class=" active"><span>流程管理</span></a>
+					<ul class=" accordion-subnav-ul">
+						<li class=" accordion-subnav-li-current"><a href="<c:url value="/workflow/deployManager/list.do"/>"><span>流程管理</span></a></li>
+					</ul></li>
+				<li class=" accordion-nav-li-master"><a href="#"><span>任务列表</span></a>
+					<ul class=" accordion-subnav-ul">
+						<li><a href="<c:url value="/emes/supervisoryTask/add.do"/>"><span>任务发布</span></a></li>
+						<li><a href="<c:url value="/emes/supervisoryTask/list.do"/>"><span>任务列表</span></a></li>
+					</ul></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="content">
+
+		<form:form id="addForm" modelAttribute="voModel" action="${ctx}/workflow/deployManager/saveDeployInfo.do" method="post" enctype="multipart/form-data">
+
+			<form:hidden path="version" value="0" />
+
+			<table width="100%" class="tableEditMore">
+				<tbody>
+					<tr>
+						<th class="leftLabel"><label for="cnName"><font class="highlight">*</font>中文名称:</label></th>
+						<td class="leftField"><form:input path="cnName" maxlength="20" class="textbox" /> <form:errors path="cnName" /></td>
+					</tr>
+
+					<tr>
+						<th class="leftLabel"><label for="enName"><font class="highlight">*</font>英文名称:</label></th>
+						<td class="leftField"><form:input path="enName" maxlength="20" class="textbox" /> <form:errors path="enName" /></td>
+					</tr>
+
+					<tr>
+						<th class="leftLabel"><label for="actFile"><font class="highlight">*</font>流程文件:</label></th>
+						<td class="leftField"><input type="file" id="actFile" name="actFile" size="20" class="required" /> <form:errors path="filePath" cssClass="error" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="btnArea">
+				<input id="submit" class="button" type="submit" value="提交" /> 
+				<input id="cancel" class="button" type="button" value="返回" onclick="javascript:history.back();" />
 			</div>
-		</div>
-		
-		<div class="control-group">
-			<label class="control-label" for="enName">英文名称:</label>
-            <div class="controls">	
-				<form:input path="enName" />
-				<form:errors path="enName"/>
-			</div>
-		</div>
-		
-		<div class="control-group">
-			<label class="control-label" for="actFile">流程文件:</label>
-            <div class="controls">	
-				<input type="file" id="actFile" name="actFile" size="20" class="required" /> 
-				<form:errors path="filePath" cssClass="error" />
-			</div>
-		</div>
-		
-		<div class="form-actions">
-			<input type="submit" id="saveBtn" name="saveBtn" value="保存" class="btn btn-primary">
-			<input id="cancel" class="btn" type="button" value="返回" onclick='javascript:history.back();' />
-		</div>
-			
-	</form:form>
+
+		</form:form>
+	</div>
 </body>
 </html>

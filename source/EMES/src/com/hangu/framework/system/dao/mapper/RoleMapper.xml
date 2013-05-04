@@ -22,7 +22,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</resultMap>
 
 	<select id="searchModelsByRoleId" resultMap="com.hangu.framework.system.dao.mapper.ModelMapper.searchResultMap" parameterType="java.lang.String">
-		SELECT m.* FROM r_role_model r,model m WHERE
+		SELECT m.* FROM
+		r_role_model r,model m WHERE
 		r.model_id = m.id AND r.role_id = #{value}
 	</select>
 
@@ -118,11 +119,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 
 	<select id="searchRoleByUserId" resultMap="searchResultMap" useCache="true" parameterType="java.lang.String">
 		SELECT
-			role.id as id,
-			role.code as code,
-			role.name as name,
-			description as description,
-			role.status as status
+		role.id as id,
+		role.code as code,
+		role.name as name,
+		description as description,
+		role.status as status
 		FROM `user` ,role,r_user_role r
 		WHERE r.user_id = `user`.id AND r.role_id = role.id AND r.user_id = #{value}
 
@@ -139,6 +140,12 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<select id="selectPageCount" resultType="long" parameterType="com.hangu.framework.system.vo.RoleSearchCondition">
 		select count(id) from role
 		<include refid="searchConditionSQL" />
+	</select>
+
+	<select id="findUsersByrolesId" resultType="com.hangu.framework.system.domain.User" parameterType="java.lang.String">
+		SELECT name,password,login_id loginId,status 
+		FROM `user` u ,r_user_role r
+		WHERE u.id = r.user_id AND role_id = #{id}
 	</select>
 
 </mapper>

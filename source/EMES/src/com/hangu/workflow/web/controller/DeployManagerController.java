@@ -125,7 +125,7 @@ public class DeployManagerController extends EntityController<DeployManagerVo, D
 	}
 
 	@SuppressWarnings("finally")
-	@RequestMapping(value = "deploy/{id}", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "deploy.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView deploy(@ModelAttribute("id") String id, RedirectAttributes redirectAttributes) {
 		logger.debug("beging process deploy.do");
 		DeployManagerService deployManagerService = (DeployManagerService) entityService;

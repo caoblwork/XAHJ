@@ -7,12 +7,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hangu.common.util.BeanUtils;
 import com.hangu.framework.dao.BaseDAO;
 import com.hangu.framework.service.EntityServiceImpl;
 import com.hangu.framework.system.dao.RoleDAO;
 import com.hangu.framework.system.domain.Role;
-import com.hangu.framework.system.vo.RoleSearchCondition;
+import com.hangu.framework.system.domain.User;
 import com.hangu.framework.system.vo.RoleVo;
+import com.hangu.framework.system.vo.UserVo;
 
 @Service(value = "roleService")
 public class RoleServiceImpl extends EntityServiceImpl<RoleVo, Role> implements RoleService {
@@ -38,4 +40,15 @@ public class RoleServiceImpl extends EntityServiceImpl<RoleVo, Role> implements 
 		return voList;
 	}
 
+	@Override
+	public List<UserVo> getUsersByRolesId(String rolesId) {
+		List<User> users = roleDao.findUsersByrolesId(rolesId);
+		List<UserVo> userVos = new ArrayList<UserVo>();
+		for (User user : users) {
+			UserVo userVo = new UserVo();
+			BeanUtils.beanShallowCopy(userVo, user);
+			userVos.add(userVo);
+		}
+		return userVos;
+	}
 }

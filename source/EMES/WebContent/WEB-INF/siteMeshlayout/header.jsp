@@ -36,6 +36,7 @@
 				<li><a href="<c:url value="/emes/psBaseInfo/list.do"/>" id="one4" onmouseover="setContentTab('one',4,5)"><span>移动执法支撑系统</span></a></li>
 				<li class="menu_line"></li>
 				<li><a href="<c:url value="/emes/psBaseInfo/list.do"/>" id="one5" onmouseover="setContentTab('one',5,5)"><span>数据中心</span></a></li>
+				
 				<!-- 
 				<li class="menu_line"></li>
 				<li><a href="<c:url value="/system/dataDictionary/list.do"/>" id="one6" onmouseover="setContentTab('one',6,6)"><span>系统管理</span></a></li>
@@ -69,8 +70,8 @@
 				</div>
 				<div id="con_one_2" style="display: none">
 					<ul>
-						<li><a href="#"><span>污染源名单</span></a></li>
-						<li><a href="#"><span>一厂一档管理</span></a></li>
+						<li><a href="<c:url value="/emes/psBaseInfo/list.do"/>"><span>污染源管理</span></a></li>
+						<li><a href="<c:url value="/emes/wryjbxx/list.do"/>"><span>一厂一档管理</span></a></li>
 					</ul>
 				</div>
 				<div id="con_one_3" style="display: none">
@@ -86,7 +87,7 @@
 				</div>
 				<div id="con_one_4" style="display: none">
 					<ul>
-						<li><a href="#"><span>执法管理</span></a></li>
+						<li><a href="<c:url value="/emes/supervisoryTask/list.do"/>"><span>执法管理</span></a></li>
 						<li class="menu_line2"></li>
 						<li><a href="#"><span>行政处罚</span></a></li>
 						<li class="menu_line2"></li>

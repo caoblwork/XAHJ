@@ -1,6 +1,7 @@
 package com.hangu.framework.system.vo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.hangu.framework.vo.SearchCondition;
 
@@ -22,6 +23,8 @@ public class RoleSearchCondition extends SearchCondition implements Serializable
 	 * 用户Id
 	 */
 	private String userId = null;
+
+	private List<String> names = null;
 
 	public String getName() {
 		return name;
@@ -45,6 +48,21 @@ public class RoleSearchCondition extends SearchCondition implements Serializable
 
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	/**
+	 * @return the names
+	 */
+	public List<String> getNames() {
+		return names;
+	}
+
+	/**
+	 * @param names
+	 *            the names to set
+	 */
+	public void setNames(List<String> names) {
+		this.names = names;
 	}
 
 }

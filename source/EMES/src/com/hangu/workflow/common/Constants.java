@@ -17,4 +17,9 @@ public class Constants {
 	 */
 	public final static String[] TASK_STATUS = { "0", "1", "2" };
 
+	/**
+	 * 系统统一标识符
+	 */
+	public static final String SPLIT_FLAG = ",";
+
 }

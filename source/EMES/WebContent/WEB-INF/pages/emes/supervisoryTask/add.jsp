@@ -26,7 +26,26 @@
 </script>
 </head>
 <body>
-	<div id="fullcontent">
+
+	<div id="sidebar">
+		<div class="accordion-nav-div">
+			<ul class=" accordion-nav-ul-master">
+				<li class=" accordion-nav-li-master accordion-master-li-current"><a href="#" class=" active"><span>流程管理</span></a>
+					<ul class=" accordion-subnav-ul">
+						<li class=" accordion-subnav-li-current"><a href="<c:url value="/workflow/deployManager/list.do"/>"><span>流程管理</span></a></li>
+					</ul>
+				</li>
+				<li class=" accordion-nav-li-master"><a href="#"><span>任务列表</span></a>
+					<ul class=" accordion-subnav-ul">
+						<li><a href="<c:url value="/emes/supervisoryTask/add.do"/>"><span>任务发布</span></a></li>
+						<li><a href="<c:url value="/emes/supervisoryTask/list.do"/>"><span>任务列表</span></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="content">
 		<form:form id="addForm" modelAttribute="voModel" action="${ctx}/emes/supervisoryTask/save.do" method="post">
 			<form:hidden id="id" path="id" />
 			<table width="100%" class="tableEditMore">

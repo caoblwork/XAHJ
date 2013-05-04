@@ -6,78 +6,61 @@
 <title>查看汉字业务名</title>
 </head>
 <body>
-<div id="sidebar">
-	<hgf:VerticalSingleLevelNavigation rootCode="修改成实际的菜单的根编号"/>
-</div>
-<div id="content">
-	<table width="100%" class="tableEditMore">
-		<tbody>
-			<tr>
-				<th colspan="2" class="tabcaption">汉字业务名</th>
-			</tr>
-			<tr>
-				<th class="leftLabel"><label for="name"><font class="highlight">*</font>name:</label></th>
-				<td class="leftField"><input type="text" id="name" name="name" maxlength="20" class="textbox"/><form:errors path="name" cssClass="error"/></td>
-			</tr>
-			<tr>
-				<th class="leftLabel">name</th>
-				<td class="leftField">${voModel.name}</td>
-			</tr>
-			<tr>
-				<th class="leftLabel"><label for="type"><font class="highlight">*</font>type:</label></th>
-				<td class="leftField"><input type="text" id="type" name="type" maxlength="20" class="textbox"/><form:errors path="type" cssClass="error"/></td>
-			</tr>
-			<tr>
-				<th class="leftLabel">type</th>
-				<td class="leftField">${voModel.type}</td>
-			</tr>
-			<tr>
-				<th class="leftLabel"><label for="pollutantSourceId"><font class="highlight">*</font>pollutantSourceId:</label></th>
-				<td class="leftField"><input type="text" id="pollutantSourceId" name="pollutantSourceId" maxlength="20" class="textbox"/><form:errors path="pollutantSourceId" cssClass="error"/></td>
-			</tr>
-			<tr>
-				<th class="leftLabel">pollutantSourceId</th>
-				<td class="leftField">${voModel.pollutantSourceId}</td>
-			</tr>
-			<tr>
-				<th class="leftLabel"><label for="monitorItem"><font class="highlight">*</font>monitorItem:</label></th>
-				<td class="leftField"><input type="text" id="monitorItem" name="monitorItem" maxlength="20" class="textbox"/><form:errors path="monitorItem" cssClass="error"/></td>
-			</tr>
-			<tr>
-				<th class="leftLabel">monitorItem</th>
-				<td class="leftField">${voModel.monitorItem}</td>
-			</tr>
-			<tr>
-				<th class="leftLabel"><label for="progress"><font class="highlight">*</font>progress:</label></th>
-				<td class="leftField"><input type="text" id="progress" name="progress" maxlength="20" class="textbox"/><form:errors path="progress" cssClass="error"/></td>
-			</tr>
-			<tr>
-				<th class="leftLabel">progress</th>
-				<td class="leftField">${voModel.progress}</td>
-			</tr>
-			<tr>
-				<th class="leftLabel"><label for="creator"><font class="highlight">*</font>creator:</label></th>
-				<td class="leftField"><input type="text" id="creator" name="creator" maxlength="20" class="textbox"/><form:errors path="creator" cssClass="error"/></td>
-			</tr>
-			<tr>
-				<th class="leftLabel">creator</th>
-				<td class="leftField">${voModel.creator}</td>
-			</tr>
-			<tr>
-				<th class="leftLabel"><label for="executor"><font class="highlight">*</font>executor:</label></th>
-				<td class="leftField"><input type="text" id="executor" name="executor" maxlength="20" class="textbox"/><form:errors path="executor" cssClass="error"/></td>
-			</tr>
-			<tr>
-				<th class="leftLabel">executor</th>
-				<td class="leftField">${voModel.executor}</td>
-			</tr>
-			
-		</tbody>
-	</table>
-	<div class="btnArea">
-		<input id="cancel" class="button" type="button" value="返回" onclick="javascript:history.back();" />
+
+	<div id="sidebar">
+		<div class="accordion-nav-div">
+			<ul class=" accordion-nav-ul-master">
+				<li class=" accordion-nav-li-master accordion-master-li-current"><a href="#" class=" active"><span>流程管理</span></a>
+					<ul class=" accordion-subnav-ul">
+						<li class=" accordion-subnav-li-current"><a href="<c:url value="/workflow/deployManager/list.do"/>"><span>流程管理</span></a></li>
+					</ul></li>
+				<li class=" accordion-nav-li-master"><a href="#"><span>任务列表</span></a>
+					<ul class=" accordion-subnav-ul">
+						<li><a href="<c:url value="/emes/supervisoryTask/add.do"/>"><span>任务发布</span></a></li>
+						<li><a href="<c:url value="/emes/supervisoryTask/list.do"/>"><span>任务列表</span></a></li>
+					</ul></li>
+			</ul>
+		</div>
 	</div>
-</div>
-<div class="clear"></div>
+
+	<div id="content">
+		<table width="100%" class="tableEditMore">
+			<tbody>
+				<tr>
+					<th class="leftLabel">任务名称:</th>
+					<td class="leftField">${voModel.name}</td>
+				</tr>
+				<tr>
+					<th class="leftLabel">任务类型:</th>
+					<td class="leftField">${voModel.type}</td>
+				</tr>
+				<tr>
+					<th class="leftLabel">污染源:</th>
+					<td class="leftField">${voModel.pollutantSourceId}</td>
+				</tr>
+				<tr>
+					<th class="leftLabel">检测项目:</th>
+					<td class="leftField">${voModel.monitorItem}</td>
+				</tr>
+				<tr>
+					<th class="leftLabel">进度:</th>
+					<td class="leftField">${voModel.progress}</td>
+				</tr>
+				<tr>
+					<th class="leftLabel">任务下达人:</th>
+					<td class="leftField">${voModel.creator}</td>
+				</tr>
+				<tr>
+					<th class="leftLabel">任务执行人:</th>
+					<td class="leftField">${voModel.executor}</td>
+				</tr>
+
+			</tbody>
+		</table>
+		<div class="btnArea">
+			<input id="cancel" class="button" type="button" value="返回" onclick="javascript:history.back();" />
+		</div>
+	</div>
+	<div class="clear"></div>
 </body>
 </html>

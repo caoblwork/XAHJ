@@ -21,7 +21,7 @@
 	<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
     </script>
 	<script type="text/javascript">
-      $('#datetimepicker').datetimepicker({
+      $('#datetimepicker').datetimepicker({ 
         format: 'MM/dd/yyyy hh:mm',
         language: 'en',
         pickDate: true,

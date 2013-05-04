@@ -83,8 +83,7 @@
 				</span>
 				<span> <label for="key">键：</label> <form:input path="key" id="key" class="span3" maxlength="100" placeholder="键" />
 				</span>
-				<span> <input type="submit" class="button" value="查询" />
-				</span>
+				<span><input type="submit" class="button" value="查询" /></span>
 			</form:form>
 		</div>
 		<div class="tool">
