@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.hangu.emes.dao.mapper.WryjbxxMapper">
+    <!-- 查询结果映射 -->
+    <resultMap id="searchResultMap" type="com.hangu.emes.entity.Wryjbxx">
+        <result property="id" column="id" />
+        <result property="wrybh" column="wrybh" />
+        <result property="wrymc" column="wrymc" />
+        <result property="wryjc" column="wryjc" />
+        <result property="czhm" column="czhm" />
+        <result property="lxdh" column="lxdh" />
+        <result property="zzjgdm" column="zzjgdm" />
+        <result property="sssf" column="sssf" />
+        <result property="ssds" column="ssds" />
+        <result property="ssqx" column="ssqx" />
+        <result property="ssjd" column="ssjd" />
+        <result property="wgdm" column="wgdm" />
+        <result property="gxgs" column="gxgs" />
+        <result property="dwlx" column="dwlx" />
+        <result property="dwdz" column="dwdz" />
+        <result property="yzbm" column="yzbm" />
+        <result property="frdb" column="frdb" />
+        <result property="wz" column="wz" />
+        <result property="dzyx" column="dzyx" />
+        <result property="lsgx" column="lsgx" />
+        <result property="jjlx" column="jjlx" />
+        <result property="hydm" column="hydm" />
+        <result property="qygm" column="qygm" />
+        <result property="ztz" column="ztz" />
+        <result property="hbtz" column="hbtz" />
+        <result property="hblxr" column="hblxr" />
+        <result property="hblxrlxdz" column="hblxrlxdz" />
+        <result property="jdd" column="jdd" />
+        <result property="jdf" column="jdf" />
+        <result property="jdm" column="jdm" />
+        <result property="wdd" column="wdd" />
+        <result property="wdf" column="wdf" />
+        <result property="wdm" column="wdm" />
+        <result property="szgyymc" column="szgyymc" />
+        <result property="pwxkzbh" column="pwxkzbh" />
+        <result property="wryjs" column="wryjs" />
+        <result property="bz" column="bz" />
+    </resultMap>
+    <!-- 用于select查询公用抽取的列 -->
+    <sql id="columns">
+        id,wrybh,wrymc,wryjc,czhm,lxdh,zzjgdm,sssf,ssds,ssqx,ssjd,wgdm,gxgs,dwlx,dwdz,yzbm,frdb,wz,dzyx,lsgx,jjlx,hydm,qygm,ztz,hbtz,hblxr,hblxrlxdz,jdd,jdf,jdm,wdd,wdf,wdm,szgyymc,pwxkzbh,wryjs,bz
+    </sql>
+    <!-- 新增记录 -->
+    <insert id="insert" parameterType="com.hangu.emes.entity.Wryjbxx">
+        INSERT INTO wryjbxx (
+            id ,
+            wrybh ,
+            wrymc ,
+            wryjc ,
+            czhm ,
+            lxdh ,
+            zzjgdm ,
+            sssf ,
+            ssds ,
+            ssqx ,
+            ssjd ,
+            wgdm ,
+            gxgs ,
+            dwlx ,
+            dwdz ,
+            yzbm ,
+            frdb ,
+            wz ,
+            dzyx ,
+            lsgx ,
+            jjlx ,
+            hydm ,
+            qygm ,
+            ztz ,
+            hbtz ,
+            hblxr ,
+            hblxrlxdz ,
+            jdd ,
+            jdf ,
+            jdm ,
+            wdd ,
+            wdf ,
+            wdm ,
+            szgyymc ,
+            pwxkzbh ,
+            wryjs ,
+            bz 
+        ) VALUES (
+        #{id} ,
+        #{wrybh} ,
+        #{wrymc} ,
+        #{wryjc} ,
+        #{czhm} ,
+        #{lxdh} ,
+        #{zzjgdm} ,
+        #{sssf} ,
+        #{ssds} ,
+        #{ssqx} ,
+        #{ssjd} ,
+        #{wgdm} ,
+        #{gxgs} ,
+        #{dwlx} ,
+        #{dwdz} ,
+        #{yzbm} ,
+        #{frdb} ,
+        #{wz} ,
+        #{dzyx} ,
+        #{lsgx} ,
+        #{jjlx} ,
+        #{hydm} ,
+        #{qygm} ,
+        #{ztz} ,
+        #{hbtz} ,
+        #{hblxr} ,
+        #{hblxrlxdz} ,
+        #{jdd} ,
+        #{jdf} ,
+        #{jdm} ,
+        #{wdd} ,
+        #{wdf} ,
+        #{wdm} ,
+        #{szgyymc} ,
+        #{pwxkzbh} ,
+        #{wryjs} ,
+        #{bz} 
+        )
+    </insert>
+    <!-- 单记录删除 -->
+    <delete id="delete" parameterType="java.lang.String">
+        delete from wryjbxx where id=#{id}
+    </delete>
+    <!-- 批量记录删除 -->
+    <delete id="deleteByIds" parameterType="java.util.List">
+        delete from wryjbxx where id in
+        <foreach collection="list" item="ids" open="(" separator="," close=")">#{ids}</foreach>
+    </delete>
+    <!-- 单记录更新 -->
+    <update id="update" parameterType="com.hangu.emes.entity.Wryjbxx">
+        UPDATE wryjbxx
+        <trim prefix="set" suffixOverrides=",">
+            <if test="#{wrybh} != null">
+                wrybh =#{wrybh},
+            </if>
+            <if test="#{wrymc} != null">
+                wrymc =#{wrymc},
+            </if>
+            <if test="#{wryjc} != null">
+                wryjc =#{wryjc},
+            </if>
+            <if test="#{czhm} != null">
+                czhm =#{czhm},
+            </if>
+            <if test="#{lxdh} != null">
+                lxdh =#{lxdh},
+            </if>
+            <if test="#{zzjgdm} != null">
+                zzjgdm =#{zzjgdm},
+            </if>
+            <if test="#{sssf} != null">
+                sssf =#{sssf},
+            </if>
+            <if test="#{ssds} != null">
+                ssds =#{ssds},
+            </if>
+            <if test="#{ssqx} != null">
+                ssqx =#{ssqx},
+            </if>
+            <if test="#{ssjd} != null">
+                ssjd =#{ssjd},
+            </if>
+            <if test="#{wgdm} != null">
+                wgdm =#{wgdm},
+            </if>
+            <if test="#{gxgs} != null">
+                gxgs =#{gxgs},
+            </if>
+            <if test="#{dwlx} != null">
+                dwlx =#{dwlx},
+            </if>
+            <if test="#{dwdz} != null">
+                dwdz =#{dwdz},
+            </if>
+            <if test="#{yzbm} != null">
+                yzbm =#{yzbm},
+            </if>
+            <if test="#{frdb} != null">
+                frdb =#{frdb},
+            </if>
+            <if test="#{wz} != null">
+                wz =#{wz},
+            </if>
+            <if test="#{dzyx} != null">
+                dzyx =#{dzyx},
+            </if>
+            <if test="#{lsgx} != null">
+                lsgx =#{lsgx},
+            </if>
+            <if test="#{jjlx} != null">
+                jjlx =#{jjlx},
+            </if>
+            <if test="#{hydm} != null">
+                hydm =#{hydm},
+            </if>
+            <if test="#{qygm} != null">
+                qygm =#{qygm},
+            </if>
+            <if test="#{ztz} != null">
+                ztz =#{ztz},
+            </if>
+            <if test="#{hbtz} != null">
+                hbtz =#{hbtz},
+            </if>
+            <if test="#{hblxr} != null">
+                hblxr =#{hblxr},
+            </if>
+            <if test="#{hblxrlxdz} != null">
+                hblxrlxdz =#{hblxrlxdz},
+            </if>
+            <if test="#{jdd} != null">
+                jdd =#{jdd},
+            </if>
+            <if test="#{jdf} != null">
+                jdf =#{jdf},
+            </if>
+            <if test="#{jdm} != null">
+                jdm =#{jdm},
+            </if>
+            <if test="#{wdd} != null">
+                wdd =#{wdd},
+            </if>
+            <if test="#{wdf} != null">
+                wdf =#{wdf},
+            </if>
+            <if test="#{wdm} != null">
+                wdm =#{wdm},
+            </if>
+            <if test="#{szgyymc} != null">
+                szgyymc =#{szgyymc},
+            </if>
+            <if test="#{pwxkzbh} != null">
+                pwxkzbh =#{pwxkzbh},
+            </if>
+            <if test="#{wryjs} != null">
+                wryjs =#{wryjs},
+            </if>
+            <if test="#{bz} != null">
+                bz =#{bz},
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
+    <!-- 查询记录BY ID -->
+    <select id="getById" resultMap="searchResultMap" parameterType="java.lang.String">
+        select
+        <include refid="columns" />
+        from
+        wryjbxx where id=#{id}
+    </select>
+    <!-- 查询所有记录 -->
+    <select id="getAll" resultMap="searchResultMap" parameterType="java.lang.String">
+        select
+        <include refid="columns" />
+        from
+        wryjbxx
+    </select>
+
+    <!-- 动态查询条件 -->
+    <sql id="searchConditionSQL">
+        <trim prefix="where" prefixOverrides="AND |OR ">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="wrybh != null">
+                and wrybh = #{wrybh}
+            </if>
+            <if test="wrymc != null">
+                and wrymc = #{wrymc}
+            </if>
+            <if test="wryjc != null">
+                and wryjc = #{wryjc}
+            </if>
+            <if test="czhm != null">
+                and czhm = #{czhm}
+            </if>
+            <if test="lxdh != null">
+                and lxdh = #{lxdh}
+            </if>
+            <if test="zzjgdm != null">
+                and zzjgdm = #{zzjgdm}
+            </if>
+            <if test="sssf != null">
+                and sssf = #{sssf}
+            </if>
+            <if test="ssds != null">
+                and ssds = #{ssds}
+            </if>
+            <if test="ssqx != null">
+                and ssqx = #{ssqx}
+            </if>
+            <if test="ssjd != null">
+                and ssjd = #{ssjd}
+            </if>
+            <if test="wgdm != null">
+                and wgdm = #{wgdm}
+            </if>
+            <if test="gxgs != null">
+                and gxgs = #{gxgs}
+            </if>
+            <if test="dwlx != null">
+                and dwlx = #{dwlx}
+            </if>
+            <if test="dwdz != null">
+                and dwdz = #{dwdz}
+            </if>
+            <if test="yzbm != null">
+                and yzbm = #{yzbm}
+            </if>
+            <if test="frdb != null">
+                and frdb = #{frdb}
+            </if>
+            <if test="wz != null">
+                and wz = #{wz}
+            </if>
+            <if test="dzyx != null">
+                and dzyx = #{dzyx}
+            </if>
+            <if test="lsgx != null">
+                and lsgx = #{lsgx}
+            </if>
+            <if test="jjlx != null">
+                and jjlx = #{jjlx}
+            </if>
+            <if test="hydm != null">
+                and hydm = #{hydm}
+            </if>
+            <if test="qygm != null">
+                and qygm = #{qygm}
+            </if>
+            <if test="ztz != null">
+                and ztz = #{ztz}
+            </if>
+            <if test="hbtz != null">
+                and hbtz = #{hbtz}
+            </if>
+            <if test="hblxr != null">
+                and hblxr = #{hblxr}
+            </if>
+            <if test="hblxrlxdz != null">
+                and hblxrlxdz = #{hblxrlxdz}
+            </if>
+            <if test="jdd != null">
+                and jdd = #{jdd}
+            </if>
+            <if test="jdf != null">
+                and jdf = #{jdf}
+            </if>
+            <if test="jdm != null">
+                and jdm = #{jdm}
+            </if>
+            <if test="wdd != null">
+                and wdd = #{wdd}
+            </if>
+            <if test="wdf != null">
+                and wdf = #{wdf}
+            </if>
+            <if test="wdm != null">
+                and wdm = #{wdm}
+            </if>
+            <if test="szgyymc != null">
+                and szgyymc = #{szgyymc}
+            </if>
+            <if test="pwxkzbh != null">
+                and pwxkzbh = #{pwxkzbh}
+            </if>
+            <if test="wryjs != null">
+                and wryjs = #{wryjs}
+            </if>
+            <if test="bz != null">
+                and bz = #{bz}
+            </if>
+        </trim>
+    </sql>
+    <select id="search" resultMap="searchResultMap" useCache="true" parameterType="com.hangu.emes.vo.WryjbxxSearchCondition">
+        select
+        <include refid="columns" />
+        from wryjbxx
+        <include refid="searchConditionSQL" />
+    </select>
+
+    <select id="selectPage" resultMap="searchResultMap" useCache="true" parameterType="com.hangu.emes.vo.WryjbxxSearchCondition">
+        select
+        <include refid="columns" />
+        from wryjbxx
+        <include refid="searchConditionSQL" />
+    </select>
+    <select id="selectPageCount" resultType="long" parameterType="com.hangu.emes.vo.WryjbxxSearchCondition">
+        select count(id) from wryjbxx
+        <include refid="searchConditionSQL" />
+    </select>
+</mapper>

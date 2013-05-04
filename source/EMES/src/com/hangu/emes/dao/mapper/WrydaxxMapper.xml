@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.hangu.emes.dao.mapper.WrydaxxMapper">
+    <!-- 查询结果映射 -->
+    <resultMap id="searchResultMap" type="com.hangu.emes.entity.Wrydaxx">
+        <result property="id" column="id" />
+        <result property="wrybh" column="wrybh" />
+        <result property="dabh" column="dabh" />
+        <result property="dalx" column="dalx" />
+        <result property="sfyx" column="sfyx" />
+        <result property="damc" column="damc" />
+        <result property="wjmc" column="wjmc" />
+        <result property="wjhz" column="wjhz" />
+        <result property="cflj" column="cflj" />
+        <result property="bz" column="bz" />
+    </resultMap>
+    <!-- 用于select查询公用抽取的列 -->
+    <sql id="columns">
+        id,wrybh,dabh,dalx,sfyx,damc,wjmc,wjhz,cflj,bz
+    </sql>
+    <!-- 新增记录 -->
+    <insert id="insert" parameterType="com.hangu.emes.entity.Wrydaxx">
+        INSERT INTO wrydaxx (
+            id ,
+            wrybh ,
+            dabh ,
+            dalx ,
+            sfyx ,
+            damc ,
+            wjmc ,
+            wjhz ,
+            cflj ,
+            bz 
+        ) VALUES (
+        #{id} ,
+        #{wrybh} ,
+        #{dabh} ,
+        #{dalx} ,
+        #{sfyx} ,
+        #{damc} ,
+        #{wjmc} ,
+        #{wjhz} ,
+        #{cflj} ,
+        #{bz} 
+        )
+    </insert>
+    <!-- 单记录删除 -->
+    <delete id="delete" parameterType="java.lang.String">
+        delete from wrydaxx where id=#{id}
+    </delete>
+    <!-- 批量记录删除 -->
+    <delete id="deleteByIds" parameterType="java.util.List">
+        delete from wrydaxx where id in
+        <foreach collection="list" item="ids" open="(" separator="," close=")">#{ids}</foreach>
+    </delete>
+    <!-- 单记录更新 -->
+    <update id="update" parameterType="com.hangu.emes.entity.Wrydaxx">
+        UPDATE wrydaxx
+        <trim prefix="set" suffixOverrides=",">
+            <if test="#{wrybh} != null">
+                wrybh =#{wrybh},
+            </if>
+            <if test="#{dabh} != null">
+                dabh =#{dabh},
+            </if>
+            <if test="#{dalx} != null">
+                dalx =#{dalx},
+            </if>
+            <if test="#{sfyx} != null">
+                sfyx =#{sfyx},
+            </if>
+            <if test="#{damc} != null">
+                damc =#{damc},
+            </if>
+            <if test="#{wjmc} != null">
+                wjmc =#{wjmc},
+            </if>
+            <if test="#{wjhz} != null">
+                wjhz =#{wjhz},
+            </if>
+            <if test="#{cflj} != null">
+                cflj =#{cflj},
+            </if>
+            <if test="#{bz} != null">
+                bz =#{bz},
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
+    <!-- 查询记录BY ID -->
+    <select id="getById" resultMap="searchResultMap" parameterType="java.lang.String">
+        select
+        <include refid="columns" />
+        from
+        wrydaxx where id=#{id}
+    </select>
+    <!-- 查询所有记录 -->
+    <select id="getAll" resultMap="searchResultMap" parameterType="java.lang.String">
+        select
+        <include refid="columns" />
+        from
+        wrydaxx
+    </select>
+
+    <!-- 动态查询条件 -->
+    <sql id="searchConditionSQL">
+        <trim prefix="where" prefixOverrides="AND |OR ">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="wrybh != null">
+                and wrybh = #{wrybh}
+            </if>
+            <if test="dabh != null">
+                and dabh = #{dabh}
+            </if>
+            <if test="dalx != null">
+                and dalx = #{dalx}
+            </if>
+            <if test="sfyx != null">
+                and sfyx = #{sfyx}
+            </if>
+            <if test="damc != null">
+                and damc = #{damc}
+            </if>
+            <if test="wjmc != null">
+                and wjmc = #{wjmc}
+            </if>
+            <if test="wjhz != null">
+                and wjhz = #{wjhz}
+            </if>
+            <if test="cflj != null">
+                and cflj = #{cflj}
+            </if>
+            <if test="bz != null">
+                and bz = #{bz}
+            </if>
+        </trim>
+    </sql>
+    <select id="search" resultMap="searchResultMap" useCache="true" parameterType="com.hangu.emes.vo.WrydaxxSearchCondition">
+        select
+        <include refid="columns" />
+        from wrydaxx
+        <include refid="searchConditionSQL" />
+    </select>
+
+    <select id="selectPage" resultMap="searchResultMap" useCache="true" parameterType="com.hangu.emes.vo.WrydaxxSearchCondition">
+        select
+        <include refid="columns" />
+        from wrydaxx
+        <include refid="searchConditionSQL" />
+    </select>
+    <select id="selectPageCount" resultType="long" parameterType="com.hangu.emes.vo.WrydaxxSearchCondition">
+        select count(id) from wrydaxx
+        <include refid="searchConditionSQL" />
+    </select>
+</mapper>
