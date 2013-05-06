@@ -2,7 +2,7 @@ package com.evalley.xahj.vo;
 
 /**
  * @Description 键值对类
- * @author 麻胜海
+ * @author Evalley
  * @date 2011-11-2下午3:53:51
  */
 public class KeyValuePair {

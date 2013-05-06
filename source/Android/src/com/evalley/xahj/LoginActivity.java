@@ -25,7 +25,7 @@ import com.evalley.xahj.vo.LoginInfo;
 /**
  * @Description 登录
  * 
- * @author 麻胜海
+ * @author Evalley
  * @date 2013-2-18 下午2:36:30
  */
 public class LoginActivity extends Activity {

@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 /**
  * @Description 帮助
- * @author 麻胜海
+ * @author Evalley
  * @date 2011-10-20 下午06:15:19
  */
 public class HelpActivity extends Activity {

@@ -4,7 +4,7 @@ import java.util.UUID;
 
 /**
  * @Description UUID生成器类
- * @author 麻胜海
+ * @author Evalley
  * @date 2011-10-11 上午10:42:18
  */
 public class UUIDGenerator {

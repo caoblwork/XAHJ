@@ -6,7 +6,7 @@ import android.content.SharedPreferences.Editor;
 
 /**
  * @Description SharedPreferences工具类
- * @author 麻胜海
+ * @author Evalley
  * @date 2011-9-14 下午06:19:57
  */
 public class SharedPreferencesHelper {

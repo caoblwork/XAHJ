@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 /**
  * @Description 设置
- * @author 麻胜海
+ * @author Evalley
  * @date 2011-10-20 下午06:15:19
  */
 public class SettingActivity extends Activity {

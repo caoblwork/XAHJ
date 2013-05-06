@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * @Description 播放列表项类
- * @author 麻胜海
+ * @author Evalley
  * @date 2011-11-15上午10:57:27
  */
 public class PlayListItem implements Serializable {

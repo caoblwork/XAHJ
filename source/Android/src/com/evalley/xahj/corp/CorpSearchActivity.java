@@ -1,7 +1,10 @@
 package com.evalley.xahj.corp;
 
+import java.util.HashMap;
+
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,20 +18,25 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.evalley.xahj.R;
+import com.evalley.xahj.util.StringUtils;
 
 /**
  * @Description 企业查询
- * @author 麻胜海
+ * @author Evalley
  * @date 2011-10-20 下午06:15:19
  */
 public class CorpSearchActivity extends FinalActivity {
 	
 	@ViewInject(id=R.id.queryBtn,click="submit") Button queryBtn;
-	@ViewInject(id=R.id.corpNameTxt) EditText corpNameTxt;
-	@ViewInject(id=R.id.corporationTxt) EditText corporationTxt;
+	@ViewInject(id=R.id.corpNameTxt) EditText corpNameTxt; // 企业名称
+	@ViewInject(id=R.id.corporationTxt) EditText corporationTxt; // 法人
 	@ViewInject(id=R.id.corpAreaSpinner) Spinner corpAreaSpinner;
 	@ViewInject(id=R.id.corpTypeSpinner) Spinner corpTypeSpinner;
 	private ProgressBar progressBar;
+	/**
+	 * 查询参数
+	 */
+	private HashMap<String, Object> paramMap = new HashMap<String, Object>();
 	
     @Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -69,12 +77,34 @@ public class CorpSearchActivity extends FinalActivity {
 	}
 	
 	public void submit(View v){
-		progressBar.setVisibility(View.VISIBLE);
-//		progressBar.setVisibility(View.GONE);
+		//progressBar.setVisibility(View.VISIBLE);
+		prepareParams();
+		Intent intent = new Intent(CorpSearchActivity.this, CorpListActivity.class);
+		intent.putExtra("paramMap", paramMap);
+		startActivity(intent);
+		overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
 	}
 	
-	private void selectCorpArea(){
+	/**
+	 * 准备查询数据
+	 */
+	private void prepareParams(){
 		int area = corpAreaSpinner.getSelectedItemPosition();
+		if (area > 1) {
+			paramMap.put("area", 0);
+		}
+		int type = corpTypeSpinner.getSelectedItemPosition();
+		if (type > 1) {
+			paramMap.put("type", 0);
+		}
+		String corpName = corpNameTxt.getText().toString().trim();
+		String corporation = corporationTxt.getText().toString().trim();
+		if (StringUtils.isNotBlank(corpName)) {
+			paramMap.put("corpName", corpName);
+		}
+		if (StringUtils.isNotBlank(corporation)) {
+			paramMap.put("corporation", corporation);
+		}
 	}
 	
 	@Override

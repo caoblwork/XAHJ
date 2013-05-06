@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 /**
  * @Description 启动画面
- * @author 麻胜海
+ * @author Evalley
  * @date 2012-7-3 上午10:12:24
  */
 public class SplashActivity extends FinalActivity {

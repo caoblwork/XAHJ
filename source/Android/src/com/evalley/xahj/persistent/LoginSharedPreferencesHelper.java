@@ -7,7 +7,7 @@ import com.evalley.xahj.vo.LoginInfo;
 
 /**
  * @Description 登录信息本地保存帮助类
- * @author 麻胜海
+ * @author Evalley
  * @date 2012-4-20上午10:46:50
  */
 public class LoginSharedPreferencesHelper {

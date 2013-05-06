@@ -20,14 +20,15 @@ import java.lang.reflect.Field;
 import net.tsz.afinal.annotation.view.EventListener;
 import net.tsz.afinal.annotation.view.Select;
 import net.tsz.afinal.annotation.view.ViewInject;
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AbsListView;
 
-public class FinalActivity extends Activity {
+import com.evalley.common.BaseActivity;
+
+public class FinalActivity extends BaseActivity {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

@@ -12,7 +12,7 @@ import com.evalley.xahj.util.ActivityUtils;
 
 /**
  * @Description 关于类
- * @author 麻胜海
+ * @author Evalley
  * @date 2011-10-20 下午06:15:19
  */
 public class AboutActivity extends Activity {

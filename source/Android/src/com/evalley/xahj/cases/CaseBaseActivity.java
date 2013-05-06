@@ -10,7 +10,7 @@ import com.evalley.xahj.util.UUIDGenerator;
 
 /**
  * @Description 案件基类
- * @author 麻胜海
+ * @author Evalley
  * @date 2011-10-11 上午11:11:00
  */
 public class CaseBaseActivity extends FinalActivity {

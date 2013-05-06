@@ -49,17 +49,16 @@ import com.evalley.xahj.util.FileUtils;
 
 /**
  * @Description 环境违法行为立案登记
- * @author 麻胜海
+ * @author Evalley
  * @date 2011-10-20 下午06:15:19
+ * TODO 删除后播放出现问题；
  */
 public class ReportCaseActivity extends CaseBaseActivity {
 	
-	// 拍照请求码
-	private static final int PICTURE_REQUEST_CODE = 1;
 	// 录像请求码
-	private static final int VIDEO_REQUEST_CODE = 2;
+	private static final int VIDEO_REQUEST_CODE = 1;
 	// 录音请求码
-	private static final int RECORD_REQUEST_CODE = 3;
+	private static final int RECORD_REQUEST_CODE = 2;
 	
 	/**
 	 * 导航栏
@@ -105,8 +104,6 @@ public class ReportCaseActivity extends CaseBaseActivity {
 	private Gallery gallery;
 	// 分页信息
 	private TextView pageInfo;
-	// 图片所在的文件夹
-	private String path;
 	// 文件集合
 	private List<File> pictures;
 	// 缩略图

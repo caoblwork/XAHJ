@@ -10,7 +10,7 @@ import android.widget.Toast;
 /**
  * @Description 主界面
  * 
- * @author 麻胜海
+ * @author Evalley
  * @date 2013-4-21 下午11:27:35
  */
 public class PanelActivity extends FinalActivity {

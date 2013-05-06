@@ -6,7 +6,7 @@ import java.io.FilenameFilter;
 
 /**
  * @Description 多媒体文件过滤器类
- * @author 麻胜海
+ * @author Evalley
  * @date 2011-10-17 下午05:31:40
  */
 public class MediaFilter implements FilenameFilter {

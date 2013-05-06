@@ -19,7 +19,7 @@ import com.evalley.xahj.util.ActivityUtils;
 /**
  * @Description 主界面
  * 
- * @author 麻胜海
+ * @author Evalley
  * @date 2013-4-21 下午11:27:35
  */
 public class NineCellActivity extends FinalActivity {

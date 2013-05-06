@@ -16,7 +16,7 @@ import android.util.DisplayMetrics;
 /**
  * @Description Activity工具类
  * 
- * @author 麻胜海
+ * @author Evalley
  * @date 2012-7-5 下午5:30:58
  */
 public class ActivityUtils {

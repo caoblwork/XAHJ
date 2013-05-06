@@ -22,7 +22,7 @@ import com.evalley.xahj.util.ActivityUtils;
 /**
  * @Description 主界面
  * 
- * @author 麻胜海
+ * @author Evalley
  * @date 2012-7-3 上午11:27:22
  */
 public class MainTab extends TabActivity {
