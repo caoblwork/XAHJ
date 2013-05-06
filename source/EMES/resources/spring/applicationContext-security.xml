@@ -8,9 +8,9 @@
 
 	<!-- http安全配置 -->
 	<s:http auto-config="true" use-expressions="true" access-denied-page="/commons/403.jsp">
-		<s:intercept-url pattern="/commons/" filters="none" />
-		<s:intercept-url pattern="/components/" filters="none" />
-		<s:intercept-url pattern="/staticResource/" filters="none" />
+		<s:intercept-url pattern="/commons/**" filters="none" />
+		<s:intercept-url pattern="/components/**" filters="none" />
+		<s:intercept-url pattern="/staticResource/**" filters="none" />
 		<s:intercept-url pattern="/login.jsp" filters="none" />
 		<s:intercept-url pattern="/index.jsp" access="isAuthenticated()" />
 

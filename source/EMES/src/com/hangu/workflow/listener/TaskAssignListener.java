@@ -17,7 +17,8 @@ public class TaskAssignListener implements TaskListener {
 	public void notify(DelegateTask delegate) {
 		String processInstanceId = delegate.getProcessInstanceId();
 		Map<String, Object> variablesMap = runtimeService.getVariables(processInstanceId);
-		delegate.createVariablesLocal(variablesMap);
+		//delegate.createVariablesLocal(variablesMap);
+		//delegate.c
 	}
 
 }

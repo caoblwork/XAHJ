@@ -23,7 +23,6 @@ import com.hangu.framework.vo.SearchCondition;
  * @param <VO>
  * @param <SC>
  */
-@SuppressWarnings("rawtypes")
 public class EntityController<VO extends BaseVo, SC extends SearchCondition> extends AbstractEntityController<VO, SC> {
 
 	public EntityController() {
