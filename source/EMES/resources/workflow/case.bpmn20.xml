@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
   <process id="caseInfo" name="案件信息">
-    <startEvent id="caseStart" name="立案" activiti:initiator="owner">
-      <extensionElements>
-        <activiti:formProperty id="simpleReason" name="案由" type="string" required="true" writable="true"></activiti:formProperty>
-        <activiti:formProperty id="caseId" name="立案号" type="string" required="true"></activiti:formProperty>
-        <activiti:formProperty id="partyName" name="当事人名称(姓名)" type="string" required="true"></activiti:formProperty>
-        <activiti:formProperty id="partyAddress" name="当事人地址" type="string" required="true"></activiti:formProperty>
-        <activiti:formProperty id="partyLegalPerson" name="当事人(法人)" type="string" required="true"></activiti:formProperty>
-        <activiti:formProperty id="partyDuty" name="当事人职务" type="string" required="true"></activiti:formProperty>
-        <activiti:formProperty id="partyPhone" name="当事人电话" type="string" required="true"></activiti:formProperty>
-        <activiti:formProperty id="partyPostcode" name="当事人邮编" type="string" required="true"></activiti:formProperty>
-      </extensionElements>
-    </startEvent>
+    <startEvent id="caseStart" name="立案" activiti:initiator="owner"></startEvent>
     <userTask id="departmentLeaderHandle" name="承办部门处理" activiti:candidateUsers="${userService.getCandidateUsersByRoles(&quot;检查支队领导&quot;)}"></userTask>
     <exclusiveGateway id="exclusivegateway2" name="Exclusive Gateway"></exclusiveGateway>
     <userTask id="usertask1" name="主管部门处理" activiti:candidateUsers="${userService.getCandidateUsersByRoles(&quot;局领导&quot;)}"></userTask>
+    <exclusiveGateway id="exclusivegateway3" name="Exclusive Gateway"></exclusiveGateway>
+    <userTask id="usertask2" name="行政处罚" activiti:candidateUsers="${userService.getCandidateUsersByRoles(&quot;执法者&quot;)}"></userTask>
+    <userTask id="usertask3" name="销案" activiti:candidateUsers="${userService.getCandidateUsersByRoles(&quot;执法者&quot;)}"></userTask>
+    <userTask id="usertask4" name="案件归档" activiti:candidateUsers="${userService.getCandidateUsersByRoles(&quot;办公室&quot;)}"></userTask>
+    <endEvent id="endevent1" name="End"></endEvent>
     <sequenceFlow id="flow1" name="提交至承办部门" sourceRef="caseStart" targetRef="departmentLeaderHandle"></sequenceFlow>
     <sequenceFlow id="flow2" name="承办部门处理" sourceRef="departmentLeaderHandle" targetRef="exclusivegateway2"></sequenceFlow>
-    <sequenceFlow id="flow3" name="提交至主管部门" sourceRef="exclusivegateway2" targetRef="usertask1"></sequenceFlow>
-    <exclusiveGateway id="exclusivegateway3" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow3" name="提交至主管部门" sourceRef="exclusivegateway2" targetRef="usertask1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${decision == 'agree'}]]></conditionExpression>
+    </sequenceFlow>
     <sequenceFlow id="flow4" name="" sourceRef="usertask1" targetRef="exclusivegateway3"></sequenceFlow>
-    <userTask id="usertask2" name="行政处罚" activiti:candidateUsers="${userService.getCandidateUsersByRoles(&quot;执法者&quot;)}"></userTask>
-    <sequenceFlow id="flow5" name="提交至行政处罚" sourceRef="exclusivegateway3" targetRef="usertask2"></sequenceFlow>
-    <userTask id="usertask3" name="销案" activiti:candidateUsers="${userService.getCandidateUsersByRoles(&quot;执法者&quot;)}"></userTask>
-    <sequenceFlow id="flow6" name="提交销案" sourceRef="exclusivegateway3" targetRef="usertask3"></sequenceFlow>
-    <sequenceFlow id="flow7" name="提交销案" sourceRef="usertask2" targetRef="usertask3"></sequenceFlow>
-    <sequenceFlow id="flow8" name="提交销案" sourceRef="exclusivegateway2" targetRef="usertask3"></sequenceFlow>
-    <userTask id="usertask4" name="案件归档" activiti:candidateUsers="${userService.getCandidateUsersByRoles(&quot;办公室&quot;)}"></userTask>
+    <sequenceFlow id="flow5" name="提交至行政处罚" sourceRef="exclusivegateway3" targetRef="usertask2">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${decision == 'agree'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow6" name="提交销案" sourceRef="exclusivegateway3" targetRef="usertask3">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${decision == 'disagree'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow7" name="提交销案" sourceRef="usertask2" targetRef="usertask3">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${decision == 'agree'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow8" name="提交销案" sourceRef="exclusivegateway2" targetRef="usertask3">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${decision == 'disagree'}]]></conditionExpression>
+    </sequenceFlow>
     <sequenceFlow id="flow9" name="提交归档" sourceRef="usertask3" targetRef="usertask4"></sequenceFlow>
-    <endEvent id="endevent1" name="End"></endEvent>
     <sequenceFlow id="flow10" name="案件结束" sourceRef="usertask4" targetRef="endevent1"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_caseInfo">
@@ -87,15 +86,12 @@
       <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
         <omgdi:waypoint x="299" y="245"></omgdi:waypoint>
         <omgdi:waypoint x="299" y="290"></omgdi:waypoint>
-        <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="14" width="100" x="10" y="0"></omgdc:Bounds>
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
         <omgdi:waypoint x="299" y="330"></omgdi:waypoint>
         <omgdi:waypoint x="299" y="378"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="14" width="100" x="10" y="0"></omgdc:Bounds>
+          <omgdc:Bounds height="14" width="100" x="-39" y="-13"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
