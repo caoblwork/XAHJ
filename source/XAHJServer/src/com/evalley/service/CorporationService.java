@@ -13,10 +13,25 @@
  * 
  * Copyright @2012 the original author or authors.
  */
-package com.evalley.persistence;
+package com.evalley.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.evalley.domain.Corporation;
+import com.evalley.persistence.CorporationMapper;
 
-public interface CorporationMapper {
-	Corporation selectCorporation(String blogId);
+@Service
+public class CorporationService {
+
+    @Autowired
+    private CorporationMapper corporationMapper;
+
+    @Transactional
+    public Corporation selectCorporation(String id){
+        Corporation corporation = corporationMapper.selectCorporation(id);
+        System.out.println(corporation);
+        return corporation;
+    }
 }

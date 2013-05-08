@@ -2,10 +2,7 @@ package com.evalley.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,35 +15,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.evalley.domain.Blog;
-import com.evalley.service.SimpleService;
+import com.evalley.domain.Corporation;
+import com.evalley.service.CorporationService;
 
 @Controller
 @RequestMapping("/corp/*")
 public class CorporationController {
 
-    private SimpleService simpleService;
+    private CorporationService corporationService;
 	
     @Autowired
-	public void setSimpleService(SimpleService simpleService) {
-		this.simpleService = simpleService;
+	public void setSimpleService(CorporationService corporationService) {
+		this.corporationService = corporationService;
 	}
 
-	@RequestMapping(value = "test.do", method = { RequestMethod.GET, RequestMethod.POST })
-    @ResponseBody
-    public Map test(HttpServletRequest request, HttpServletResponse response) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		response.setContentType("application/json;charset=UTF-8");
-		map.put("action", request.getParameter("action"));
-		map.put("username", request.getParameter("username"));
-		return map;
-	}
-	
 	@RequestMapping(value = "list.do", method = { RequestMethod.GET, RequestMethod.POST })
 	@ResponseBody
-	public Blog list(HttpServletResponse response) {
+	public Corporation list(HttpServletResponse response) {
 		response.setContentType("application/json;charset=UTF-8");
-		return simpleService.selectBlog(100);
+		return corporationService.selectCorporation("");
 	}
 	
 	@InitBinder
