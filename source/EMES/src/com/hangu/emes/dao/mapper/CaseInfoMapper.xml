@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.hangu.emes.dao.mapper.CaseInfoMapper">
+    <!-- 查询结果映射 -->
+    <resultMap id="searchResultMap" type="com.hangu.emes.entity.CaseInfo">
+        <result property="id" column="id" />
+        <result property="simpleReason" column="simple_reason" />
+        <result property="caseId" column="case_id" />
+        <result property="partyName" column="party_name" />
+        <result property="partyAddress" column="party_address" />
+        <result property="partyLegalPerson" column="party_legal_person" />
+        <result property="partyDuty" column="party_duty" />
+        <result property="partyPhone" column="party_phone" />
+        <result property="partyPostcode" column="party_postcode" />
+        <result property="pid" column="pid" />
+        <result property="launcherId" column="launcher_id" />
+        <result property="deployId" column="deploy_id" />
+        <result property="status" column="status" />
+        <result property="createBy" column="create_by" />
+        <result property="createDate" column="create_date" />
+        <result property="updateBy" column="update_by" />
+        <result property="updateDate" column="update_date" />
+        <result property="version" column="version" />
+    </resultMap>
+    <!-- 用于select查询公用抽取的列 -->
+    <sql id="columns">
+        id,simple_reason,case_id,party_name,party_address,party_legal_person,party_duty,party_phone,party_postcode,pid,launcher_id,deploy_id,status,create_by,create_date,update_by,update_date,version
+    </sql>
+    <!-- 新增记录 -->
+    <insert id="insert" parameterType="com.hangu.emes.entity.CaseInfo">
+        INSERT INTO case_info (
+            id ,
+            simple_reason ,
+            case_id ,
+            party_name ,
+            party_address ,
+            party_legal_person ,
+            party_duty ,
+            party_phone ,
+            party_postcode ,
+            pid ,
+            launcher_id ,
+            deploy_id ,
+            status ,
+            create_by ,
+            create_date ,
+            update_by ,
+            update_date ,
+            version 
+        ) VALUES (
+        #{id} ,
+        #{simpleReason} ,
+        #{caseId} ,
+        #{partyName} ,
+        #{partyAddress} ,
+        #{partyLegalPerson} ,
+        #{partyDuty} ,
+        #{partyPhone} ,
+        #{partyPostcode} ,
+        #{pid} ,
+        #{launcherId} ,
+        #{deployId} ,
+        #{status} ,
+        #{createBy} ,
+        #{createDate} ,
+        #{updateBy} ,
+        #{updateDate} ,
+        #{version} 
+        )
+    </insert>
+    <!-- 单记录删除 -->
+    <delete id="delete" parameterType="java.lang.String">
+        delete from case_info where id=#{id}
+    </delete>
+    <!-- 批量记录删除 -->
+    <delete id="deleteByIds" parameterType="java.util.List">
+        delete from case_info where id in
+        <foreach collection="list" item="ids" open="(" separator="," close=")">#{ids}</foreach>
+    </delete>
+    <!-- 单记录更新 -->
+    <update id="update" parameterType="com.hangu.emes.entity.CaseInfo">
+        UPDATE case_info
+        <trim prefix="set" suffixOverrides=",">
+            <if test="#{simpleReason} != null">
+                simple_reason =#{simpleReason},
+            </if>
+            <if test="#{caseId} != null">
+                case_id =#{caseId},
+            </if>
+            <if test="#{partyName} != null">
+                party_name =#{partyName},
+            </if>
+            <if test="#{partyAddress} != null">
+                party_address =#{partyAddress},
+            </if>
+            <if test="#{partyLegalPerson} != null">
+                party_legal_person =#{partyLegalPerson},
+            </if>
+            <if test="#{partyDuty} != null">
+                party_duty =#{partyDuty},
+            </if>
+            <if test="#{partyPhone} != null">
+                party_phone =#{partyPhone},
+            </if>
+            <if test="#{partyPostcode} != null">
+                party_postcode =#{partyPostcode},
+            </if>
+            <if test="#{pid} != null">
+                pid =#{pid},
+            </if>
+            <if test="#{launcherId} != null">
+                launcher_id =#{launcherId},
+            </if>
+            <if test="#{deployId} != null">
+                deploy_id =#{deployId},
+            </if>
+            <if test="#{status} != null">
+                status =#{status},
+            </if>
+            <if test="#{updateBy} != null">
+                update_by =#{updateBy},
+            </if>
+            <if test="#{updateDate} != null">
+                update_date =#{updateDate},
+            </if>
+            <if test="#{version} != null">
+                version =#{version},
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
+    <!-- 查询记录BY ID -->
+    <select id="getById" resultMap="searchResultMap" parameterType="java.lang.String">
+        select
+        <include refid="columns" />
+        from
+        case_info where id=#{id}
+    </select>
+    <!-- 查询所有记录 -->
+    <select id="getAll" resultMap="searchResultMap" parameterType="java.lang.String">
+        select
+        <include refid="columns" />
+        from
+        case_info
+    </select>
+
+    <!-- 动态查询条件 -->
+    <sql id="searchConditionSQL">
+        <trim prefix="where" prefixOverrides="AND |OR ">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="simpleReason != null">
+                and simple_reason = #{simpleReason}
+            </if>
+            <if test="caseId != null">
+                and case_id = #{caseId}
+            </if>
+            <if test="partyName != null">
+                and party_name = #{partyName}
+            </if>
+            <if test="partyAddress != null">
+                and party_address = #{partyAddress}
+            </if>
+            <if test="partyLegalPerson != null">
+                and party_legal_person = #{partyLegalPerson}
+            </if>
+            <if test="partyDuty != null">
+                and party_duty = #{partyDuty}
+            </if>
+            <if test="partyPhone != null">
+                and party_phone = #{partyPhone}
+            </if>
+            <if test="partyPostcode != null">
+                and party_postcode = #{partyPostcode}
+            </if>
+            <if test="pid != null">
+                and pid = #{pid}
+            </if>
+            <if test="launcherId != null">
+                and launcher_id = #{launcherId}
+            </if>
+            <if test="deployId != null">
+                and deploy_id = #{deployId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="createBy != null">
+                and create_by = #{createBy}
+            </if>
+            <if test="createDate != null">
+                and create_date = #{createDate}
+            </if>
+            <if test="updateBy != null">
+                and update_by = #{updateBy}
+            </if>
+            <if test="updateDate != null">
+                and update_date = #{updateDate}
+            </if>
+            <if test="version != null">
+                and version = #{version}
+            </if>
+        </trim>
+    </sql>
+    <select id="search" resultMap="searchResultMap" useCache="true" parameterType="com.hangu.emes.vo.CaseInfoSearchCondition">
+        select
+        <include refid="columns" />
+        from case_info
+        <include refid="searchConditionSQL" />
+    </select>
+
+    <select id="selectPage" resultMap="searchResultMap" useCache="true" parameterType="com.hangu.emes.vo.CaseInfoSearchCondition">
+        select
+        <include refid="columns" />
+        from case_info
+        <include refid="searchConditionSQL" />
+    </select>
+    <select id="selectPageCount" resultType="long" parameterType="com.hangu.emes.vo.CaseInfoSearchCondition">
+        select count(id) from case_info
+        <include refid="searchConditionSQL" />
+    </select>
+</mapper>
