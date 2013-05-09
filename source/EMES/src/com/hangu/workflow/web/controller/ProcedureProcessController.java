@@ -11,4 +11,10 @@ public class ProcedureProcessController extends BaseProcedureController {
 		super();
 		pathPrefix = "workflow/";
 	}
+
+	@Override
+	protected String findViewByFormKey(String biz) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
